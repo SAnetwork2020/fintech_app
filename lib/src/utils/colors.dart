@@ -16,6 +16,7 @@ Map<int, Color> color = {
 class AppColors {
   static MaterialColor c1DC1B4 = fromHex("#1DC1B4");
   static MaterialColor c000000 = fromHex("#000000");
+  static MaterialColor c050017 = fromHex("#050017");
   static MaterialColor cFF0000 = fromHex("#FF0000");
   static MaterialColor c716F6F = fromHex("#716F6F");
   static MaterialColor c7B7A7A = fromHex("#7B7A7A");

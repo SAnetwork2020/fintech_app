@@ -11,12 +11,17 @@ class CustomGradientButton extends StatelessWidget {
     this.width,
     this.textStyle,
     this.child,
+    this.borderRadius,
+    this.buttonStyle,
   });
+  final BorderRadiusGeometry? borderRadius;
   final String? title;
   final GestureTapCallback onPressed;
   final double? height, width;
   final TextStyle? textStyle;
   final Widget? child;
+  final ButtonStyle? buttonStyle;
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -24,7 +29,7 @@ class CustomGradientButton extends StatelessWidget {
         width: width ?? 325,
         height: height ?? 60,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: borderRadius ?? BorderRadius.circular(20),
           color: AppColors.cFFFFFF,
           boxShadow: [
             BoxShadow(
@@ -42,13 +47,14 @@ class CustomGradientButton extends StatelessWidget {
           ),
         ),
         child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.transparent,
-            shadowColor: Colors.transparent,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-          ),
+          style: buttonStyle ??
+              ElevatedButton.styleFrom(
+                backgroundColor: Colors.transparent,
+                shadowColor: Colors.transparent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: borderRadius ?? BorderRadius.circular(20),
+                ),
+              ),
           onPressed: onPressed,
           child: child ??
               Text(

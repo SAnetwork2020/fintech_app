@@ -1,6 +1,8 @@
 import 'package:fintech_app/src/features/authentication/presentation/login_screen.dart';
 import 'package:fintech_app/src/features/authentication/presentation/sign_up_screen.dart';
 import 'package:fintech_app/src/features/home/presentation/home_screen.dart';
+import 'package:fintech_app/src/features/onboarding/onboarding_screen.dart';
+import 'package:fintech_app/src/features/onboarding/splash_screen.dart';
 import 'package:fintech_app/src/features/settings/presentations/profile/profile_screen.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
@@ -29,9 +31,6 @@ import '../features/settings/presentations/security/security_screen.dart';
 import '../features/settings/presentations/settings.dart';
 part 'router.g.dart';
 
-// final GoRouter router = GoRouter(
-//   routes: [],
-// );
 @riverpod
 GoRouter goRouter(GoRouterRef ref) {
   return GoRouter(
@@ -43,9 +42,33 @@ GoRouter goRouter(GoRouterRef ref) {
   );
 }
 
-@TypedGoRoute<LoginRoute>(
+@TypedGoRoute<SplashRoute>(
   path: "/",
-  name: "Login",
+  name: "splash_screen",
+)
+class SplashRoute extends GoRouteData {
+  const SplashRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const SplashScreen();
+}
+
+@TypedGoRoute<OnboardingRoute>(
+  path: "/onboarding_screen",
+  name: "onboarding",
+)
+class OnboardingRoute extends GoRouteData {
+  const OnboardingRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const OnboardingScreen();
+}
+
+@TypedGoRoute<LoginRoute>(
+  path: "/login",
+  name: "login",
 )
 class LoginRoute extends GoRouteData {
   const LoginRoute();
@@ -57,7 +80,7 @@ class LoginRoute extends GoRouteData {
 
 @TypedGoRoute<SignUpRoute>(
   path: "/sign_up",
-  // name: "SignUp",
+  name: "sign_up",
 )
 class SignUpRoute extends GoRouteData {
   const SignUpRoute();
@@ -66,9 +89,10 @@ class SignUpRoute extends GoRouteData {
   Widget build(BuildContext context, GoRouterState state) =>
       const SignUpScreen();
 }
+
 @TypedGoRoute<TransactionSuccessfulRoute>(
   path: "/transaction_successful_screen",
-  // name: "SignUp",
+  name: "transaction_successful_screen",
 )
 class TransactionSuccessfulRoute extends GoRouteData {
   const TransactionSuccessfulRoute();
@@ -77,9 +101,10 @@ class TransactionSuccessfulRoute extends GoRouteData {
   Widget build(BuildContext context, GoRouterState state) =>
       const TransactionSuccessfulScreen();
 }
+
 @TypedGoRoute<TransactionFailedRoute>(
   path: "/transaction_failed_screen",
-  // name: "SignUp",
+  name: "transaction_failed_screen",
 )
 class TransactionFailedRoute extends GoRouteData {
   const TransactionFailedRoute();
@@ -91,7 +116,7 @@ class TransactionFailedRoute extends GoRouteData {
 
 @TypedGoRoute<WelcomeBackRoute>(
   path: "/welcome_back_screen",
-  // name: "SignUp",
+  name: "welcome_back_screen",
 )
 class WelcomeBackRoute extends GoRouteData {
   const WelcomeBackRoute();
@@ -103,7 +128,7 @@ class WelcomeBackRoute extends GoRouteData {
 
 @TypedGoRoute<HomeRoute>(
   path: "/home_screen",
-  // name: "SignUp",
+  name: "home_screen",
 )
 class HomeRoute extends GoRouteData {
   const HomeRoute();
@@ -223,18 +248,18 @@ class AddNewCardRoute extends GoRouteData {
 
 @TypedGoRoute<PaymentRoute>(
   path: "/payment",
-  routes:[
-TypedGoRoute<BankTransferRoute>(path:"bank_transfer"),
-TypedGoRoute<CardlessWithdrawalRoute>(path: "cardless_withdrawa"),
-TypedGoRoute<TransactionHistoryRoute>(path: "transaction_history"),
-TypedGoRoute<TvRoute>(path: "tv"),
-TypedGoRoute<InternetRoute>(path: "internet"),
-TypedGoRoute<ApplyForLoanRoute>(path: "apply_forLoan"),
-TypedGoRoute<ElectricityRoute>(path: "electricity"),
-TypedGoRoute<DataRoute>(path: "data"),
-TypedGoRoute<AirtimeRoute>(path: "airtime"),
-TypedGoRoute<BettingRoute>(path: "betting"),
-TypedGoRoute<TransportRoute>(path: "transport"),
+  routes: [
+    TypedGoRoute<BankTransferRoute>(path: "bank_transfer"),
+    TypedGoRoute<CardlessWithdrawalRoute>(path: "cardless_withdrawa"),
+    TypedGoRoute<TransactionHistoryRoute>(path: "transaction_history"),
+    TypedGoRoute<TvRoute>(path: "tv"),
+    TypedGoRoute<InternetRoute>(path: "internet"),
+    TypedGoRoute<ApplyForLoanRoute>(path: "apply_forLoan"),
+    TypedGoRoute<ElectricityRoute>(path: "electricity"),
+    TypedGoRoute<DataRoute>(path: "data"),
+    TypedGoRoute<AirtimeRoute>(path: "airtime"),
+    TypedGoRoute<BettingRoute>(path: "betting"),
+    TypedGoRoute<TransportRoute>(path: "transport"),
   ],
 )
 class PaymentRoute extends GoRouteData {

@@ -14,6 +14,21 @@ import 'package:flutter/services.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/Frame 48095674.svg
+  SvgGenImage get frame48095674 =>
+      const SvgGenImage('assets/icons/Frame 48095674.svg');
+
+  /// File path: assets/icons/Group.svg
+  SvgGenImage get group => const SvgGenImage('assets/icons/Group.svg');
+
+  /// File path: assets/icons/United Kingdom.svg
+  SvgGenImage get unitedKingdom =>
+      const SvgGenImage('assets/icons/United Kingdom.svg');
+
+  /// File path: assets/icons/United States Of America.svg
+  SvgGenImage get unitedStatesOfAmerica =>
+      const SvgGenImage('assets/icons/United States Of America.svg');
+
   /// File path: assets/icons/add-money.svg
   SvgGenImage get addMoney => const SvgGenImage('assets/icons/add-money.svg');
 
@@ -231,12 +246,22 @@ class $AssetsIconsGen {
   /// File path: assets/icons/wallet.svg
   SvgGenImage get wallet => const SvgGenImage('assets/icons/wallet.svg');
 
+  /// File path: assets/icons/wave-line1.svg
+  SvgGenImage get waveLine1 => const SvgGenImage('assets/icons/wave-line1.svg');
+
+  /// File path: assets/icons/wave-line2.svg
+  SvgGenImage get waveLine2 => const SvgGenImage('assets/icons/wave-line2.svg');
+
   /// File path: assets/icons/withdraw-money.svg
   SvgGenImage get withdrawMoney =>
       const SvgGenImage('assets/icons/withdraw-money.svg');
 
   /// List of all assets
   List<SvgGenImage> get values => [
+        frame48095674,
+        group,
+        unitedKingdom,
+        unitedStatesOfAmerica,
         addMoney,
         addNew,
         add,
@@ -301,12 +326,17 @@ class $AssetsIconsGen {
         userCircleOutline,
         visaLogo,
         wallet,
+        waveLine1,
+        waveLine2,
         withdrawMoney
       ];
 }
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
+
+  /// File path: assets/images/PAYFLEX.png
+  AssetGenImage get payflex => const AssetGenImage('assets/images/PAYFLEX.png');
 
   /// File path: assets/images/auth_bg.png
   AssetGenImage get authBg => const AssetGenImage('assets/images/auth_bg.png');
@@ -336,8 +366,33 @@ class $AssetsImagesGen {
   AssetGenImage get loginView =>
       const AssetGenImage('assets/images/login_view.png');
 
+  /// File path: assets/images/onboarding_bg.png
+  AssetGenImage get onboardingBg =>
+      const AssetGenImage('assets/images/onboarding_bg.png');
+
+  /// File path: assets/images/onboarding_pix.png
+  AssetGenImage get onboardingPix =>
+      const AssetGenImage('assets/images/onboarding_pix.png');
+
+  /// File path: assets/images/onboarding_pix2.png
+  AssetGenImage get onboardingPix2 =>
+      const AssetGenImage('assets/images/onboarding_pix2.png');
+
+  /// File path: assets/images/onboarding_pix3.png
+  AssetGenImage get onboardingPix3 =>
+      const AssetGenImage('assets/images/onboarding_pix3.png');
+
+  /// File path: assets/images/onboarding_pix4.png
+  AssetGenImage get onboardingPix4 =>
+      const AssetGenImage('assets/images/onboarding_pix4.png');
+
+  /// File path: assets/images/splash_bg.png
+  AssetGenImage get splashBg =>
+      const AssetGenImage('assets/images/splash_bg.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
+        payflex,
         authBg,
         cardBg,
         chart,
@@ -345,7 +400,13 @@ class $AssetsImagesGen {
         graph,
         gregoryStones,
         historyBg,
-        loginView
+        loginView,
+        onboardingBg,
+        onboardingPix,
+        onboardingPix2,
+        onboardingPix3,
+        onboardingPix4,
+        splashBg
       ];
 }
 

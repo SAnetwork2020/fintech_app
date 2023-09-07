@@ -7,6 +7,8 @@ part of 'router.dart';
 // **************************************************************************
 
 List<RouteBase> get $appRoutes => [
+      $splashRoute,
+      $onboardingRoute,
       $loginRoute,
       $signUpRoute,
       $transactionSuccessfulRoute,
@@ -17,14 +19,14 @@ List<RouteBase> get $appRoutes => [
       $paymentRoute,
     ];
 
-RouteBase get $loginRoute => GoRouteData.$route(
+RouteBase get $splashRoute => GoRouteData.$route(
       path: '/',
-      name: 'Login',
-      factory: $LoginRouteExtension._fromState,
+      name: 'splash_screen',
+      factory: $SplashRouteExtension._fromState,
     );
 
-extension $LoginRouteExtension on LoginRoute {
-  static LoginRoute _fromState(GoRouterState state) => const LoginRoute();
+extension $SplashRouteExtension on SplashRoute {
+  static SplashRoute _fromState(GoRouterState state) => const SplashRoute();
 
   String get location => GoRouteData.$location(
         '/',
@@ -40,8 +42,56 @@ extension $LoginRouteExtension on LoginRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
+RouteBase get $onboardingRoute => GoRouteData.$route(
+      path: '/onboarding_screen',
+      name: 'onboarding',
+      factory: $OnboardingRouteExtension._fromState,
+    );
+
+extension $OnboardingRouteExtension on OnboardingRoute {
+  static OnboardingRoute _fromState(GoRouterState state) =>
+      const OnboardingRoute();
+
+  String get location => GoRouteData.$location(
+        '/onboarding_screen',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $loginRoute => GoRouteData.$route(
+      path: '/login',
+      name: 'login',
+      factory: $LoginRouteExtension._fromState,
+    );
+
+extension $LoginRouteExtension on LoginRoute {
+  static LoginRoute _fromState(GoRouterState state) => const LoginRoute();
+
+  String get location => GoRouteData.$location(
+        '/login',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
 RouteBase get $signUpRoute => GoRouteData.$route(
       path: '/sign_up',
+      name: 'sign_up',
       factory: $SignUpRouteExtension._fromState,
     );
 
@@ -64,6 +114,7 @@ extension $SignUpRouteExtension on SignUpRoute {
 
 RouteBase get $transactionSuccessfulRoute => GoRouteData.$route(
       path: '/transaction_successful_screen',
+      name: 'transaction_successful_screen',
       factory: $TransactionSuccessfulRouteExtension._fromState,
     );
 
@@ -87,6 +138,7 @@ extension $TransactionSuccessfulRouteExtension on TransactionSuccessfulRoute {
 
 RouteBase get $transactionFailedRoute => GoRouteData.$route(
       path: '/transaction_failed_screen',
+      name: 'transaction_failed_screen',
       factory: $TransactionFailedRouteExtension._fromState,
     );
 
@@ -110,6 +162,7 @@ extension $TransactionFailedRouteExtension on TransactionFailedRoute {
 
 RouteBase get $welcomeBackRoute => GoRouteData.$route(
       path: '/welcome_back_screen',
+      name: 'welcome_back_screen',
       factory: $WelcomeBackRouteExtension._fromState,
     );
 
@@ -133,6 +186,7 @@ extension $WelcomeBackRouteExtension on WelcomeBackRoute {
 
 RouteBase get $homeRoute => GoRouteData.$route(
       path: '/home_screen',
+      name: 'home_screen',
       factory: $HomeRouteExtension._fromState,
     );
 
