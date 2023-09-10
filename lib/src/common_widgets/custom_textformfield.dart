@@ -24,6 +24,7 @@ class CustomTextFormField extends StatelessWidget {
     this.fillColor,
     this.suffixIcon,
     this.prefixIcon,
+    this.validator,
   });
   final String? hintText;
   final InputBorder? inputBorder;
@@ -37,12 +38,15 @@ class CustomTextFormField extends StatelessWidget {
   final TextEditingController? controller;
   final Color? fillColor;
   final Widget? suffixIcon, prefixIcon;
+  final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: width ?? 325,
       height: height ?? 50,
       child: TextFormField(
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        validator: validator,
         readOnly: readOnly ?? false,
         showCursor: readOnly,
         controller: controller,
@@ -85,6 +89,13 @@ class CustomTextFormField extends StatelessWidget {
                 ),
                 borderRadius: BorderRadius.circular(10),
               ),
+          errorBorder: inputBorder ??
+              OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: AppColors.cE91515,
+                ),
+                borderRadius: BorderRadius.circular(10),
+              ),
           focusedBorder: inputBorder ??
               OutlineInputBorder(
                 borderSide: BorderSide(
@@ -104,7 +115,9 @@ class ShadowTextFormField extends StatefulWidget {
     this.hintText,
     this.height,
     this.width,
-    this.hintStyle, this.suffixIcon, this.prefixIcon,
+    this.hintStyle,
+    this.suffixIcon,
+    this.prefixIcon,
   });
 
   final String? hintText;

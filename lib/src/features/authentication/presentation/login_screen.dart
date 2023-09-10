@@ -9,80 +9,156 @@ import '../../../common_widgets/custom_gradient_button.dart';
 import '../../../common_widgets/custom_textformfield.dart';
 import '../../../utils/colors.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool showPassword = false;
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
         image: DecorationImage(
-          image: Assets.images.authBg.provider(),
-          alignment: Alignment.topLeft,
+          fit: BoxFit.fill,
+          image: Assets.images.welcomeBack.provider(),
+          // alignment: Alignment.topLeft,
         ),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: Column(
-          children: [
-            const SizedBox(height: 160),
-            Text(
-              "Welcome Back !",
-              style: TextStyle(
-                fontFamily: FontFamily.poppins,
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-                color: AppColors.c000000.withOpacity(.85),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 116.88),
+              Text(
+                "Welcome Back !",
+                style: TextStyle(
+                  fontFamily: FontFamily.poppins,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.cFFFFFF,
+                ),
               ),
-            ),
-            const SizedBox(height: 40),
-            Center(child: Assets.images.loginView.image()),
-            const SizedBox(height: 40),
-            const CustomTextFormField(hintText: "Enter your username"),
-            const SizedBox(height: 30),
-            const CustomTextFormField(hintText: "Enter your passcode"),
-            const SizedBox(height: 37),
-            Text(
-              "Forgot password",
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w700,
-                color: AppColors.c1DC1B4,
+              const SizedBox(height: 40),
+              Center(child: Assets.images.loginView.image()),
+              const SizedBox(height: 40),
+              CustomTextFormField(
+                prefixIcon: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Assets.icons.profile.svg(),
+                ),
+                hintText: "Enter Your Username / Email",
+                filled: true,
+                fillColor: AppColors.cFFFFFF,
               ),
-            ),
-            const SizedBox(height: 29),
-            CustomGradientButton(
-              onPressed: () => const WelcomeBackRoute().go(context),
-              title: "Login",
-            ),
-            const SizedBox(height: 22),
-            Text.rich(
-              TextSpan(
-                text: "Dont have an account? ",
+              const SizedBox(height: 30),
+              CustomTextFormField(
+                obscureText: showPassword,
+                prefixIcon: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Assets.icons.lockOutline.svg(
+                    colorFilter: ColorFilter.mode(
+                      AppColors.c000000.withOpacity(.6),
+                      BlendMode.srcIn,
+                    ),
+                  ),
+                ),
+                suffixIcon: IconButton(
+                  icon: showPassword
+                      ? Assets.icons.eyeOpen.svg()
+                      : Assets.icons.eyeClose.svg(),
+                  onPressed: () {
+                    setState(() {
+                      showPassword = !showPassword;
+                    });
+                  },
+                ),
+                hintText: "Enter your passcode",
+                filled: true,
+                fillColor: AppColors.cFFFFFF,
+              ),
+              const SizedBox(height: 30),
+              Text(
+                "Forgot password",
                 style: TextStyle(
                   fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  color: AppColors.c000000.withOpacity(.79),
+                  fontWeight: FontWeight.w700,
+                  decoration: TextDecoration.underline,
+                  color: AppColors.c1DC1B4,
                 ),
-                children: [
-                  TextSpan(
-                    text: "Sign Up",
-                    style: TextStyle(
-                      color: AppColors.c1DC1B4,
-                      fontWeight: FontWeight.w700,
-                    ),
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () => context.go("/sign_up"),
-                      // ..onTap = () => const SignUpRoute().go(context),
-                  ),
-                ],
               ),
-            ),
-          ],
+              const SizedBox(height: 20),
+              CustomGradientButton(
+                onPressed: () => const WelcomeBackRoute().push(context),
+                // title: "Login",
+                child: Row(
+                  children: [
+                    Container(
+                        width: 48.11,
+                        height: 50,
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: AppColors.c3E56D2,
+                        ),
+                        child: Assets.icons.fingerprintOutline.svg()),
+                    const Spacer(),
+                    Text(
+                      "Login",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.cFFFFFF,
+                      ),
+                    ),
+                    const Spacer(),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 22),
+              Text.rich(
+                TextSpan(
+                  text: "Dont have an account? ",
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.cFFFFFF,
+                  ),
+                  children: [
+                    TextSpan(
+                      text: "Sign Up",
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
+                        color: AppColors.c1DC1B4,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () => context.go("/sign_up"),
+                      // ..onTap = () => const SignUpRoute().go(context),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 30),
+              Text(
+                "Use Face ID to Login",
+                style: TextStyle(
+                  fontFamily: FontFamily.lato,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.cFFFFFF,
+                ),
+              ),
+              Assets.images.faceId.image(),
+            ],
+          ),
         ),
       ),
     );
   }
 }
-

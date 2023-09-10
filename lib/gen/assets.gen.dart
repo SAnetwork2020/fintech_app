@@ -63,6 +63,9 @@ class $AssetsIconsGen {
   SvgGenImage get arrowRight2 =>
       const SvgGenImage('assets/icons/arrow-right2.svg');
 
+  /// File path: assets/icons/back-arrow.svg
+  SvgGenImage get backArrow => const SvgGenImage('assets/icons/back-arrow.svg');
+
   /// File path: assets/icons/bank-outline.svg
   SvgGenImage get bankOutline =>
       const SvgGenImage('assets/icons/bank-outline.svg');
@@ -121,6 +124,12 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/dot.svg
   SvgGenImage get dot => const SvgGenImage('assets/icons/dot.svg');
+
+  /// File path: assets/icons/eye_close.svg
+  SvgGenImage get eyeClose => const SvgGenImage('assets/icons/eye_close.svg');
+
+  /// File path: assets/icons/eye_open.svg
+  SvgGenImage get eyeOpen => const SvgGenImage('assets/icons/eye_open.svg');
 
   /// File path: assets/icons/fingerprint-outline.svg
   SvgGenImage get fingerprintOutline =>
@@ -200,9 +209,15 @@ class $AssetsIconsGen {
   SvgGenImage get paymentIcon =>
       const SvgGenImage('assets/icons/paymentIcon.svg');
 
+  /// File path: assets/icons/profile.svg
+  SvgGenImage get profile => const SvgGenImage('assets/icons/profile.svg');
+
   /// File path: assets/icons/quick-loans.svg
   SvgGenImage get quickLoans =>
       const SvgGenImage('assets/icons/quick-loans.svg');
+
+  /// File path: assets/icons/retry.svg
+  SvgGenImage get retry => const SvgGenImage('assets/icons/retry.svg');
 
   /// File path: assets/icons/search.svg
   SvgGenImage get search => const SvgGenImage('assets/icons/search.svg');
@@ -246,12 +261,6 @@ class $AssetsIconsGen {
   /// File path: assets/icons/wallet.svg
   SvgGenImage get wallet => const SvgGenImage('assets/icons/wallet.svg');
 
-  /// File path: assets/icons/wave-line1.svg
-  SvgGenImage get waveLine1 => const SvgGenImage('assets/icons/wave-line1.svg');
-
-  /// File path: assets/icons/wave-line2.svg
-  SvgGenImage get waveLine2 => const SvgGenImage('assets/icons/wave-line2.svg');
-
   /// File path: assets/icons/withdraw-money.svg
   SvgGenImage get withdrawMoney =>
       const SvgGenImage('assets/icons/withdraw-money.svg');
@@ -272,6 +281,7 @@ class $AssetsIconsGen {
         arrowLeft,
         arrowRight,
         arrowRight2,
+        backArrow,
         bankOutline,
         bankPayment,
         bankStatement,
@@ -289,6 +299,8 @@ class $AssetsIconsGen {
         creditCards,
         cross,
         dot,
+        eyeClose,
+        eyeOpen,
         fingerprintOutline,
         fingerprint,
         getLoan,
@@ -312,7 +324,9 @@ class $AssetsIconsGen {
         payTv,
         payment,
         paymentIcon,
+        profile,
         quickLoans,
+        retry,
         search,
         security,
         settings,
@@ -326,8 +340,6 @@ class $AssetsIconsGen {
         userCircleOutline,
         visaLogo,
         wallet,
-        waveLine1,
-        waveLine2,
         withdrawMoney
       ];
 }
@@ -350,6 +362,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/enter_pin_pfp.png
   AssetGenImage get enterPinPfp =>
       const AssetGenImage('assets/images/enter_pin_pfp.png');
+
+  /// File path: assets/images/face-id.png
+  AssetGenImage get faceId => const AssetGenImage('assets/images/face-id.png');
 
   /// File path: assets/images/graph.png
   AssetGenImage get graph => const AssetGenImage('assets/images/graph.png');
@@ -386,9 +401,17 @@ class $AssetsImagesGen {
   AssetGenImage get onboardingPix4 =>
       const AssetGenImage('assets/images/onboarding_pix4.png');
 
+  /// File path: assets/images/register_bg.png
+  AssetGenImage get registerBg =>
+      const AssetGenImage('assets/images/register_bg.png');
+
   /// File path: assets/images/splash_bg.png
   AssetGenImage get splashBg =>
       const AssetGenImage('assets/images/splash_bg.png');
+
+  /// File path: assets/images/welcome_back.png
+  AssetGenImage get welcomeBack =>
+      const AssetGenImage('assets/images/welcome_back.png');
 
   /// List of all assets
   List<AssetGenImage> get values => [
@@ -397,6 +420,7 @@ class $AssetsImagesGen {
         cardBg,
         chart,
         enterPinPfp,
+        faceId,
         graph,
         gregoryStones,
         historyBg,
@@ -406,7 +430,9 @@ class $AssetsImagesGen {
         onboardingPix2,
         onboardingPix3,
         onboardingPix4,
-        splashBg
+        registerBg,
+        splashBg,
+        welcomeBack
       ];
 }
 

@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:fintech_app/src/routing/router.dart';
 import 'package:fintech_app/src/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../gen/assets.gen.dart';
 import '../../../gen/fonts.gen.dart';
@@ -32,7 +34,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         // backgroundColor: Colors.transparent,
         body: Column(
           children: [
-            SizedBox(height: 25),
+            const SizedBox(height: 25),
             Padding(
               padding: const EdgeInsets.only(left: 19.0),
               child: Row(
@@ -151,7 +153,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           borderRadius: BorderRadius.circular(10),
                           width: 100.5,
                           height: 50,
-                          textStyle: TextStyle(
+                          textStyle: const TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.w600,
                           ),
@@ -169,7 +171,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           width: 100,
                           height: 50,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              context.push(const ExistingAccountRoute().location);
+                            },
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(

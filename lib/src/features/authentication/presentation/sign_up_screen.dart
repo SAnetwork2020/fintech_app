@@ -18,8 +18,9 @@ class SignUpScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         image: DecorationImage(
-          image: Assets.images.authBg.provider(),
-          alignment: Alignment.topLeft,
+          fit: BoxFit.fill,
+          image: Assets.images.welcomeBack.provider(),
+          // alignment: Alignment.topLeft,
         ),
       ),
       child: Scaffold(
@@ -34,27 +35,52 @@ class SignUpScreen extends StatelessWidget {
                   fontFamily: FontFamily.poppins,
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
-                  color: AppColors.c000000.withOpacity(.85),
+                  color: AppColors.cFFFFFF,
                 ),
               ),
+              const SizedBox(height: 22),
               Text(
-                "Let’s help you meet up your tasks.",
+                "Step Into The Future of Finance With Us!",
                 style: TextStyle(
                   fontFamily: FontFamily.lato,
                   fontSize: 13,
                   fontWeight: FontWeight.w400,
                   letterSpacing: 0.78,
-                  color: AppColors.c000000.withOpacity(.79),
+                  color: AppColors.cFFFFFF.withOpacity(.6),
                 ),
               ),
               const SizedBox(height: 40),
-              const CustomTextFormField(hintText: "Enter You Full Name"),
+              CustomTextFormField(
+                height: 75,
+                hintText: "Enter Your Username",
+                validator: (value) {
+                  String error;
+                  if (value!.isEmpty) {
+                    error = "Please enter a Username";
+                    return error;
+                  }
+                },
+                filled: true,
+                fillColor: AppColors.cFFFFFF,
+              ),
               const SizedBox(height: 25),
-              const CustomTextFormField(hintText: "Enter Your mail"),
+              CustomTextFormField(
+                hintText: "Enter Your mail",
+                filled: true,
+                fillColor: AppColors.cFFFFFF,
+              ),
               const SizedBox(height: 25),
-              const CustomTextFormField(hintText: "Enter Passcode"),
+              CustomTextFormField(
+                hintText: "Enter Passcode",
+                filled: true,
+                fillColor: AppColors.cFFFFFF,
+              ),
               const SizedBox(height: 25),
-              const CustomTextFormField(hintText: "Confirm Passcode"),
+              CustomTextFormField(
+                hintText: "Confirm Passcode",
+                filled: true,
+                fillColor: AppColors.cFFFFFF,
+              ),
               const SizedBox(height: 78),
               CustomGradientButton(
                 title: "Register",
@@ -68,19 +94,19 @@ class SignUpScreen extends StatelessWidget {
                     letterSpacing: 0.84,
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
-                    color: AppColors.c000000.withOpacity(.79),
+                    color: AppColors.cFFFFFF,
                   ),
                   children: [
                     TextSpan(
-                      text: "Sign in",
-                      style: TextStyle(
-                        color: AppColors.c1DC1B4,
-                        fontWeight: FontWeight.w700,
-                      ),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () => context.go("/")
+                        text: "Sign in",
+                        style: TextStyle(
+                          color: AppColors.c1DC1B4,
+                          fontWeight: FontWeight.w700,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () => context.go("/")
                         // ..onTap = () => const LoginRoute().go(context),
-                    ),
+                        ),
                   ],
                 ),
               ),

@@ -9,6 +9,7 @@ part of 'router.dart';
 List<RouteBase> get $appRoutes => [
       $splashRoute,
       $onboardingRoute,
+      $existingAccountRoute,
       $loginRoute,
       $signUpRoute,
       $transactionSuccessfulRoute,
@@ -54,6 +55,30 @@ extension $OnboardingRouteExtension on OnboardingRoute {
 
   String get location => GoRouteData.$location(
         '/onboarding_screen',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $existingAccountRoute => GoRouteData.$route(
+      path: '/existing_account_screen',
+      name: 'existing_account',
+      factory: $ExistingAccountRouteExtension._fromState,
+    );
+
+extension $ExistingAccountRouteExtension on ExistingAccountRoute {
+  static ExistingAccountRoute _fromState(GoRouterState state) =>
+      const ExistingAccountRoute();
+
+  String get location => GoRouteData.$location(
+        '/existing_account_screen',
       );
 
   void go(BuildContext context) => context.go(location);
