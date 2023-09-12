@@ -10,7 +10,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../common_widgets/transaction_status.dart';
 import '../constants/constants.dart';
-import '../features/authentication/presentation/welcome_back_screen.dart';
+import '../features/authentication/presentation/new_device_login.dart';
 import '../features/onboarding/existing_account_screen.dart';
 import '../features/payments/presentation/add_money/bank_transfer.dart';
 import '../features/payments/presentation/betting/betting.dart';

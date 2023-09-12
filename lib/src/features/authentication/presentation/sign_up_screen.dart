@@ -9,9 +9,15 @@ import '../../../../gen/fonts.gen.dart';
 import '../../../common_widgets/custom_textformfield.dart';
 import '../../../utils/colors.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
+  @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
+  bool showPassword = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,91 +32,302 @@ class SignUpScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Center(
-          child: Column(
-            children: [
-              const SizedBox(height: 160),
-              Text(
-                "Welcome Onboard!",
-                style: TextStyle(
-                  fontFamily: FontFamily.poppins,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.cFFFFFF,
-                ),
-              ),
-              const SizedBox(height: 22),
-              Text(
-                "Step Into The Future of Finance With Us!",
-                style: TextStyle(
-                  fontFamily: FontFamily.lato,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w400,
-                  letterSpacing: 0.78,
-                  color: AppColors.cFFFFFF.withOpacity(.6),
-                ),
-              ),
-              const SizedBox(height: 40),
-              CustomTextFormField(
-                height: 75,
-                hintText: "Enter Your Username",
-                validator: (value) {
-                  String error;
-                  if (value!.isEmpty) {
-                    error = "Please enter a Username";
-                    return error;
-                  }
-                },
-                filled: true,
-                fillColor: AppColors.cFFFFFF,
-              ),
-              const SizedBox(height: 25),
-              CustomTextFormField(
-                hintText: "Enter Your mail",
-                filled: true,
-                fillColor: AppColors.cFFFFFF,
-              ),
-              const SizedBox(height: 25),
-              CustomTextFormField(
-                hintText: "Enter Passcode",
-                filled: true,
-                fillColor: AppColors.cFFFFFF,
-              ),
-              const SizedBox(height: 25),
-              CustomTextFormField(
-                hintText: "Confirm Passcode",
-                filled: true,
-                fillColor: AppColors.cFFFFFF,
-              ),
-              const SizedBox(height: 78),
-              CustomGradientButton(
-                title: "Register",
-                onPressed: () {},
-              ),
-              const SizedBox(height: 22),
-              Text.rich(
-                TextSpan(
-                  text: "Already have an account? ",
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const SizedBox(height: 160),
+                Text(
+                  "Welcome Onboard!",
                   style: TextStyle(
-                    letterSpacing: 0.84,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
+                    fontFamily: FontFamily.poppins,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
                     color: AppColors.cFFFFFF,
                   ),
-                  children: [
-                    TextSpan(
-                        text: "Sign in",
-                        style: TextStyle(
-                          color: AppColors.c1DC1B4,
-                          fontWeight: FontWeight.w700,
-                        ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () => context.go("/")
-                        // ..onTap = () => const LoginRoute().go(context),
-                        ),
-                  ],
                 ),
-              ),
-            ],
+                const SizedBox(height: 22),
+                Text(
+                  "Step Into The Future of Finance With Us!",
+                  style: TextStyle(
+                    fontFamily: FontFamily.lato,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 0.78,
+                    color: AppColors.cFFFFFF.withOpacity(.6),
+                  ),
+                ),
+                const SizedBox(height: 40),
+                CustomTextFormField(
+                  height: 75,
+                  hintText: "Enter Your Username",
+                  validator: (value) {
+                    String error;
+                    if (value!.isEmpty) {
+                      error = "Please enter a Username";
+                      return error;
+                    }
+                  },
+                  filled: true,
+                  fillColor: AppColors.cFFFFFF,
+                ),
+                const SizedBox(height: 25),
+                CustomTextFormField(
+                  hintText: "Phone Number",
+                  filled: true,
+                  fillColor: AppColors.cFFFFFF,
+                ),
+                const SizedBox(height: 25),
+                CustomTextFormField(
+                  hintText: "Enter Your mail",
+                  filled: true,
+                  fillColor: AppColors.cFFFFFF,
+                ),
+                const SizedBox(height: 25),
+                CustomTextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty) return "Please Enter Password";
+                  },
+                  obscureText: showPassword,
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Assets.icons.lockOutline.svg(
+                      colorFilter: ColorFilter.mode(
+                        AppColors.c000000.withOpacity(.6),
+                        BlendMode.srcIn,
+                      ),
+                    ),
+                  ),
+                  suffixIcon: IconButton(
+                    icon: showPassword
+                        ? Assets.icons.eyeOpen.svg()
+                        : Assets.icons.eyeClose.svg(),
+                    onPressed: () {
+                      setState(() {
+                        showPassword = !showPassword;
+                      });
+                    },
+                  ),
+                  hintText: "Enter Password",
+                  filled: true,
+                  fillColor: AppColors.cFFFFFF,
+                ),
+                const SizedBox(height: 25),
+                CustomTextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty) return "Please Enter Password";
+                  },
+                  obscureText: showPassword,
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Assets.icons.lockOutline.svg(
+                      colorFilter: ColorFilter.mode(
+                        AppColors.c000000.withOpacity(.6),
+                        BlendMode.srcIn,
+                      ),
+                    ),
+                  ),
+                  suffixIcon: IconButton(
+                    icon: showPassword
+                        ? Assets.icons.eyeOpen.svg()
+                        : Assets.icons.eyeClose.svg(),
+                    onPressed: () {
+                      setState(() {
+                        showPassword = !showPassword;
+                      });
+                    },
+                  ),
+                  hintText: "Enter Password",
+                  filled: true,
+                  fillColor: AppColors.cFFFFFF,
+                ),
+                const SizedBox(height: 25),
+                CustomTextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty) return "Enter Password";
+                  },
+                  obscureText: showPassword,
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Assets.icons.lockOutline.svg(
+                      colorFilter: ColorFilter.mode(
+                        AppColors.c000000.withOpacity(.6),
+                        BlendMode.srcIn,
+                      ),
+                    ),
+                  ),
+                  suffixIcon: IconButton(
+                    icon: showPassword
+                        ? Assets.icons.eyeOpen.svg()
+                        : Assets.icons.eyeClose.svg(),
+                    onPressed: () {
+                      setState(() {
+                        showPassword = !showPassword;
+                      });
+                    },
+                  ),
+                  hintText: "Confirm Password",
+                  filled: true,
+                  fillColor: AppColors.cFFFFFF,
+                ),
+                const SizedBox(height: 25),
+                CustomTextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty) return "Enter PIN";
+                  },
+                  obscureText: showPassword,
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Assets.icons.lockOutline.svg(
+                      colorFilter: ColorFilter.mode(
+                        AppColors.c000000.withOpacity(.6),
+                        BlendMode.srcIn,
+                      ),
+                    ),
+                  ),
+                  suffixIcon: IconButton(
+                    icon: showPassword
+                        ? Assets.icons.eyeOpen.svg()
+                        : Assets.icons.eyeClose.svg(),
+                    onPressed: () {
+                      setState(() {
+                        showPassword = !showPassword;
+                      });
+                    },
+                  ),
+                  hintText: "Confirm PIN",
+                  filled: true,
+                  fillColor: AppColors.cFFFFFF,
+                ),
+                const SizedBox(height: 40),
+                Container(
+                  width: 325,
+                  height: 170,
+                  padding: const EdgeInsets.only(top: 10, left: 19, bottom: 10),
+                  decoration: BoxDecoration(
+                    color: AppColors.c1DC1B4.withOpacity(.2),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        "Password requirements",
+                        style: TextStyle(
+                          fontFamily: FontFamily.lato,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700,
+                          letterSpacing: 0.78,
+                          color: AppColors.c1DC1B4,
+                        ),
+                      ),
+                      Text(
+                        "Minimum of 8 characters.",
+                        style: TextStyle(
+                          fontFamily: FontFamily.lato,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 0.78,
+                          color: AppColors.c1DC1B4,
+                        ),
+                      ),
+                      Text(
+                        "Must include 1 Uppercase Letter",
+                        style: TextStyle(
+                          fontFamily: FontFamily.lato,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 0.78,
+                          color: AppColors.c1DC1B4,
+                        ),
+                      ),
+                      Text(
+                        "Must include 1 Lowercase Letter",
+                        style: TextStyle(
+                          fontFamily: FontFamily.lato,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 0.78,
+                          color: AppColors.c1DC1B4,
+                        ),
+                      ),
+                      Text(
+                        "Must include 1 Special Character (e.g, !, @, #, \$).",
+                        style: TextStyle(
+                          fontFamily: FontFamily.lato,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 0.78,
+                          color: AppColors.c1DC1B4,
+                        ),
+                      ),
+                      Text(
+                        "Cannot Contain Your Username or Email",
+                        style: TextStyle(
+                          fontFamily: FontFamily.lato,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 0.78,
+                          color: AppColors.c1DC1B4,
+                        ),
+                      ),
+                      const SizedBox(height: 5),
+                      Text(
+                        "PIN Requirement",
+                        style: TextStyle(
+                          fontFamily: FontFamily.lato,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700,
+                          letterSpacing: 0.78,
+                          color: AppColors.c1DC1B4,
+                        ),
+                      ),
+                      Text(
+                        "Must be a four digit pin",
+                        style: TextStyle(
+                          fontFamily: FontFamily.lato,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 0.78,
+                          color: AppColors.c1DC1B4,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 40),
+                CustomGradientButton(
+                  title: "Register",
+                  onPressed: () {
+                    context.go(const LoginRoute().location);
+                  },
+                ),
+                const SizedBox(height: 22),
+                Text.rich(
+                  TextSpan(
+                    text: "Already have an account? ",
+                    style: TextStyle(
+                      letterSpacing: 0.84,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.cFFFFFF,
+                    ),
+                    children: [
+                      TextSpan(
+                          text: "Sign in",
+                          style: TextStyle(
+                            color: AppColors.c1DC1B4,
+                            fontWeight: FontWeight.w700,
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () => context.go("/")
+                          // ..onTap = () => const LoginRoute().go(context),
+                          ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

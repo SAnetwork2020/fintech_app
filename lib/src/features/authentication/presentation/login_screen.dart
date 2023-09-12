@@ -48,6 +48,9 @@ class _LoginScreenState extends State<LoginScreen> {
               Center(child: Assets.images.loginView.image()),
               const SizedBox(height: 40),
               CustomTextFormField(
+                validator: (value) {
+                  if (value!.isEmpty) return "Please Enter Username";
+                },
                 prefixIcon: Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: Assets.icons.profile.svg(),
@@ -58,6 +61,9 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 30),
               CustomTextFormField(
+                validator: (value) {
+                  if (value!.isEmpty) return "Please Enter Password";
+                },
                 obscureText: showPassword,
                 prefixIcon: Padding(
                   padding: const EdgeInsets.all(12.0),
@@ -78,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     });
                   },
                 ),
-                hintText: "Enter your passcode",
+                hintText: "Enter Password",
                 filled: true,
                 fillColor: AppColors.cFFFFFF,
               ),

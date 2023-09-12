@@ -120,17 +120,6 @@ class _WelcomeBackScreenState extends ConsumerState<WelcomeBackScreen> {
                 ],
               ),
             ),
-
-            // Text(
-            //   "Gregory",
-            //   style: TextStyle(
-            //     fontFamily: FontFamily.lato,
-            //     fontSize: 10,
-            //     fontWeight: FontWeight.w500,
-            //     letterSpacing: 0.60,
-            //     color: AppColors.c000000,
-            //   ),
-            // ),
             const SizedBox(height: 12),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -205,7 +194,9 @@ class _WelcomeBackScreenState extends ConsumerState<WelcomeBackScreen> {
             ),
             const SizedBox(height: 51),
             CustomGradientButton(
-              onPressed: () {},
+              onPressed: () {
+                context.go(const HomeRoute().location);
+              },
               title: "Confirm",
             ),
           ],
