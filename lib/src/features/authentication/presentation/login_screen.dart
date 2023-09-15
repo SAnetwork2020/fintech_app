@@ -89,18 +89,24 @@ class _LoginScreenState extends State<LoginScreen> {
                 fillColor: AppColors.cFFFFFF,
               ),
               const SizedBox(height: 30),
-              Text(
-                "Forgot password",
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w700,
-                  decoration: TextDecoration.underline,
-                  color: AppColors.c1DC1B4,
+              InkWell(
+                onTap: () {
+                  context.push(ForgotPasswordRoute().location);
+                },
+                child: Text(
+                  "Forgot password",
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                    decoration: TextDecoration.underline,
+                    color: AppColors.c1DC1B4,
+                  ),
                 ),
               ),
               const SizedBox(height: 20),
               CustomGradientButton(
-                onPressed: () => const WelcomeBackRoute().push(context),
+                onPressed: () => const HomeRoute().push(context),
+                // onPressed: () => const WelcomeBackRoute().push(context),
                 // title: "Login",
                 child: Row(
                   children: [

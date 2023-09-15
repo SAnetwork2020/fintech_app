@@ -1,22 +1,41 @@
-import 'package:fintech_app/gen/fonts.gen.dart';
-import 'package:fintech_app/src/routing/router.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+
 import 'package:go_router/go_router.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:responsive_framework/breakpoint.dart';
 import 'package:responsive_framework/responsive_breakpoints.dart';
+
+import 'package:fintech_app/gen/fonts.gen.dart';
+import 'package:fintech_app/src/routing/router.dart';
+import 'package:fintech_app/src/routing/router_listenable.dart';
+import 'package:fintech_app/src/utils/state_logger.dart';
 
 import 'src/utils/colors.dart';
 
 void main() {
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(const ProviderScope(observers: [
+    StateLogger(),
+  ], child: MyApp()));
 }
 
-class MyApp extends ConsumerWidget {
+class MyApp extends HookConsumerWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final goRouter = ref.watch(goRouterProvider);
+    // final goRouter = ref.watch(goRouterProvider);
+    final notifier = ref.watch(routerListenableProvider.notifier);
+    // final key = useRef()
+    final router = useMemoized(
+      () => GoRouter(
+        routes: $appRoutes,
+        redirect: notifier.redirect,
+        refreshListenable: notifier,
+        debugLogDiagnostics: true,
+        initialLocation: const SplashRoute().location,
+      ),
+      [notifier],
+    );
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -33,7 +52,8 @@ class MyApp extends ConsumerWidget {
           const Breakpoint(start: 1921, end: double.infinity, name: "4K"),
         ],
       ),
-      routerConfig: goRouter,
+      routerConfig: router,
+      // routerConfig: goRouter,
       title: "FintechApp",
     );
   }

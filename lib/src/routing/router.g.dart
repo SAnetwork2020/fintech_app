@@ -11,7 +11,10 @@ List<RouteBase> get $appRoutes => [
       $onboardingRoute,
       $existingAccountRoute,
       $loginRoute,
+      $forgotPasswordRoute,
       $signUpRoute,
+      $smsHasBeenSentRoute,
+      $emailHasBeenSentRoute,
       $transactionSuccessfulRoute,
       $transactionFailedRoute,
       $welcomeBackRoute,
@@ -114,6 +117,30 @@ extension $LoginRouteExtension on LoginRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
+RouteBase get $forgotPasswordRoute => GoRouteData.$route(
+      path: '/forgot_password',
+      name: 'forgot_password',
+      factory: $ForgotPasswordRouteExtension._fromState,
+    );
+
+extension $ForgotPasswordRouteExtension on ForgotPasswordRoute {
+  static ForgotPasswordRoute _fromState(GoRouterState state) =>
+      const ForgotPasswordRoute();
+
+  String get location => GoRouteData.$location(
+        '/forgot_password',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
 RouteBase get $signUpRoute => GoRouteData.$route(
       path: '/sign_up',
       name: 'sign_up',
@@ -125,6 +152,54 @@ extension $SignUpRouteExtension on SignUpRoute {
 
   String get location => GoRouteData.$location(
         '/sign_up',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $smsHasBeenSentRoute => GoRouteData.$route(
+      path: '/sms_has_been_sent',
+      name: 'sms_has_been_sent',
+      factory: $SmsHasBeenSentRouteExtension._fromState,
+    );
+
+extension $SmsHasBeenSentRouteExtension on SmsHasBeenSentRoute {
+  static SmsHasBeenSentRoute _fromState(GoRouterState state) =>
+      const SmsHasBeenSentRoute();
+
+  String get location => GoRouteData.$location(
+        '/sms_has_been_sent',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $emailHasBeenSentRoute => GoRouteData.$route(
+      path: '/email_has_been_sent',
+      name: 'email_has_been_sent',
+      factory: $EmailHasBeenSentRouteExtension._fromState,
+    );
+
+extension $EmailHasBeenSentRouteExtension on EmailHasBeenSentRoute {
+  static EmailHasBeenSentRoute _fromState(GoRouterState state) =>
+      const EmailHasBeenSentRoute();
+
+  String get location => GoRouteData.$location(
+        '/email_has_been_sent',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -648,23 +723,3 @@ extension $TransportRouteExtension on TransportRoute {
 
   void replace(BuildContext context) => context.replace(location);
 }
-
-// **************************************************************************
-// RiverpodGenerator
-// **************************************************************************
-
-String _$goRouterHash() => r'8e45f200e28579df04c57050baccdc0ce243957a';
-
-/// See also [goRouter].
-@ProviderFor(goRouter)
-final goRouterProvider = AutoDisposeProvider<GoRouter>.internal(
-  goRouter,
-  name: r'goRouterProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$goRouterHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef GoRouterRef = AutoDisposeProviderRef<GoRouter>;
-// ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions

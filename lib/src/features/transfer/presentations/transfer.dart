@@ -1,5 +1,6 @@
-import 'package:fintech_app/src/routing/router.dart';
 import 'package:flutter/material.dart';
+
+import 'package:fintech_app/src/routing/router.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../common_widgets/custom_gradient_button.dart';

@@ -10,7 +10,10 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../common_widgets/transaction_status.dart';
 import '../constants/constants.dart';
+import '../features/authentication/presentation/email_has_been_sent.dart';
+import '../features/authentication/presentation/forgot_password.dart';
 import '../features/authentication/presentation/new_device_login.dart';
+import '../features/authentication/presentation/sms_has_been_sent.dart';
 import '../features/onboarding/existing_account_screen.dart';
 import '../features/payments/presentation/add_money/bank_transfer.dart';
 import '../features/payments/presentation/betting/betting.dart';
@@ -32,16 +35,16 @@ import '../features/settings/presentations/security/security_screen.dart';
 import '../features/settings/presentations/settings.dart';
 part 'router.g.dart';
 
-@riverpod
-GoRouter goRouter(GoRouterRef ref) {
-  return GoRouter(
-    initialLocation: "/",
-    debugLogDiagnostics: true,
-    routes: $appRoutes,
-    navigatorKey: rootNavigatorKey,
-    // refreshListenable:
-  );
-}
+// @riverpod
+// GoRouter goRouter(GoRouterRef ref) {
+//   return GoRouter(
+//     initialLocation: "/",
+//     debugLogDiagnostics: true,
+//     routes: $appRoutes,
+//     navigatorKey: rootNavigatorKey,
+//     // refreshListenable:
+//   );
+// }
 
 @TypedGoRoute<SplashRoute>(
   path: "/",
@@ -49,6 +52,7 @@ GoRouter goRouter(GoRouterRef ref) {
 )
 class SplashRoute extends GoRouteData {
   const SplashRoute();
+  static const path = "/";
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
@@ -61,11 +65,13 @@ class SplashRoute extends GoRouteData {
 )
 class OnboardingRoute extends GoRouteData {
   const OnboardingRoute();
+  static const path = "/onboarding_screen";
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
       const OnboardingScreen();
 }
+
 @TypedGoRoute<ExistingAccountRoute>(
   path: "/existing_account_screen",
   name: "existing_account",
@@ -84,10 +90,23 @@ class ExistingAccountRoute extends GoRouteData {
 )
 class LoginRoute extends GoRouteData {
   const LoginRoute();
+  static const path = "/login";
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
       const LoginScreen();
+}
+
+@TypedGoRoute<ForgotPasswordRoute>(
+  path: "/forgot_password",
+  name: "forgot_password",
+)
+class ForgotPasswordRoute extends GoRouteData {
+  const ForgotPasswordRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const ForgotPasswordScreen();
 }
 
 @TypedGoRoute<SignUpRoute>(
@@ -100,6 +119,30 @@ class SignUpRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) =>
       const SignUpScreen();
+}
+
+@TypedGoRoute<SmsHasBeenSentRoute>(
+  path: "/sms_has_been_sent",
+  name: "sms_has_been_sent",
+)
+class SmsHasBeenSentRoute extends GoRouteData {
+  const SmsHasBeenSentRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const SmsHasBeenSentScreen();
+}
+
+@TypedGoRoute<EmailHasBeenSentRoute>(
+  path: "/email_has_been_sent",
+  name: "email_has_been_sent",
+)
+class EmailHasBeenSentRoute extends GoRouteData {
+  const EmailHasBeenSentRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const EmailHasBeenSentScreen();
 }
 
 @TypedGoRoute<TransactionSuccessfulRoute>(

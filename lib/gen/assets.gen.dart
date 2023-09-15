@@ -125,6 +125,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/dot.svg
   SvgGenImage get dot => const SvgGenImage('assets/icons/dot.svg');
 
+  /// File path: assets/icons/e-mail.svg
+  SvgGenImage get eMail => const SvgGenImage('assets/icons/e-mail.svg');
+
   /// File path: assets/icons/eye_close.svg
   SvgGenImage get eyeClose => const SvgGenImage('assets/icons/eye_close.svg');
 
@@ -299,6 +302,7 @@ class $AssetsIconsGen {
         creditCards,
         cross,
         dot,
+        eMail,
         eyeClose,
         eyeOpen,
         fingerprintOutline,
@@ -359,12 +363,20 @@ class $AssetsImagesGen {
   /// File path: assets/images/chart.png
   AssetGenImage get chart => const AssetGenImage('assets/images/chart.png');
 
+  /// File path: assets/images/email_sent.png
+  AssetGenImage get emailSent =>
+      const AssetGenImage('assets/images/email_sent.png');
+
   /// File path: assets/images/enter_pin_pfp.png
   AssetGenImage get enterPinPfp =>
       const AssetGenImage('assets/images/enter_pin_pfp.png');
 
   /// File path: assets/images/face-id.png
   AssetGenImage get faceId => const AssetGenImage('assets/images/face-id.png');
+
+  /// File path: assets/images/forgot_password.png
+  AssetGenImage get forgotPassword =>
+      const AssetGenImage('assets/images/forgot_password.png');
 
   /// File path: assets/images/graph.png
   AssetGenImage get graph => const AssetGenImage('assets/images/graph.png');
@@ -401,13 +413,29 @@ class $AssetsImagesGen {
   AssetGenImage get onboardingPix4 =>
       const AssetGenImage('assets/images/onboarding_pix4.png');
 
+  /// File path: assets/images/payment_screen_bg.png
+  AssetGenImage get paymentScreenBg =>
+      const AssetGenImage('assets/images/payment_screen_bg.png');
+
   /// File path: assets/images/register_bg.png
   AssetGenImage get registerBg =>
       const AssetGenImage('assets/images/register_bg.png');
 
+  /// File path: assets/images/reset_password.png
+  AssetGenImage get resetPassword =>
+      const AssetGenImage('assets/images/reset_password.png');
+
+  /// File path: assets/images/sms_has_been_sent.png
+  AssetGenImage get smsHasBeenSent =>
+      const AssetGenImage('assets/images/sms_has_been_sent.png');
+
   /// File path: assets/images/splash_bg.png
   AssetGenImage get splashBg =>
       const AssetGenImage('assets/images/splash_bg.png');
+
+  /// File path: assets/images/verify_email.png
+  AssetGenImage get verifyEmail =>
+      const AssetGenImage('assets/images/verify_email.png');
 
   /// File path: assets/images/welcome_back.png
   AssetGenImage get welcomeBack =>
@@ -419,8 +447,10 @@ class $AssetsImagesGen {
         authBg,
         cardBg,
         chart,
+        emailSent,
         enterPinPfp,
         faceId,
+        forgotPassword,
         graph,
         gregoryStones,
         historyBg,
@@ -430,8 +460,12 @@ class $AssetsImagesGen {
         onboardingPix2,
         onboardingPix3,
         onboardingPix4,
+        paymentScreenBg,
         registerBg,
+        resetPassword,
+        smsHasBeenSent,
         splashBg,
+        verifyEmail,
         welcomeBack
       ];
 }
