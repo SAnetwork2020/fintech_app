@@ -31,12 +31,6 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: AppColors.cD9D9D9,
-      appBar: CustomAppBar(
-        title: titles[currentIndex],
-        onPressed: () {
-          scaffoldKey.currentState?.openEndDrawer();
-        },
-      ),
       endDrawer: navigationDrawer(context),
       body: IndexedStack(
         index: currentIndex,
@@ -55,14 +49,4 @@ class _HomeScreenState extends State<HomeScreen> {
       }, currentIndex),
     );
   }
-
-  
-
- 
 }
-
-
-
-
-
-

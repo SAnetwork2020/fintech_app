@@ -37,267 +37,269 @@ class _TransferScreenState extends State<TransferScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(height: 45),
-        Padding(
-          padding: const EdgeInsets.only(left: 17, right: 15),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: Center(
-                  child: TabBar(
-                    splashFactory: NoSplash.splashFactory,
-                    splashBorderRadius: BorderRadius.circular(10),
-                    physics: const ClampingScrollPhysics(),
-                    indicatorSize: TabBarIndicatorSize.label,
-                    unselectedLabelColor: Colors.black,
-                    labelColor: Colors.white,
-                    indicatorColor: AppColors.c1DC1B4.withOpacity(.74),
-                    indicator: ShapeDecoration(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+    return SafeArea(
+      child: Column(
+        children: [
+          const SizedBox(height: 45),
+          Padding(
+            padding: const EdgeInsets.only(left: 17, right: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Center(
+                    child: TabBar(
+                      splashFactory: NoSplash.splashFactory,
+                      splashBorderRadius: BorderRadius.circular(10),
+                      physics: const ClampingScrollPhysics(),
+                      indicatorSize: TabBarIndicatorSize.label,
+                      unselectedLabelColor: Colors.black,
+                      labelColor: Colors.white,
+                      indicatorColor: AppColors.c1DC1B4.withOpacity(.74),
+                      indicator: ShapeDecoration(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                       ),
-                    ),
-                    isScrollable: true,
-                    controller: _tabController,
-                    tabs: [
-                      // Tab(
-                      //   height: 60,
-                      //   child: Container(
-                      //     width: 157,
-                      //     // height: 60,
-                      //     decoration: BoxDecoration(
-                      //       shape: BoxShape.rectangle,
-                      //       color: _tabController.index == 0
-                      //           ? AppColors.c1DC1B4.withOpacity(.74)
-                      //           : Colors.white,
-                      //       borderRadius: BorderRadius.circular(10),
-                      //       boxShadow: [
-                      //         const BoxShadow(
-                      //           color: Color(0x3F000000),
-                      //           blurRadius: 2,
-                      //           offset: Offset(0, 4),
-                      //           spreadRadius: 0,
-                      //         ),
-                      //       ],
-                      //     ),
-                      //     child: Row(
-                      //       mainAxisAlignment: MainAxisAlignment.center,
-                      //       children: [
-                      //         Assets.icons.logo.svg(
-                      //           width: 28.13,
-                      //           height: 28.13,
-                      //           colorFilter: ColorFilter.mode(
-                      //               _tabController.index == 0
-                      //                   ? AppColors.cFFFFFF
-                      //                   : AppColors.c000000,
-                      //               BlendMode.srcIn),
-                      //         ),
-                      //         SizedBox(width: 10),
-                      //         Column(
-                      //           mainAxisSize: MainAxisSize.min,
-                      //           children: [
-                      //             // Text("PAYFLEX \nAccount"),
-                      //             Text("PAYFLEX"),
-                      //             Text("Account"),
-                      //           ],
-                      //         ),
-                      //       ],
-                      //     ),
-                      //   ),
-                      // ),
-                      // Tab(
-                      //   height: 60,
-                      //   // text: "Other \nBanks",
-                      //   child: Container(
-                      //     width: 157,
-                      //     // height: 60,
-                      //     // padding: EdgeInsets.all(6),
-                      //     decoration: BoxDecoration(
-                      //       shape: BoxShape.rectangle,
-                      //       color: _tabController.index == 1
-                      //           ? AppColors.c1DC1B4.withOpacity(.74)
-                      //           : Colors.white,
-                      //       borderRadius: BorderRadius.circular(10),
-                      //       boxShadow: [
-                      //         const BoxShadow(
-                      //           color: Color(0x3F000000),
-                      //           blurRadius: 2,
-                      //           offset: Offset(0, 4),
-                      //           spreadRadius: 0,
-                      //         ),
-                      //       ],
-                      //     ),
-                      //     child: Row(
-                      //       mainAxisAlignment: MainAxisAlignment.center,
-                      //       children: [
-                      //         Assets.icons.bankOutline.svg(
-                      //             width: 30,
-                      //             height: 30,
-                      //             colorFilter: ColorFilter.mode(
-                      //                 _tabController.index == 1
-                      //                     ? AppColors.cFFFFFF
-                      //                     : AppColors.c000000,
-                      //                 BlendMode.srcIn)),
-                      //         SizedBox(width: 10),
-                      //         Column(
-                      //           mainAxisSize: MainAxisSize.min,
-                      //           children: [
-                      //             Text("Other"),
-                      //             Text("Banks"),
-                      //             // Text("Other \nBanks"),
-                      //           ],
-                      //         ),
-                      //       ],
-                      //     ),
-                      //   ),
-                      // ),
+                      isScrollable: true,
+                      controller: _tabController,
+                      tabs: [
+                        // Tab(
+                        //   height: 60,
+                        //   child: Container(
+                        //     width: 157,
+                        //     // height: 60,
+                        //     decoration: BoxDecoration(
+                        //       shape: BoxShape.rectangle,
+                        //       color: _tabController.index == 0
+                        //           ? AppColors.c1DC1B4.withOpacity(.74)
+                        //           : Colors.white,
+                        //       borderRadius: BorderRadius.circular(10),
+                        //       boxShadow: [
+                        //         const BoxShadow(
+                        //           color: Color(0x3F000000),
+                        //           blurRadius: 2,
+                        //           offset: Offset(0, 4),
+                        //           spreadRadius: 0,
+                        //         ),
+                        //       ],
+                        //     ),
+                        //     child: Row(
+                        //       mainAxisAlignment: MainAxisAlignment.center,
+                        //       children: [
+                        //         Assets.icons.logo.svg(
+                        //           width: 28.13,
+                        //           height: 28.13,
+                        //           colorFilter: ColorFilter.mode(
+                        //               _tabController.index == 0
+                        //                   ? AppColors.cFFFFFF
+                        //                   : AppColors.c000000,
+                        //               BlendMode.srcIn),
+                        //         ),
+                        //         SizedBox(width: 10),
+                        //         Column(
+                        //           mainAxisSize: MainAxisSize.min,
+                        //           children: [
+                        //             // Text("PAYFLEX \nAccount"),
+                        //             Text("PAYFLEX"),
+                        //             Text("Account"),
+                        //           ],
+                        //         ),
+                        //       ],
+                        //     ),
+                        //   ),
+                        // ),
+                        // Tab(
+                        //   height: 60,
+                        //   // text: "Other \nBanks",
+                        //   child: Container(
+                        //     width: 157,
+                        //     // height: 60,
+                        //     // padding: EdgeInsets.all(6),
+                        //     decoration: BoxDecoration(
+                        //       shape: BoxShape.rectangle,
+                        //       color: _tabController.index == 1
+                        //           ? AppColors.c1DC1B4.withOpacity(.74)
+                        //           : Colors.white,
+                        //       borderRadius: BorderRadius.circular(10),
+                        //       boxShadow: [
+                        //         const BoxShadow(
+                        //           color: Color(0x3F000000),
+                        //           blurRadius: 2,
+                        //           offset: Offset(0, 4),
+                        //           spreadRadius: 0,
+                        //         ),
+                        //       ],
+                        //     ),
+                        //     child: Row(
+                        //       mainAxisAlignment: MainAxisAlignment.center,
+                        //       children: [
+                        //         Assets.icons.bankOutline.svg(
+                        //             width: 30,
+                        //             height: 30,
+                        //             colorFilter: ColorFilter.mode(
+                        //                 _tabController.index == 1
+                        //                     ? AppColors.cFFFFFF
+                        //                     : AppColors.c000000,
+                        //                 BlendMode.srcIn)),
+                        //         SizedBox(width: 10),
+                        //         Column(
+                        //           mainAxisSize: MainAxisSize.min,
+                        //           children: [
+                        //             Text("Other"),
+                        //             Text("Banks"),
+                        //             // Text("Other \nBanks"),
+                        //           ],
+                        //         ),
+                        //       ],
+                        //     ),
+                        //   ),
+                        // ),
 
-                      Tab(
-                        height: 60,
-                        child: ShadowContainer(
-                          fillColor: _tabController.index == 0
-                              ? AppColors.c1DC1B4.withOpacity(.74)
-                              : Colors.white,
-                          title: "PAYFLEX \nAccount",
-                          icon: Container(
-                            width: 37,
-                            height: 37,
-                            padding: const EdgeInsets.all(4),
-                            decoration: ShapeDecoration(
-                              shape: const OvalBorder(),
-                              color: AppColors.cD9D9D9,
-                              shadows: [
-                                BoxShadow(
-                                  offset: const Offset(0, 2),
-                                  spreadRadius: 0,
-                                  blurRadius: 4,
-                                  color: AppColors.c000000.withOpacity(.25),
-                                ),
-                              ],
+                        Tab(
+                          height: 60,
+                          child: ShadowContainer(
+                            fillColor: _tabController.index == 0
+                                ? AppColors.c1DC1B4.withOpacity(.74)
+                                : Colors.white,
+                            title: "PAYFLEX \nAccount",
+                            icon: Container(
+                              width: 37,
+                              height: 37,
+                              padding: const EdgeInsets.all(4),
+                              decoration: ShapeDecoration(
+                                shape: const OvalBorder(),
+                                color: AppColors.cD9D9D9,
+                                shadows: [
+                                  BoxShadow(
+                                    offset: const Offset(0, 2),
+                                    spreadRadius: 0,
+                                    blurRadius: 4,
+                                    color: AppColors.c000000.withOpacity(.25),
+                                  ),
+                                ],
+                              ),
+                              child: Assets.icons.logo.svg(
+                                  width: 28.13,
+                                  height: 28.13,
+                                  colorFilter: ColorFilter.mode(
+                                      _tabController.index == 0
+                                          ? AppColors.cFFFFFF
+                                          : AppColors.c000000,
+                                      BlendMode.srcIn)),
                             ),
-                            child: Assets.icons.logo.svg(
-                                width: 28.13,
-                                height: 28.13,
+                            style: TextStyle(
+                              // fontFamily: FontFamily.lato,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                              color: _tabController.index == 0
+                                  ? AppColors.cFFFFFF
+                                  : AppColors.c000000,
+                              // AppColors.c000000,
+                            ),
+                          ),
+                        ),
+                        Tab(
+                          height: 60,
+                          child: ShadowContainer(
+                            fillColor: _tabController.index == 1
+                                ? AppColors.c1DC1B4.withOpacity(.74)
+                                : Colors.white,
+                            title: "Other \nBanks",
+                            icon: Assets.icons.bankOutline.svg(
+                                width: 30,
+                                height: 30,
                                 colorFilter: ColorFilter.mode(
-                                    _tabController.index == 0
+                                    _tabController.index == 1
                                         ? AppColors.cFFFFFF
                                         : AppColors.c000000,
                                     BlendMode.srcIn)),
-                          ),
-                          style: TextStyle(
-                            // fontFamily: FontFamily.lato,
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                            color: _tabController.index == 0
-                                ? AppColors.cFFFFFF
-                                : AppColors.c000000,
-                            // AppColors.c000000,
-                          ),
-                        ),
-                      ),
-                      Tab(
-                        height: 60,
-                        child: ShadowContainer(
-                          fillColor: _tabController.index == 1
-                              ? AppColors.c1DC1B4.withOpacity(.74)
-                              : Colors.white,
-                          title: "Other \nBanks",
-                          icon: Assets.icons.bankOutline.svg(
-                              width: 30,
-                              height: 30,
-                              colorFilter: ColorFilter.mode(
-                                  _tabController.index == 1
-                                      ? AppColors.cFFFFFF
-                                      : AppColors.c000000,
-                                  BlendMode.srcIn)),
-                          style: TextStyle(
-                            // fontFamily: FontFamily.lato,
-                            fontSize: 15,
-                            fontWeight: FontWeight.w700,
-                            color: _tabController.index == 1
-                                ? AppColors.cFFFFFF
-                                : AppColors.c000000,
+                            style: TextStyle(
+                              // fontFamily: FontFamily.lato,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w700,
+                              color: _tabController.index == 1
+                                  ? AppColors.cFFFFFF
+                                  : AppColors.c000000,
 
-                            // AppColors.c000000,
+                              // AppColors.c000000,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        Expanded(
-          child: TabBarView(
-            controller: _tabController,
-            children: [
-              Column(
-                children: [
-                  const SizedBox(height: 39),
-                  const TransferTextForm(
-                      title: "Account Number", hintText: "(0000-000-000)"),
-                  const SizedBox(height: 30),
-                  const TransferTextForm(
-                      title: "Amount (Naira)", hintText: "N2000"),
-                  const SizedBox(height: 30),
-                  const TransferTextForm(
-                      title: "Message (optional)", hintText: "Enter Message"),
-                  // const Placeholder(),
-                  // CustomGradientButton()
-                  const SizedBox(height: 39.62),
-                  CustomGradientButton(
-                    width: 204.86,
-                    height: 46.38,
-                    title: "Done",
-                    textStyle: const TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 15,
+          Expanded(
+            child: TabBarView(
+              controller: _tabController,
+              children: [
+                Column(
+                  children: [
+                    const SizedBox(height: 39),
+                    const TransferTextForm(
+                        title: "Account Number", hintText: "(0000-000-000)"),
+                    const SizedBox(height: 30),
+                    const TransferTextForm(
+                        title: "Amount (Naira)", hintText: "N2000"),
+                    const SizedBox(height: 30),
+                    const TransferTextForm(
+                        title: "Message (optional)", hintText: "Enter Message"),
+                    // const Placeholder(),
+                    // CustomGradientButton()
+                    const SizedBox(height: 39.62),
+                    CustomGradientButton(
+                      width: 204.86,
+                      height: 46.38,
+                      title: "Done",
+                      textStyle: const TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 15,
+                      ),
+                      onPressed: () {
+                        const TransactionSuccessfulRoute().push(context);
+                      },
                     ),
-                    onPressed: () {
-                      const TransactionSuccessfulRoute().push(context);
-                    },
-                  ),
-                ],
-              ),
-              Column(
-                children: [
-                  const SizedBox(height: 39),
-                  const TransferTextForm(title: "Bank Name"),
-                  const SizedBox(height: 30),
-                  const TransferTextForm(
-                      title: "Account Number", hintText: "(0000-000-000)"),
-                  const SizedBox(height: 30),
-                  const TransferTextForm(
-                      title: "Amount (Naira)", hintText: "N2000"),
-                  const SizedBox(height: 30),
-                  const TransferTextForm(
-                      title: "Message (optional)", hintText: "Enter Message"),
-                  // const Placeholder(),
-                  // CustomGradientButton()
-                  const SizedBox(height: 39.62),
-                  CustomGradientButton(
-                    width: 204.86,
-                    height: 46.38,
-                    title: "Done",
-                    textStyle: const TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 15,
+                  ],
+                ),
+                Column(
+                  children: [
+                    const SizedBox(height: 39),
+                    const TransferTextForm(title: "Bank Name"),
+                    const SizedBox(height: 30),
+                    const TransferTextForm(
+                        title: "Account Number", hintText: "(0000-000-000)"),
+                    const SizedBox(height: 30),
+                    const TransferTextForm(
+                        title: "Amount (Naira)", hintText: "N2000"),
+                    const SizedBox(height: 30),
+                    const TransferTextForm(
+                        title: "Message (optional)", hintText: "Enter Message"),
+                    // const Placeholder(),
+                    // CustomGradientButton()
+                    const SizedBox(height: 39.62),
+                    CustomGradientButton(
+                      width: 204.86,
+                      height: 46.38,
+                      title: "Done",
+                      textStyle: const TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 15,
+                      ),
+                      onPressed: () {
+                        const TransactionFailedRoute().push(context);
+                      },
                     ),
-                    onPressed: () {
-                      const TransactionFailedRoute().push(context);
-                    },
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

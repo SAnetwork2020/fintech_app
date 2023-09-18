@@ -1,8 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-import 'package:fintech_app/src/features/home/presentation/home_screen.dart';
-
 import '../../../../gen/assets.gen.dart';
 import '../../../../gen/fonts.gen.dart';
 import '../../../routing/router.dart';
@@ -14,86 +12,88 @@ class PaymentScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // const SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.only(left: 33, right: 32.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Your Cards",
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontFamily: FontFamily.lato,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.c000000.withOpacity(.64),
-                    decoration: TextDecoration.underline,
+    return SafeArea(
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.only(left: 33, right: 32.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Your Cards",
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontFamily: FontFamily.lato,
+                      fontWeight: FontWeight.w700,
+                      color: AppColors.c000000.withOpacity(.64),
+                      decoration: TextDecoration.underline,
+                    ),
                   ),
-                ),
-                Directionality(
-                  textDirection: TextDirection.rtl,
-                  child: TextButton.icon(
-                    onPressed: () {},
-                    icon: Assets.icons.addNew.svg(),
-                    label: Text(
-                      "Add New",
-                      style: TextStyle(
-                        fontFamily: FontFamily.lato,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.c000000.withOpacity(.64),
+                  Directionality(
+                    textDirection: TextDirection.rtl,
+                    child: TextButton.icon(
+                      onPressed: () {},
+                      icon: Assets.icons.addNew.svg(),
+                      label: Text(
+                        "Add New",
+                        style: TextStyle(
+                          fontFamily: FontFamily.lato,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.c000000.withOpacity(.64),
+                        ),
                       ),
                     ),
                   ),
+                ],
+              ),
+            ),
+            const YourCardsWidget(),
+            const SizedBox(height: 35),
+            Padding(
+              padding: const EdgeInsets.only(left: 15.0),
+              child: Text(
+                "Quick Links",
+                style: TextStyle(
+                  // fontFamily: FontFamily.lato,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.c000000,
                 ),
-              ],
-            ),
-          ),
-          const YourCardsWidget(),
-          const SizedBox(height: 35),
-          Padding(
-            padding: const EdgeInsets.only(left: 15.0),
-            child: Text(
-              "Quick Links",
-              style: TextStyle(
-                // fontFamily: FontFamily.lato,
-                fontSize: 15,
-                fontWeight: FontWeight.w500,
-                color: AppColors.c000000,
               ),
             ),
-          ),
-          SizedBox(
-            height: 228,
-            child: CustomGridContainer(
-              list: quickLinks(context),
-            ),
-          ),
-          const SizedBox(height: 15),
-          Padding(
-            padding: const EdgeInsets.only(left: 15.0),
-            child: Text(
-              "Recharge & Bill Payments",
-              style: TextStyle(
-                // fontFamily: FontFamily.lato,
-                fontSize: 15,
-                fontWeight: FontWeight.w500,
-                color: AppColors.c000000,
+            SizedBox(
+              height: 228,
+              child: CustomGridContainer(
+                list: quickLinks(context),
               ),
             ),
-          ),
-          SizedBox(
-            height: 228,
-            child: CustomGridContainer(
-              list: billPayments(context),
+            const SizedBox(height: 15),
+            Padding(
+              padding: const EdgeInsets.only(left: 15.0),
+              child: Text(
+                "Recharge & Bill Payments",
+                style: TextStyle(
+                  // fontFamily: FontFamily.lato,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.c000000,
+                ),
+              ),
             ),
-          ),
-          // UpdatedGridItem(),
-        ],
+            SizedBox(
+              height: 228,
+              child: CustomGridContainer(
+                list: billPayments(context),
+              ),
+            ),
+            // UpdatedGridItem(),
+          ],
+        ),
       ),
     );
   }

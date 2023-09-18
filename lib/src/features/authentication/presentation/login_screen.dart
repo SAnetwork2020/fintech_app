@@ -1,7 +1,9 @@
 import 'package:fintech_app/src/routing/router.dart';
+import 'package:fintech_app/src/routing/router_listenable.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../../gen/fonts.gen.dart';
@@ -9,14 +11,27 @@ import '../../../common_widgets/custom_gradient_button.dart';
 import '../../../common_widgets/custom_textformfield.dart';
 import '../../../utils/colors.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatefulHookConsumerWidget {
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends ConsumerState<LoginScreen> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container();
+//   }
+// }
+// class LoginScreen extends StatefulWidget {
+//   const LoginScreen({super.key});
+
+//   @override
+//   State<LoginScreen> createState() => _LoginScreenState();
+// }
+
+// class _LoginScreenState extends State<LoginScreen> {
   bool showPassword = false;
   @override
   Widget build(BuildContext context) {
@@ -105,9 +120,14 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 20),
               CustomGradientButton(
-                onPressed: () => const HomeRoute().push(context),
-                // onPressed: () => const WelcomeBackRoute().push(context),
-                // title: "Login",
+                onPressed: () {
+                  const HomeRoute().push(context);
+                  // ref
+                  //     .read(routerListenableProvider.notifier)
+                  //     .removeOnboarding();
+                  // onPressed: () => const WelcomeBackRoute().push(context),
+                  // title: "Login",
+                },
                 child: Row(
                   children: [
                     Container(

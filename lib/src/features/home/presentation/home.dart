@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../../gen/fonts.gen.dart';
+import '../../../common_widgets/custom_app_bar.dart';
 import '../../../utils/colors.dart';
 import '../widgets/card_container_widget.dart';
 import '../widgets/your_card_container_widget.dart';
@@ -13,10 +14,17 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+           CustomAppBar(
+        title: "Home",
+        onPressed: () {
+          scaffoldKey.currentState?.openEndDrawer();
+        },
+      ),
           const SizedBox(height: 25),
           Padding(
             padding: const EdgeInsets.only(left: 16.0, right: 15),

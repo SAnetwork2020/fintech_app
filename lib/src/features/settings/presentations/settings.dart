@@ -12,86 +12,88 @@ class SettingsScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const SizedBox(height: 43),
-        Container(
-          padding: const EdgeInsets.only(left: 19.0),
-          child: InkWell(
-            onTap: () {
-              const ProfileRoute().push(context);
-            },
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Assets.images.enterPinPfp.image(
-                  width: 49,
-                  height: 49,
-                ),
-                const SizedBox(width: 10),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Gregory Stones?",
-                      style: TextStyle(
-                        // fontFamily: FontFamily.lato,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 15,
-                        color: AppColors.c000000,
+    return SafeArea(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 43),
+          Container(
+            padding: const EdgeInsets.only(left: 19.0),
+            child: InkWell(
+              onTap: () {
+                const ProfileRoute().push(context);
+              },
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Assets.images.enterPinPfp.image(
+                    width: 49,
+                    height: 49,
+                  ),
+                  const SizedBox(width: 10),
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Gregory Stones?",
+                        style: TextStyle(
+                          // fontFamily: FontFamily.lato,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 15,
+                          color: AppColors.c000000,
+                        ),
                       ),
-                    ),
-                    Text(
-                      "Account Details",
-                      style: TextStyle(
-                        fontFamily: FontFamily.lato,
-                        fontWeight: FontWeight.w300,
-                        fontSize: 12,
-                        color: AppColors.c000000,
+                      Text(
+                        "Account Details",
+                        style: TextStyle(
+                          fontFamily: FontFamily.lato,
+                          fontWeight: FontWeight.w300,
+                          fontSize: 12,
+                          color: AppColors.c000000,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(width: 70),
-                Assets.icons.arrowRight2.svg(),
-              ],
+                    ],
+                  ),
+                  const SizedBox(width: 70),
+                  Assets.icons.arrowRight2.svg(),
+                ],
+              ),
             ),
           ),
-        ),
-        const SizedBox(height: 25),
-        Expanded(
-          child: ListView.separated(
-            physics: const NeverScrollableScrollPhysics(),
-            itemBuilder: (context, index) {
-              final widgetSettingItems = settingItems(context);
-              return SettingsItems(
-                trailingWidget: widgetSettingItems[index]["trailingWidget"],
-                onTap: widgetSettingItems[index]["onTap"],
-                icon: widgetSettingItems[index]["icon"],
-                boxColor: widgetSettingItems[index]["boxColor"],
-                title: widgetSettingItems[index]["title"],
-              );
-            },
-            separatorBuilder: (context, index) => const SizedBox(height: 25),
-            itemCount: settingItems(context).length,
-          ),
-        ),
-        const SizedBox(height: 60),
-        Center(
-          child: Text(
-            "Logout",
-            style: TextStyle(
-              // fontFamily: FontFamily.lato,
-              fontWeight: FontWeight.w600,
-              fontSize: 15,
-              color: AppColors.cE91515,
+          const SizedBox(height: 25),
+          Expanded(
+            child: ListView.separated(
+              physics: const NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) {
+                final widgetSettingItems = settingItems(context);
+                return SettingsItems(
+                  trailingWidget: widgetSettingItems[index]["trailingWidget"],
+                  onTap: widgetSettingItems[index]["onTap"],
+                  icon: widgetSettingItems[index]["icon"],
+                  boxColor: widgetSettingItems[index]["boxColor"],
+                  title: widgetSettingItems[index]["title"],
+                );
+              },
+              separatorBuilder: (context, index) => const SizedBox(height: 25),
+              itemCount: settingItems(context).length,
             ),
           ),
-        ),
-        const SizedBox(height: 42),
-      ],
+          const SizedBox(height: 60),
+          Center(
+            child: Text(
+              "Logout",
+              style: TextStyle(
+                // fontFamily: FontFamily.lato,
+                fontWeight: FontWeight.w600,
+                fontSize: 15,
+                color: AppColors.cE91515,
+              ),
+            ),
+          ),
+          const SizedBox(height: 42),
+        ],
+      ),
     );
   }
 }
