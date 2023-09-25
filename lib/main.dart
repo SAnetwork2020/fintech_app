@@ -14,9 +14,14 @@ import 'package:fintech_app/src/utils/state_logger.dart';
 import 'src/utils/colors.dart';
 
 void main() {
-  runApp(const ProviderScope(observers: [
-    StateLogger(),
-  ], child: MyApp()));
+  runApp(
+    const ProviderScope(
+      observers: [
+        StateLogger(),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends HookConsumerWidget {

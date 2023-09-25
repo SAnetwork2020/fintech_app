@@ -1,3 +1,5 @@
+import 'package:fintech_app/src/routing/router.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -5,12 +7,12 @@ import '../../../../gen/assets.gen.dart';
 import '../../../../gen/fonts.gen.dart';
 import '../../../common_widgets/custom_gradient_button.dart';
 import '../../../common_widgets/custom_textformfield.dart';
-import '../../../routing/router.dart';
 import '../../../utils/colors.dart';
 
-class EmailHasBeenSentScreen extends StatelessWidget {
-  const EmailHasBeenSentScreen({super.key});
+class ResetPasswordConfirmationScreen extends StatelessWidget {
+  const ResetPasswordConfirmationScreen({super.key});
 
+  // bool showPassword = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,10 +44,10 @@ class EmailHasBeenSentScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 116),
-              Assets.images.emailSent.image(),
+              Assets.images.forgotPassword.image(),
               const SizedBox(height: 30),
               Text(
-                "Email Has Been Sent",
+                "Forgot Password?",
                 style: TextStyle(
                   color: AppColors.cFFFFFF,
                   fontWeight: FontWeight.w600,
@@ -54,7 +56,7 @@ class EmailHasBeenSentScreen extends StatelessWidget {
               ),
               const SizedBox(height: 15),
               Text(
-                """Please check your inbox and follow the\n instructions to reset your password.""",
+                """Enter the email address used when you first \njoined us and we’ll send you instructions to \nreset your password.""",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: AppColors.cD9D9D9.withOpacity(.6),
@@ -64,13 +66,35 @@ class EmailHasBeenSentScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 40),
+              CustomTextFormField(
+                validator: (value) {
+                  if (value!.isEmpty) return "Email does not match";
+                },
+                prefixIcon: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Assets.icons.eMail.svg(),
+                ),
+                hintText: "Enter Your mail",
+                filled: true,
+                fillColor: AppColors.cFFFFFF,
+              ),
+              const SizedBox(height: 30),
 
+              Text(
+                "Use Phone Number Instead",
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w700,
+                  decoration: TextDecoration.underline,
+                  color: AppColors.c1DC1B4,
+                ),
+              ),
+              const SizedBox(height: 20),
               CustomGradientButton(
-                borderRadius: BorderRadiusDirectional.circular(20),
-                onPressed: () => const VerifyYourEmailRoute().push(context),
+                onPressed: () => const EmailHasBeenSentRoute().push(context),
                 // title: "Login",
                 child: Text(
-                  "Next",
+                  "Continue",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
@@ -78,31 +102,7 @@ class EmailHasBeenSentScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 40),
-              Text(
-                "Didn’t receive an OTP?",
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 0.60,
-                  color: AppColors.cFFFFFF.withOpacity(.6),
-                ),
-              ),
-              const SizedBox(height: 21.66),
-              TextButton.icon(
-                onPressed: () {},
-                icon: Assets.icons.retry.svg(),
-                label: Text(
-                  "Resend",
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                    // letterSpacing: 0.60,ju
-                    color: AppColors.c1DC1B4,
-                  ),
-                ),
-              ),
-              // const SizedBox(height: 40),
+              const SizedBox(height: 22),
               //
             ],
           ),

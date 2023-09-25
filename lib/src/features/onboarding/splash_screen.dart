@@ -31,14 +31,9 @@ class SplashScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    InkWell(
-                      onTap: () {
-                        context.push(const OnboardingRoute().location);
-                      },
-                      child: Assets.icons.logo.svg(
-                        height: 70,
-                        width: 70,
-                      ),
+                    Assets.icons.logo.svg(
+                      height: 70,
+                      width: 70,
                     ),
                     const SizedBox(width: 20),
                     Text(

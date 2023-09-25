@@ -19,12 +19,34 @@ class Home extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-           CustomAppBar(
-        title: "Home",
-        onPressed: () {
-          scaffoldKey.currentState?.openEndDrawer();
-        },
-      ),
+          CustomAppBar(
+            title: "Home",
+            onPressed: () {
+              scaffoldKey.currentState?.openEndDrawer();
+            },
+          ),
+          // const SizedBox(height: 46.91),
+          // Row(
+          //   children: [
+          //     IconButton(
+          //       color: AppColors.cFFFFFF,
+          //       onPressed: () {
+          //         scaffoldKey.currentState?.openDrawer();
+          //       },
+          //       icon: Assets.icons.menu.svg(),
+          //     ),
+          //     const Spacer(),
+          //     Text(
+          //       "Home",
+          //       style: TextStyle(
+          //         fontSize: 15,
+          //         fontWeight: FontWeight.w600,
+          //         color: AppColors.cFFFFFF,
+          //       ),
+          //     ),
+          //     const Spacer(),
+          //   ],
+          // ),
           const SizedBox(height: 25),
           Padding(
             padding: const EdgeInsets.only(left: 16.0, right: 15),

@@ -299,7 +299,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 CustomGradientButton(
                   title: "Register",
                   onPressed: () {
-                    context.go(const LoginRoute().location);
+                    context.go(const TermsAndConditionsRoute().location);
                   },
                 ),
                 const SizedBox(height: 22),

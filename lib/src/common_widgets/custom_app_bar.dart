@@ -20,40 +20,22 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       leadingWidth: 100,
       elevation: 0,
-      backgroundColor: AppColors.cD9D9D9,
-      leading: Padding(
-        padding: const EdgeInsets.only(left: 16.0),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Assets.icons.logo.svg(),
-            SizedBox(width: 5),
-            Text(
-              "PAYFLEX",
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w400,
-                color: AppColors.c1DC1B4,
-              ),
-            ),
-          ],
-        ),
-      ),
+      backgroundColor: Colors.transparent,
       title: Text(
         title,
       ),
       titleTextStyle: TextStyle(
         fontSize: 17,
         fontWeight: FontWeight.w500,
-        color: AppColors.c000000,
+        color: AppColors.cFFFFFF,
       ),
       centerTitle: true,
-      actions: [
-        IconButton(
-          onPressed: onPressed,
-          icon: Assets.icons.menu.svg(),
-        ),
-      ],
+      // actions: [
+      //   IconButton(
+      //     onPressed: onPressed,
+      //     icon: Assets.icons.menu.svg(),
+      //   ),
+      // ],
     );
   }
 }

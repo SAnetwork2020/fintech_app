@@ -95,6 +95,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         onboardingList.length,
                         (index) => InkWell(
                           onTap: () {
+                          //  context.go(const ExistingAccountRoute().location):
+                          print("lastPage:$lastPage and totalPage:${onboardingList.length}");
                             controller.animateToPage(
                               index,
                               duration: const Duration(
@@ -158,6 +160,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             fontWeight: FontWeight.w600,
                           ),
                           onPressed: () {
+                            lastPage == onboardingList.length? context.go(const ExistingAccountRoute().location):
                             controller.nextPage(
                               duration: const Duration(
                                 milliseconds: 200,
@@ -172,7 +175,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           height: 50,
                           child: ElevatedButton(
                             onPressed: () {
-                              context.push(const ExistingAccountRoute().location);
+                              context
+                                  .push(const ExistingAccountRoute().location);
                             },
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(

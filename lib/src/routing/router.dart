@@ -1,5 +1,8 @@
+import 'package:fintech_app/src/constants/success_screend.dart';
 import 'package:fintech_app/src/features/authentication/presentation/login_screen.dart';
 import 'package:fintech_app/src/features/authentication/presentation/sign_up_screen.dart';
+import 'package:fintech_app/src/features/authentication/presentation/terms&condition.dart';
+import 'package:fintech_app/src/features/authentication/presentation/verify_your_email_screen.dart';
 import 'package:fintech_app/src/features/home/presentation/home_screen.dart';
 import 'package:fintech_app/src/features/onboarding/onboarding_screen.dart';
 import 'package:fintech_app/src/features/onboarding/splash_screen.dart';
@@ -13,6 +16,9 @@ import '../constants/constants.dart';
 import '../features/authentication/presentation/email_has_been_sent.dart';
 import '../features/authentication/presentation/forgot_password.dart';
 import '../features/authentication/presentation/new_device_login.dart';
+import '../features/authentication/presentation/otp_screen.dart';
+import '../features/authentication/presentation/privacy_policy.dart';
+import '../features/authentication/presentation/reset_your_password.dart';
 import '../features/authentication/presentation/sms_has_been_sent.dart';
 import '../features/onboarding/existing_account_screen.dart';
 import '../features/payments/presentation/add_money/bank_transfer.dart';
@@ -34,17 +40,6 @@ import '../features/settings/presentations/saved_cards/saved_cards_screen.dart';
 import '../features/settings/presentations/security/security_screen.dart';
 import '../features/settings/presentations/settings.dart';
 part 'router.g.dart';
-
-// @riverpod
-// GoRouter goRouter(GoRouterRef ref) {
-//   return GoRouter(
-//     initialLocation: "/",
-//     debugLogDiagnostics: true,
-//     routes: $appRoutes,
-//     navigatorKey: rootNavigatorKey,
-//     // refreshListenable:
-//   );
-// }
 
 @TypedGoRoute<SplashRoute>(
   path: "/",
@@ -73,9 +68,31 @@ class OnboardingRoute extends GoRouteData {
 }
 
 @TypedGoRoute<ExistingAccountRoute>(
-  path: "/existing_account_screen",
-  name: "existing_account",
-)
+    path: "/existing_account_screen",
+    name: "existing_account",
+    routes: [
+      TypedGoRoute<LoginRoute>(path: "login", name: "login"),
+      TypedGoRoute<NewDeviceLoginRoute>(
+          path: "new_device_login", name: "new_device_login"),
+      TypedGoRoute<SignUpRoute>(path: "sign_up", name: "sign_up", routes: [
+        TypedGoRoute<TermsAndConditionsRoute>(
+            path: "terms_and_conditions", name: "terms_and_conditions"),
+        TypedGoRoute<PrivacyPolicyRoute>(
+            path: "privacy_policy", name: "privacy_policy"),
+      ]),
+      TypedGoRoute<ForgotPasswordRoute>(
+          path: "forgot_password", name: "forgot_password"),
+      TypedGoRoute<EmailHasBeenSentRoute>(
+          path: "email_has_been_sent", name: "email_has_been_sent"),
+      TypedGoRoute<VerifyYourEmailRoute>(
+          path: "verify_email", name: "verify_email"),
+      TypedGoRoute<ResetYourPasswordRoute>(
+          path: "reset_your_password", name: "reset_your_password"),
+      TypedGoRoute<SmsHasBeenSentRoute>(
+          path: "sms_has_been_sent", name: "sms_has_been_sent"),
+      TypedGoRoute<OtpRouteRoute>(
+          path: "one_time_password", name: "one_time_password"),
+    ])
 class ExistingAccountRoute extends GoRouteData {
   const ExistingAccountRoute();
 
@@ -84,10 +101,6 @@ class ExistingAccountRoute extends GoRouteData {
       const ExistingAccountScreen();
 }
 
-@TypedGoRoute<LoginRoute>(
-  path: "/login",
-  name: "login",
-)
 class LoginRoute extends GoRouteData {
   const LoginRoute();
   static const path = "/login";
@@ -96,23 +109,14 @@ class LoginRoute extends GoRouteData {
   Widget build(BuildContext context, GoRouterState state) =>
       const LoginScreen();
 }
-
-@TypedGoRoute<ForgotPasswordRoute>(
-  path: "/forgot_password",
-  name: "forgot_password",
-)
-class ForgotPasswordRoute extends GoRouteData {
-  const ForgotPasswordRoute();
+class NewDeviceLoginRoute extends GoRouteData {
+  const NewDeviceLoginRoute();
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
-      const ForgotPasswordScreen();
+      const NewDeviceLoginScreen();
 }
 
-@TypedGoRoute<SignUpRoute>(
-  path: "/sign_up",
-  name: "sign_up",
-)
 class SignUpRoute extends GoRouteData {
   const SignUpRoute();
 
@@ -121,10 +125,30 @@ class SignUpRoute extends GoRouteData {
       const SignUpScreen();
 }
 
-@TypedGoRoute<SmsHasBeenSentRoute>(
-  path: "/sms_has_been_sent",
-  name: "sms_has_been_sent",
-)
+class TermsAndConditionsRoute extends GoRouteData {
+  const TermsAndConditionsRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const TermsAndConditionsScreen();
+}
+
+class PrivacyPolicyRoute extends GoRouteData {
+  const PrivacyPolicyRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const PrivacyPolicyScreen();
+}
+
+class ForgotPasswordRoute extends GoRouteData {
+  const ForgotPasswordRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const ForgotPasswordScreen();
+}
+
 class SmsHasBeenSentRoute extends GoRouteData {
   const SmsHasBeenSentRoute();
 
@@ -133,16 +157,35 @@ class SmsHasBeenSentRoute extends GoRouteData {
       const SmsHasBeenSentScreen();
 }
 
-@TypedGoRoute<EmailHasBeenSentRoute>(
-  path: "/email_has_been_sent",
-  name: "email_has_been_sent",
-)
 class EmailHasBeenSentRoute extends GoRouteData {
   const EmailHasBeenSentRoute();
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
       const EmailHasBeenSentScreen();
+}
+
+class VerifyYourEmailRoute extends GoRouteData {
+  const VerifyYourEmailRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const VerifyYourEmailScreen();
+}
+
+class ResetYourPasswordRoute extends GoRouteData {
+  const ResetYourPasswordRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const ResetYourPasswordScreen();
+}
+
+class OtpRouteRoute extends GoRouteData {
+  const OtpRouteRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) => const OtpScreen();
 }
 
 @TypedGoRoute<TransactionSuccessfulRoute>(
@@ -167,18 +210,6 @@ class TransactionFailedRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) =>
       const TransactionFailedScreen();
-}
-
-@TypedGoRoute<WelcomeBackRoute>(
-  path: "/welcome_back_screen",
-  name: "welcome_back_screen",
-)
-class WelcomeBackRoute extends GoRouteData {
-  const WelcomeBackRoute();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      const WelcomeBackScreen();
 }
 
 @TypedGoRoute<HomeRoute>(
@@ -271,35 +302,6 @@ class AddNewCardRoute extends GoRouteData {
   Widget build(BuildContext context, GoRouterState state) =>
       const AddNewCardScreen();
 }
-
-// class ProfileRoute extends GoRouteData {
-//   const ProfileRoute();
-
-//   @override
-//   Widget build(BuildContext context, GoRouterState state) =>
-//       const ProfileScreen();
-// }
-// class ProfileRoute extends GoRouteData {
-//   const ProfileRoute();
-
-//   @override
-//   Widget build(BuildContext context, GoRouterState state) =>
-//       const ProfileScreen();
-// }
-// class ProfileRoute extends GoRouteData {
-//   const ProfileRoute();
-
-//   @override
-//   Widget build(BuildContext context, GoRouterState state) =>
-//       const ProfileScreen();
-// }
-// class ProfileRoute extends GoRouteData {
-//   const ProfileRoute();
-
-//   @override
-//   Widget build(BuildContext context, GoRouterState state) =>
-//       const ProfileScreen();
-// }
 
 @TypedGoRoute<PaymentRoute>(
   path: "/payment",
@@ -422,5 +424,18 @@ class TransportRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const TransportScreen();
+  }
+}
+
+@TypedGoRoute<SuccessRoute>(
+  path: "/success_screen",
+  name: "success_screen",
+)
+class SuccessRoute extends GoRouteData {
+  const SuccessRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const SuccessScreen();
   }
 }

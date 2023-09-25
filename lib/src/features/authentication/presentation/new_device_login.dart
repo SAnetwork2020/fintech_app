@@ -11,15 +11,15 @@ import '../../../../gen/fonts.gen.dart';
 import '../../../common_widgets/custom_gradient_button.dart';
 import '../../../utils/colors.dart';
 
-class WelcomeBackScreen extends ConsumerStatefulWidget {
-  const WelcomeBackScreen({super.key});
+class NewDeviceLoginScreen extends ConsumerStatefulWidget {
+  const NewDeviceLoginScreen({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
-      _WelcomeBackScreenState();
+      _NewDeviceLoginScreenState();
 }
 
-class _WelcomeBackScreenState extends ConsumerState<WelcomeBackScreen> {
+class _NewDeviceLoginScreenState extends ConsumerState<NewDeviceLoginScreen> {
   final TextEditingController pinController = TextEditingController();
 
   String enteredNumber = "";

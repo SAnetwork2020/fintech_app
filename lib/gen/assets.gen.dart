@@ -389,6 +389,10 @@ class $AssetsImagesGen {
   AssetGenImage get historyBg =>
       const AssetGenImage('assets/images/history_bg.png');
 
+  /// File path: assets/images/home_screen.png
+  AssetGenImage get homeScreen =>
+      const AssetGenImage('assets/images/home_screen.png');
+
   /// File path: assets/images/login_view.png
   AssetGenImage get loginView =>
       const AssetGenImage('assets/images/login_view.png');
@@ -433,6 +437,10 @@ class $AssetsImagesGen {
   AssetGenImage get splashBg =>
       const AssetGenImage('assets/images/splash_bg.png');
 
+  /// File path: assets/images/support_bg.png
+  AssetGenImage get supportBg =>
+      const AssetGenImage('assets/images/support_bg.png');
+
   /// File path: assets/images/verify_email.png
   AssetGenImage get verifyEmail =>
       const AssetGenImage('assets/images/verify_email.png');
@@ -454,6 +462,7 @@ class $AssetsImagesGen {
         graph,
         gregoryStones,
         historyBg,
+        homeScreen,
         loginView,
         onboardingBg,
         onboardingPix,
@@ -465,6 +474,7 @@ class $AssetsImagesGen {
         resetPassword,
         smsHasBeenSent,
         splashBg,
+        supportBg,
         verifyEmail,
         welcomeBack
       ];
