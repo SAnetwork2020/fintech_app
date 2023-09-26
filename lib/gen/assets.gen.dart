@@ -48,6 +48,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/arrow-down.svg
   SvgGenImage get arrowDown => const SvgGenImage('assets/icons/arrow-down.svg');
 
+  /// File path: assets/icons/arrow-down2.svg
+  SvgGenImage get arrowDown2 =>
+      const SvgGenImage('assets/icons/arrow-down2.svg');
+
   /// File path: assets/icons/arrow-dropdown.svg
   SvgGenImage get arrowDropdown =>
       const SvgGenImage('assets/icons/arrow-dropdown.svg');
@@ -62,6 +66,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/arrow-right2.svg
   SvgGenImage get arrowRight2 =>
       const SvgGenImage('assets/icons/arrow-right2.svg');
+
+  /// File path: assets/icons/arrow-up.svg
+  SvgGenImage get arrowUp => const SvgGenImage('assets/icons/arrow-up.svg');
 
   /// File path: assets/icons/back-arrow.svg
   SvgGenImage get backArrow => const SvgGenImage('assets/icons/back-arrow.svg');
@@ -280,10 +287,12 @@ class $AssetsIconsGen {
         airtime,
         allStatusIcon,
         arrowDown,
+        arrowDown2,
         arrowDropdown,
         arrowLeft,
         arrowRight,
         arrowRight2,
+        arrowUp,
         backArrow,
         bankOutline,
         bankPayment,

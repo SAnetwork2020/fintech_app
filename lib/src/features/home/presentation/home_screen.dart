@@ -44,6 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
         // backgroundColor: AppColors.cD9D9D9,
         drawer: navigationDrawer(context),
         body: IndexedStack(
+          clipBehavior: Clip.none,
+          // sizing: StackFit.expand,
           index: currentIndex,
           children: const [
             Home(),
