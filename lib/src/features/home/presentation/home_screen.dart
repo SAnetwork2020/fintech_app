@@ -1,7 +1,7 @@
 import 'package:fintech_app/src/features/payments/presentation/payments.dart';
 import 'package:fintech_app/src/features/settings/presentations/settings.dart';
 import 'package:fintech_app/src/features/support/presentations/support.dart';
-import 'package:fintech_app/src/features/transfer/presentations/transfer.dart';
+import 'package:fintech_app/src/features/transfer/presentations/transfer_other_bank_screen.dart';
 import 'package:fintech_app/src/utils/colors.dart';
 import 'package:flutter/material.dart';
 import '../../../../gen/assets.gen.dart';
@@ -11,7 +11,8 @@ import 'home.dart';
 import '../widgets/navigation_drawer.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({super.key, required this.child});
+  final Widget child;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -43,23 +44,28 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.transparent,
         // backgroundColor: AppColors.cD9D9D9,
         drawer: navigationDrawer(context),
-        body: IndexedStack(
-          clipBehavior: Clip.none,
-          // sizing: StackFit.expand,
-          index: currentIndex,
-          children: const [
-            Home(),
-            PaymentScreen(),
-            TransferScreen(),
-            SupportScreen(),
-            SettingsScreen(),
-          ],
+        body: widget.child,
+        // IndexedStack(
+        //   clipBehavior: Clip.none,
+        //   // sizing: StackFit.expand,
+        //   index: currentIndex,
+        //   children: const [
+        //     Home(),
+        //     PaymentScreen(),
+        //     TransferScreen(),
+        //     SupportScreen(),
+        //     SettingsScreen(),
+        //   ],
+        // ),
+        bottomNavigationBar: 
+        navigationBar(
+          (onTapValue) {
+            setState(() {
+              currentIndex = onTapValue;
+            });
+          },
+          currentIndex,
         ),
-        bottomNavigationBar: navigationBar((value) {
-          setState(() {
-            currentIndex = value;
-          });
-        }, currentIndex),
       ),
     );
   }

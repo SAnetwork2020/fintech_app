@@ -21,7 +21,7 @@ class SettingsScreen extends ConsumerWidget {
             padding: const EdgeInsets.only(left: 19.0),
             child: InkWell(
               onTap: () {
-                const ProfileRoute().push(context);
+                // const ProfileRoute().push(context);
               },
               child: Row(
                 mainAxisSize: MainAxisSize.min,
@@ -169,7 +169,7 @@ List<Map<String, dynamic>> settingItems(BuildContext context) => [
         // "onTap": context.push("BankStatementScreen"),
         "onTap": () {
           // ref.read(goRouterProvider).push("/settings/bank_statement");
-          const BankStatementRoute().push(context);
+          // const BankStatementRoute().push(context);
         }
       },
       {
@@ -178,7 +178,7 @@ List<Map<String, dynamic>> settingItems(BuildContext context) => [
         "boxColor": AppColors.cCC1BDC.withOpacity(.5),
         "onTap": () {
           // ref.read(goRouterProvider).push("/settings/bank_statement");
-          const SavedCardsRoute().push(context);
+          // const SavedCardsRoute().push(context);
         }
       },
       {
@@ -187,7 +187,7 @@ List<Map<String, dynamic>> settingItems(BuildContext context) => [
         "boxColor": AppColors.cDCA61B.withOpacity(.5),
         "onTap": () {
           // ref.read(goRouterProvider).push("/settings/bank_statement");
-          const BeneficiaryListRoute().push(context);
+          // const BeneficiaryListRoute().push(context);
         }
       },
       {
@@ -196,7 +196,7 @@ List<Map<String, dynamic>> settingItems(BuildContext context) => [
         "boxColor": AppColors.cFFF503.withOpacity(.5),
         "onTap": () {
           // ref.read(goRouterProvider).push("/settings/bank_statement");
-          const SecurityRoute().push(context);
+          // const SecurityRoute().push(context);
         }
       },
       {

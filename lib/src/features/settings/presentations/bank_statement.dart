@@ -3,7 +3,7 @@ import 'package:fintech_app/src/common_widgets/custom_gradient_button.dart';
 import 'package:fintech_app/src/common_widgets/custom_textformfield.dart';
 import 'package:flutter/material.dart';
 
-import '../../transfer/presentations/transfer.dart';
+import '../../transfer/presentations/transfer_other_bank_screen.dart';
 
 class BankStatementScreen extends StatelessWidget {
   const BankStatementScreen({super.key});

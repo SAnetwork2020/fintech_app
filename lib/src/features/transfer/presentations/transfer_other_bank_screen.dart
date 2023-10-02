@@ -6,15 +6,17 @@ import '../../../../gen/assets.gen.dart';
 import '../../../common_widgets/custom_gradient_button.dart';
 import '../../../common_widgets/custom_textformfield.dart';
 import '../../../utils/colors.dart';
+import '../widget/shadow_container_widget.dart';
+import '../widget/transfer_textform_widget.dart';
 
-class TransferScreen extends StatefulWidget {
-  const TransferScreen({super.key});
+class TransferOtherBankScreen extends StatefulWidget {
+  const TransferOtherBankScreen({super.key});
 
   @override
-  State<TransferScreen> createState() => _TransferScreenState();
+  State<TransferOtherBankScreen> createState() => _TransferOtherBankScreenState();
 }
 
-class _TransferScreenState extends State<TransferScreen>
+class _TransferOtherBankScreenState extends State<TransferOtherBankScreen>
     with TickerProviderStateMixin {
   late final TabController _tabController;
   @override
@@ -64,98 +66,6 @@ class _TransferScreenState extends State<TransferScreen>
                       isScrollable: true,
                       controller: _tabController,
                       tabs: [
-                        // Tab(
-                        //   height: 60,
-                        //   child: Container(
-                        //     width: 157,
-                        //     // height: 60,
-                        //     decoration: BoxDecoration(
-                        //       shape: BoxShape.rectangle,
-                        //       color: _tabController.index == 0
-                        //           ? AppColors.c1DC1B4.withOpacity(.74)
-                        //           : Colors.white,
-                        //       borderRadius: BorderRadius.circular(10),
-                        //       boxShadow: [
-                        //         const BoxShadow(
-                        //           color: Color(0x3F000000),
-                        //           blurRadius: 2,
-                        //           offset: Offset(0, 4),
-                        //           spreadRadius: 0,
-                        //         ),
-                        //       ],
-                        //     ),
-                        //     child: Row(
-                        //       mainAxisAlignment: MainAxisAlignment.center,
-                        //       children: [
-                        //         Assets.icons.logo.svg(
-                        //           width: 28.13,
-                        //           height: 28.13,
-                        //           colorFilter: ColorFilter.mode(
-                        //               _tabController.index == 0
-                        //                   ? AppColors.cFFFFFF
-                        //                   : AppColors.c000000,
-                        //               BlendMode.srcIn),
-                        //         ),
-                        //         SizedBox(width: 10),
-                        //         Column(
-                        //           mainAxisSize: MainAxisSize.min,
-                        //           children: [
-                        //             // Text("PAYFLEX \nAccount"),
-                        //             Text("PAYFLEX"),
-                        //             Text("Account"),
-                        //           ],
-                        //         ),
-                        //       ],
-                        //     ),
-                        //   ),
-                        // ),
-                        // Tab(
-                        //   height: 60,
-                        //   // text: "Other \nBanks",
-                        //   child: Container(
-                        //     width: 157,
-                        //     // height: 60,
-                        //     // padding: EdgeInsets.all(6),
-                        //     decoration: BoxDecoration(
-                        //       shape: BoxShape.rectangle,
-                        //       color: _tabController.index == 1
-                        //           ? AppColors.c1DC1B4.withOpacity(.74)
-                        //           : Colors.white,
-                        //       borderRadius: BorderRadius.circular(10),
-                        //       boxShadow: [
-                        //         const BoxShadow(
-                        //           color: Color(0x3F000000),
-                        //           blurRadius: 2,
-                        //           offset: Offset(0, 4),
-                        //           spreadRadius: 0,
-                        //         ),
-                        //       ],
-                        //     ),
-                        //     child: Row(
-                        //       mainAxisAlignment: MainAxisAlignment.center,
-                        //       children: [
-                        //         Assets.icons.bankOutline.svg(
-                        //             width: 30,
-                        //             height: 30,
-                        //             colorFilter: ColorFilter.mode(
-                        //                 _tabController.index == 1
-                        //                     ? AppColors.cFFFFFF
-                        //                     : AppColors.c000000,
-                        //                 BlendMode.srcIn)),
-                        //         SizedBox(width: 10),
-                        //         Column(
-                        //           mainAxisSize: MainAxisSize.min,
-                        //           children: [
-                        //             Text("Other"),
-                        //             Text("Banks"),
-                        //             // Text("Other \nBanks"),
-                        //           ],
-                        //         ),
-                        //       ],
-                        //     ),
-                        //   ),
-                        // ),
-
                         Tab(
                           height: 60,
                           child: ShadowContainer(
@@ -260,7 +170,7 @@ class _TransferScreenState extends State<TransferScreen>
                         fontSize: 15,
                       ),
                       onPressed: () {
-                        const TransactionSuccessfulRoute().push(context);
+                        // const TransactionSuccessfulRoute().push(context);
                       },
                     ),
                   ],
@@ -290,7 +200,7 @@ class _TransferScreenState extends State<TransferScreen>
                         fontSize: 15,
                       ),
                       onPressed: () {
-                        const TransactionFailedRoute().push(context);
+                        // const TransactionFailedRoute().push(context);
                       },
                     ),
                   ],
@@ -304,94 +214,5 @@ class _TransferScreenState extends State<TransferScreen>
   }
 }
 
-class TransferTextForm extends StatelessWidget {
-  const TransferTextForm({
-    super.key,
-    required this.title,
-    this.hintText,
-  });
-  final String title;
-  final String? hintText;
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 18, right: 25.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                title,
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 15,
-                  color: AppColors.c000000,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Assets.icons.checkMark.svg(),
-              ),
-            ],
-          ),
-        ),
-        ShadowTextFormField(hintText: hintText),
-      ],
-    );
-  }
-}
 
-class ShadowContainer extends StatelessWidget {
-  const ShadowContainer({
-    super.key,
-    required this.fillColor,
-    required this.title,
-    required this.icon,
-    required this.style,
-  });
-  final Color fillColor;
-  final String title;
-  final Widget icon;
-  final TextStyle style;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 157,
-      height: 60,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: fillColor,
-        // AppColors.cFFFFFF,
-        boxShadow: [
-          BoxShadow(
-            offset: const Offset(0, 4),
-            blurRadius: 2,
-            spreadRadius: 0,
-            color: AppColors.c000000.withOpacity(.25),
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 18.94),
-            child: icon,
-            //  Assets.icons.logo.svg(
-            //     width: 28.13,
-            //     height: 28.13,
-            //     colorFilter:
-            //         ColorFilter.mode(AppColors.c000000, BlendMode.srcIn)),
-          ),
-          const SizedBox(width: 14.94),
-          Text(
-            title,
-            // "PAYFLEX \nAccount",
-            textAlign: TextAlign.center,
-            style: style,
-          ),
-        ],
-      ),
-    );
-  }
-}
+

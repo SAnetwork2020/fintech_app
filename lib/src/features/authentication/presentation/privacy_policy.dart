@@ -53,7 +53,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                   CustomGradientButton(
                     title: "Accept and Continue",
                     onPressed: () {
-                      // context.go(const PrivacyPolicyRoute().location);
+                      // context.go(const HomeRoute().location);
                     },
                   ),
                   const SizedBox(height: 40),

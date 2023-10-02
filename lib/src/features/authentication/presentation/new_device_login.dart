@@ -42,7 +42,7 @@ class _NewDeviceLoginScreenState extends ConsumerState<NewDeviceLoginScreen> {
     if (pinController.text.length == 6) {
       // ref.read(goRouterProvider).HomeRoute.go(context);
       // ref.read(goRouterProvider).go($homeRoute);
-      const HomeRoute().go(context);
+      // const HomeRoute().go(context);
     }
   }
 
@@ -195,7 +195,7 @@ class _NewDeviceLoginScreenState extends ConsumerState<NewDeviceLoginScreen> {
             const SizedBox(height: 51),
             CustomGradientButton(
               onPressed: () {
-                context.go(const HomeRoute().location);
+                // context.go(const HomeRoute().location);
               },
               title: "Confirm",
             ),

@@ -106,7 +106,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               const SizedBox(height: 30),
               InkWell(
                 onTap: () {
-                  context.push(ForgotPasswordRoute().location);
+                  context.push(const ForgotPasswordRoute().location);
                 },
                 child: Text(
                   "Forgot password",
@@ -121,7 +121,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               const SizedBox(height: 20),
               CustomGradientButton(
                 onPressed: () {
-                  const HomeRoute().push(context);
+                  print("I am pressed");
+                  // HomeRoute().push(context);
+                  // context.push(HomeRoute().location);
+                  // context.push(const SettingsRoute().location);
                   // ref
                   //     .read(routerListenableProvider.notifier)
                   //     .removeOnboarding();
@@ -170,13 +173,14 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         fontWeight: FontWeight.w700,
                       ),
                       recognizer: TapGestureRecognizer()
-                        ..onTap = () => context.go("/sign_up"),
+                        ..onTap =
+                            () => context.go(const SignUpRoute().location),
                       // ..onTap = () => const SignUpRoute().go(context),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Text(
                 "Use Face ID to Login",
                 style: TextStyle(

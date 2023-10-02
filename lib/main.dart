@@ -30,14 +30,15 @@ class MyApp extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // final goRouter = ref.watch(goRouterProvider);
     final notifier = ref.watch(routerListenableProvider.notifier);
-    // final key = useRef()
+    final key = useRef(GlobalKey<NavigatorState>(debugLabel: "routerKey"));
     final router = useMemoized(
       () => GoRouter(
+        navigatorKey: key.value,
+        refreshListenable: notifier,
+        initialLocation: const SplashRoute().location,
+        debugLogDiagnostics: true,
         routes: $appRoutes,
         redirect: notifier.redirect,
-        refreshListenable: notifier,
-        debugLogDiagnostics: true,
-        initialLocation: const SplashRoute().location,
       ),
       [notifier],
     );

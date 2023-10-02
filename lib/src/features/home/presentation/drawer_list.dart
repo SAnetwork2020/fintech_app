@@ -7,7 +7,7 @@ import '../../../utils/colors.dart';
 List<Map<String, dynamic>> drawerIconList(BuildContext context) => [
       {
         "onTap": () {
-          const HomeRoute().push(context);
+          // const HomeRoute().push(context);
         },
         "icons": Assets.icons.home.svg(
           colorFilter: ColorFilter.mode(
@@ -19,7 +19,7 @@ List<Map<String, dynamic>> drawerIconList(BuildContext context) => [
       },
       {
         "onTap": () {
-          const ProfileRoute().push(context);
+          // const ProfileRoute().push(context);
         },
         "icons": Assets.images.gregoryStones.image(
           width: 42,
@@ -54,7 +54,7 @@ List<Map<String, dynamic>> drawerIconList(BuildContext context) => [
           },
           {
             "onTap": () {
-              const HomeRoute().push(context);
+              // const HomeRoute().push(context);
             },
             "icons": Assets.icons.bankOutline.svg(
               colorFilter: ColorFilter.mode(
@@ -66,7 +66,7 @@ List<Map<String, dynamic>> drawerIconList(BuildContext context) => [
           },
           {
             "onTap": () {
-              const TransactionHistoryRoute().push(context);
+              // const TransactionHistoryRoute().push(context);
             },
             "icons": Assets.icons.transfer.svg(
               colorFilter: ColorFilter.mode(
@@ -80,7 +80,7 @@ List<Map<String, dynamic>> drawerIconList(BuildContext context) => [
       },
       {
         "onTap": () {
-          const BankTransferRoute().push(context);
+          // const BankTransferRoute().push(context);
         },
         "icons": Assets.icons.addMoney.svg(
           colorFilter: ColorFilter.mode(
@@ -104,7 +104,7 @@ List<Map<String, dynamic>> drawerIconList(BuildContext context) => [
         "children": <Map<String, dynamic>>[
           {
             "onTap": () {
-              const AirtimeRoute().push(context);
+              // const AirtimeRoute().push(context);
             },
             "icons": Assets.icons.airtime.svg(
               colorFilter: ColorFilter.mode(
@@ -116,7 +116,7 @@ List<Map<String, dynamic>> drawerIconList(BuildContext context) => [
           },
           {
             "onTap": () {
-              const DataRoute().push(context);
+              // const DataRoute().push(context);
             },
             "icons": Assets.icons.buyData.svg(
               colorFilter: ColorFilter.mode(
@@ -139,7 +139,7 @@ List<Map<String, dynamic>> drawerIconList(BuildContext context) => [
         "children": <Map<String, dynamic>>[
           {
             "onTap": () {
-              const ElectricityRoute().push(context);
+              // const ElectricityRoute().push(context);
             },
             "icons": Assets.icons.bulb.svg(
               colorFilter: ColorFilter.mode(
@@ -151,7 +151,7 @@ List<Map<String, dynamic>> drawerIconList(BuildContext context) => [
           },
           {
             "onTap": () {
-              const InternetRoute().push(context);
+              // const InternetRoute().push(context);
             },
             "icons": Assets.icons.internetBills.svg(
               colorFilter: ColorFilter.mode(
@@ -163,7 +163,7 @@ List<Map<String, dynamic>> drawerIconList(BuildContext context) => [
           },
           {
             "onTap": () {
-              const TvRoute().push(context);
+              // const TvRoute().push(context);
             },
             "icons": Assets.icons.payTv.svg(
               colorFilter: ColorFilter.mode(
@@ -175,7 +175,7 @@ List<Map<String, dynamic>> drawerIconList(BuildContext context) => [
           },
           {
             "onTap": () {
-              const TransportRoute().push(context);
+              // const TransportRoute().push(context);
             },
             "icons": Assets.icons.transport.svg(
               colorFilter: ColorFilter.mode(
@@ -187,7 +187,7 @@ List<Map<String, dynamic>> drawerIconList(BuildContext context) => [
           },
           {
             "onTap": () {
-              const BettingRoute().push(context);
+              // const BettingRoute().push(context);
             },
             "icons": Assets.icons.betting.svg(
               colorFilter: ColorFilter.mode(
@@ -213,7 +213,7 @@ List<Map<String, dynamic>> drawerIconList(BuildContext context) => [
         "children": <Map<String, dynamic>>[
           {
             "onTap": () {
-              const ApplyForLoanRoute().push(context);
+              // const ApplyForLoanRoute().push(context);
             },
             "icons": Assets.icons.airtime.svg(
               colorFilter: ColorFilter.mode(
@@ -227,7 +227,7 @@ List<Map<String, dynamic>> drawerIconList(BuildContext context) => [
       },
       {
         "onTap": () {
-          const HomeRoute().push(context);
+          // const HomeRoute().push(context);
         },
         "icons": Assets.icons.lifestyle.svg(
           colorFilter: ColorFilter.mode(

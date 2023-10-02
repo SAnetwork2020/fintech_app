@@ -41,6 +41,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/airtime.svg
   SvgGenImage get airtime => const SvgGenImage('assets/icons/airtime.svg');
 
+  /// File path: assets/icons/airtime2.svg
+  SvgGenImage get airtime2 => const SvgGenImage('assets/icons/airtime2.svg');
+
   /// File path: assets/icons/all_statusIcon.svg
   SvgGenImage get allStatusIcon =>
       const SvgGenImage('assets/icons/all_statusIcon.svg');
@@ -92,11 +95,20 @@ class $AssetsIconsGen {
   /// File path: assets/icons/betting.svg
   SvgGenImage get betting => const SvgGenImage('assets/icons/betting.svg');
 
+  /// File path: assets/icons/betting2.svg
+  SvgGenImage get betting2 => const SvgGenImage('assets/icons/betting2.svg');
+
   /// File path: assets/icons/bulb.svg
   SvgGenImage get bulb => const SvgGenImage('assets/icons/bulb.svg');
 
+  /// File path: assets/icons/bulb2.svg
+  SvgGenImage get bulb2 => const SvgGenImage('assets/icons/bulb2.svg');
+
   /// File path: assets/icons/buy-data.svg
   SvgGenImage get buyData => const SvgGenImage('assets/icons/buy-data.svg');
+
+  /// File path: assets/icons/buy-data2.svg
+  SvgGenImage get buyData2 => const SvgGenImage('assets/icons/buy-data2.svg');
 
   /// File path: assets/icons/calender.svg
   SvgGenImage get calender => const SvgGenImage('assets/icons/calender.svg');
@@ -166,6 +178,10 @@ class $AssetsIconsGen {
   SvgGenImage get internetBills =>
       const SvgGenImage('assets/icons/internet-bills.svg');
 
+  /// File path: assets/icons/internet-bills2.svg
+  SvgGenImage get internetBills2 =>
+      const SvgGenImage('assets/icons/internet-bills2.svg');
+
   /// File path: assets/icons/investments.svg
   SvgGenImage get investments =>
       const SvgGenImage('assets/icons/investments.svg');
@@ -195,8 +211,15 @@ class $AssetsIconsGen {
   /// File path: assets/icons/menu.svg
   SvgGenImage get menu => const SvgGenImage('assets/icons/menu.svg');
 
+  /// File path: assets/icons/minus.svg
+  SvgGenImage get minus => const SvgGenImage('assets/icons/minus.svg');
+
   /// File path: assets/icons/naira.svg
   SvgGenImage get naira => const SvgGenImage('assets/icons/naira.svg');
+
+  /// File path: assets/icons/name_icon.png
+  AssetGenImage get nameIcon =>
+      const AssetGenImage('assets/icons/name_icon.png');
 
   /// File path: assets/icons/notification.svg
   SvgGenImage get notification =>
@@ -212,12 +235,21 @@ class $AssetsIconsGen {
   /// File path: assets/icons/pay-tv.svg
   SvgGenImage get payTv => const SvgGenImage('assets/icons/pay-tv.svg');
 
+  /// File path: assets/icons/pay-tv2.svg
+  SvgGenImage get payTv2 => const SvgGenImage('assets/icons/pay-tv2.svg');
+
   /// File path: assets/icons/payment.svg
   SvgGenImage get payment => const SvgGenImage('assets/icons/payment.svg');
 
   /// File path: assets/icons/paymentIcon.svg
   SvgGenImage get paymentIcon =>
       const SvgGenImage('assets/icons/paymentIcon.svg');
+
+  /// File path: assets/icons/phone-bold.svg
+  SvgGenImage get phoneBold => const SvgGenImage('assets/icons/phone-bold.svg');
+
+  /// File path: assets/icons/plus.svg
+  SvgGenImage get plus => const SvgGenImage('assets/icons/plus.svg');
 
   /// File path: assets/icons/profile.svg
   SvgGenImage get profile => const SvgGenImage('assets/icons/profile.svg');
@@ -255,11 +287,19 @@ class $AssetsIconsGen {
   SvgGenImage get transactionHistory =>
       const SvgGenImage('assets/icons/transaction_history.svg');
 
+  /// File path: assets/icons/transaction_history2.svg
+  SvgGenImage get transactionHistory2 =>
+      const SvgGenImage('assets/icons/transaction_history2.svg');
+
   /// File path: assets/icons/transfer.svg
   SvgGenImage get transfer => const SvgGenImage('assets/icons/transfer.svg');
 
   /// File path: assets/icons/transport.svg
   SvgGenImage get transport => const SvgGenImage('assets/icons/transport.svg');
+
+  /// File path: assets/icons/transport2.svg
+  SvgGenImage get transport2 =>
+      const SvgGenImage('assets/icons/transport2.svg');
 
   /// File path: assets/icons/userCircleOutline.svg
   SvgGenImage get userCircleOutline =>
@@ -275,8 +315,12 @@ class $AssetsIconsGen {
   SvgGenImage get withdrawMoney =>
       const SvgGenImage('assets/icons/withdraw-money.svg');
 
+  /// File path: assets/icons/withdraw-money2.svg
+  SvgGenImage get withdrawMoney2 =>
+      const SvgGenImage('assets/icons/withdraw-money2.svg');
+
   /// List of all assets
-  List<SvgGenImage> get values => [
+  List<dynamic> get values => [
         frame48095674,
         group,
         unitedKingdom,
@@ -285,6 +329,7 @@ class $AssetsIconsGen {
         addNew,
         add,
         airtime,
+        airtime2,
         allStatusIcon,
         arrowDown,
         arrowDown2,
@@ -299,8 +344,11 @@ class $AssetsIconsGen {
         bankStatement,
         benficiaryList,
         betting,
+        betting2,
         bulb,
+        bulb2,
         buyData,
+        buyData2,
         calender,
         cardDesign,
         cardless,
@@ -321,6 +369,7 @@ class $AssetsIconsGen {
         help,
         home,
         internetBills,
+        internetBills2,
         investments,
         key,
         language,
@@ -330,13 +379,18 @@ class $AssetsIconsGen {
         lockOutline,
         logo,
         menu,
+        minus,
         naira,
+        nameIcon,
         notification,
         others,
         payFlexlogo,
         payTv,
+        payTv2,
         payment,
         paymentIcon,
+        phoneBold,
+        plus,
         profile,
         quickLoans,
         retry,
@@ -348,12 +402,15 @@ class $AssetsIconsGen {
         support,
         topUp,
         transactionHistory,
+        transactionHistory2,
         transfer,
         transport,
+        transport2,
         userCircleOutline,
         visaLogo,
         wallet,
-        withdrawMoney
+        withdrawMoney,
+        withdrawMoney2
       ];
 }
 
@@ -387,6 +444,9 @@ class $AssetsImagesGen {
   AssetGenImage get forgotPassword =>
       const AssetGenImage('assets/images/forgot_password.png');
 
+  /// File path: assets/images/glo.png
+  AssetGenImage get glo => const AssetGenImage('assets/images/glo.png');
+
   /// File path: assets/images/graph.png
   AssetGenImage get graph => const AssetGenImage('assets/images/graph.png');
 
@@ -401,6 +461,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/home_screen.png
   AssetGenImage get homeScreen =>
       const AssetGenImage('assets/images/home_screen.png');
+
+  /// File path: assets/images/jonathan_doe.png
+  AssetGenImage get jonathanDoe =>
+      const AssetGenImage('assets/images/jonathan_doe.png');
 
   /// File path: assets/images/login_view.png
   AssetGenImage get loginView =>
@@ -468,10 +532,12 @@ class $AssetsImagesGen {
         enterPinPfp,
         faceId,
         forgotPassword,
+        glo,
         graph,
         gregoryStones,
         historyBg,
         homeScreen,
+        jonathanDoe,
         loginView,
         onboardingBg,
         onboardingPix,

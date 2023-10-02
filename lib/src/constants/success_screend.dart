@@ -51,7 +51,11 @@ class SuccessScreen extends StatelessWidget {
           ),
           const SizedBox(height: 30),
           CustomGradientButton(
-            onPressed: () => context.replace(const HomeRoute().location),
+            onPressed: () {
+              // context.replace(
+              //   const HomeRoute().location,
+              // );
+            },
             // title: "Login",
             child: Text(
               "Done",
