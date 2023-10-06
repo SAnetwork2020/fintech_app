@@ -79,7 +79,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 validator: (value) {
                   if (value!.isEmpty) return "Please Enter Password";
                 },
-                obscureText: showPassword,
+                obscureText: !showPassword,
                 prefixIcon: Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: Assets.icons.lockOutline.svg(
@@ -122,7 +122,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               CustomGradientButton(
                 onPressed: () {
                   print("I am pressed");
-                  // HomeRoute().push(context);
+                  HomeRoute().go(context);
                   // context.push(HomeRoute().location);
                   // context.push(const SettingsRoute().location);
                   // ref

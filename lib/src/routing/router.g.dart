@@ -10,6 +10,7 @@ List<RouteBase> get $appRoutes => [
       $splashRoute,
       $onboardingRoute,
       $existingAccountRoute,
+      $dashBoardRouteData,
     ];
 
 RouteBase get $splashRoute => GoRouteData.$route(
@@ -325,6 +326,372 @@ extension $OtpRouteRouteExtension on OtpRouteRoute {
 
   String get location => GoRouteData.$location(
         '/existing_account_screen/one_time_password',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $dashBoardRouteData => ShellRouteData.$route(
+      navigatorKey: DashBoardRouteData.$navigatorKey,
+      factory: $DashBoardRouteDataExtension._fromState,
+      routes: [
+        GoRouteData.$route(
+          path: '/home',
+          factory: $HomeRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: '/payment',
+          factory: $PaymentRouteExtension._fromState,
+          routes: [
+            GoRouteData.$route(
+              path: 'airtime',
+              factory: $AirtimeRouteExtension._fromState,
+              parentNavigatorKey: AirtimeRoute.$parentNavigatorKey,
+            ),
+            GoRouteData.$route(
+              path: 'data',
+              factory: $DataRouteExtension._fromState,
+              parentNavigatorKey: DataRoute.$parentNavigatorKey,
+            ),
+            GoRouteData.$route(
+              path: 'cardless_withdrawal',
+              factory: $CardlessWithdrawalRouteExtension._fromState,
+              parentNavigatorKey: CardlessWithdrawalRoute.$parentNavigatorKey,
+            ),
+            GoRouteData.$route(
+              path: 'add_money',
+              factory: $AddMoneyRouteExtension._fromState,
+              parentNavigatorKey: AddMoneyRoute.$parentNavigatorKey,
+            ),
+            GoRouteData.$route(
+              path: 'transaction_history',
+              factory: $TransactionHistoryRouteExtension._fromState,
+              parentNavigatorKey: TransactionHistoryRoute.$parentNavigatorKey,
+            ),
+            GoRouteData.$route(
+              path: 'apply_for_loan',
+              factory: $ApplyForLoanRouteExtension._fromState,
+              parentNavigatorKey: ApplyForLoanRoute.$parentNavigatorKey,
+            ),
+            GoRouteData.$route(
+              path: 'electricity',
+              factory: $ElectricityRouteExtension._fromState,
+              parentNavigatorKey: ElectricityRoute.$parentNavigatorKey,
+            ),
+            GoRouteData.$route(
+              path: 'internet',
+              factory: $InternetRouteExtension._fromState,
+              parentNavigatorKey: InternetRoute.$parentNavigatorKey,
+            ),
+            GoRouteData.$route(
+              path: 'pay_tv',
+              factory: $PaytvRouteExtension._fromState,
+              parentNavigatorKey: PaytvRoute.$parentNavigatorKey,
+            ),
+            GoRouteData.$route(
+              path: 'transport',
+              factory: $TransportRouteExtension._fromState,
+              parentNavigatorKey: TransportRoute.$parentNavigatorKey,
+            ),
+            GoRouteData.$route(
+              path: 'betting',
+              factory: $BettingRouteExtension._fromState,
+              parentNavigatorKey: BettingRoute.$parentNavigatorKey,
+            ),
+          ],
+        ),
+        GoRouteData.$route(
+          path: '/transfer',
+          factory: $TransferRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: '/support',
+          factory: $SupportRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: '/settings',
+          factory: $SettingsRouteExtension._fromState,
+        ),
+      ],
+    );
+
+extension $DashBoardRouteDataExtension on DashBoardRouteData {
+  static DashBoardRouteData _fromState(GoRouterState state) =>
+      const DashBoardRouteData();
+}
+
+extension $HomeRouteExtension on HomeRoute {
+  static HomeRoute _fromState(GoRouterState state) => const HomeRoute();
+
+  String get location => GoRouteData.$location(
+        '/home',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $PaymentRouteExtension on PaymentRoute {
+  static PaymentRoute _fromState(GoRouterState state) => const PaymentRoute();
+
+  String get location => GoRouteData.$location(
+        '/payment',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $AirtimeRouteExtension on AirtimeRoute {
+  static AirtimeRoute _fromState(GoRouterState state) => const AirtimeRoute();
+
+  String get location => GoRouteData.$location(
+        '/payment/airtime',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $DataRouteExtension on DataRoute {
+  static DataRoute _fromState(GoRouterState state) => const DataRoute();
+
+  String get location => GoRouteData.$location(
+        '/payment/data',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $CardlessWithdrawalRouteExtension on CardlessWithdrawalRoute {
+  static CardlessWithdrawalRoute _fromState(GoRouterState state) =>
+      const CardlessWithdrawalRoute();
+
+  String get location => GoRouteData.$location(
+        '/payment/cardless_withdrawal',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $AddMoneyRouteExtension on AddMoneyRoute {
+  static AddMoneyRoute _fromState(GoRouterState state) => const AddMoneyRoute();
+
+  String get location => GoRouteData.$location(
+        '/payment/add_money',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $TransactionHistoryRouteExtension on TransactionHistoryRoute {
+  static TransactionHistoryRoute _fromState(GoRouterState state) =>
+      const TransactionHistoryRoute();
+
+  String get location => GoRouteData.$location(
+        '/payment/transaction_history',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $ApplyForLoanRouteExtension on ApplyForLoanRoute {
+  static ApplyForLoanRoute _fromState(GoRouterState state) =>
+      const ApplyForLoanRoute();
+
+  String get location => GoRouteData.$location(
+        '/payment/apply_for_loan',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $ElectricityRouteExtension on ElectricityRoute {
+  static ElectricityRoute _fromState(GoRouterState state) =>
+      const ElectricityRoute();
+
+  String get location => GoRouteData.$location(
+        '/payment/electricity',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $InternetRouteExtension on InternetRoute {
+  static InternetRoute _fromState(GoRouterState state) => const InternetRoute();
+
+  String get location => GoRouteData.$location(
+        '/payment/internet',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $PaytvRouteExtension on PaytvRoute {
+  static PaytvRoute _fromState(GoRouterState state) => const PaytvRoute();
+
+  String get location => GoRouteData.$location(
+        '/payment/pay_tv',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $TransportRouteExtension on TransportRoute {
+  static TransportRoute _fromState(GoRouterState state) =>
+      const TransportRoute();
+
+  String get location => GoRouteData.$location(
+        '/payment/transport',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $BettingRouteExtension on BettingRoute {
+  static BettingRoute _fromState(GoRouterState state) => const BettingRoute();
+
+  String get location => GoRouteData.$location(
+        '/payment/betting',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $TransferRouteExtension on TransferRoute {
+  static TransferRoute _fromState(GoRouterState state) => const TransferRoute();
+
+  String get location => GoRouteData.$location(
+        '/transfer',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $SupportRouteExtension on SupportRoute {
+  static SupportRoute _fromState(GoRouterState state) => const SupportRoute();
+
+  String get location => GoRouteData.$location(
+        '/support',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $SettingsRouteExtension on SettingsRoute {
+  static SettingsRoute _fromState(GoRouterState state) => const SettingsRoute();
+
+  String get location => GoRouteData.$location(
+        '/settings',
       );
 
   void go(BuildContext context) => context.go(location);

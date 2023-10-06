@@ -45,6 +45,7 @@ class AppColors {
   static MaterialColor cFDACAC = fromHex("#FDACAC");
   static MaterialColor c121250 = fromHex("#121250");
   static MaterialColor c661010 = fromHex("#661010");
+  static MaterialColor c430590= fromHex("#430590");
 
   static MaterialColor fromHex(String hexString) {
     final buffer = StringBuffer();

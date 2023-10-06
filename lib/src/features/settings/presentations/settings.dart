@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../gen/assets.gen.dart';
 import '../../../../gen/fonts.gen.dart';
 import '../../../utils/colors.dart';
+import '../widget/setting_items_widget.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -13,147 +14,98 @@ class SettingsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return SafeArea(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(height: 43),
-          Container(
-            padding: const EdgeInsets.only(left: 19.0),
-            child: InkWell(
-              onTap: () {
-                // const ProfileRoute().push(context);
-              },
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Assets.images.enterPinPfp.image(
-                    width: 49,
-                    height: 49,
-                  ),
-                  const SizedBox(width: 10),
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Gregory Stones?",
-                        style: TextStyle(
-                          // fontFamily: FontFamily.lato,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 15,
-                          color: AppColors.c000000,
-                        ),
-                      ),
-                      Text(
-                        "Account Details",
-                        style: TextStyle(
-                          fontFamily: FontFamily.lato,
-                          fontWeight: FontWeight.w300,
-                          fontSize: 12,
-                          color: AppColors.c000000,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(width: 70),
-                  Assets.icons.arrowRight2.svg(),
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(height: 25),
-          Expanded(
-            child: ListView.separated(
-              physics: const NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) {
-                final widgetSettingItems = settingItems(context);
-                return SettingsItems(
-                  trailingWidget: widgetSettingItems[index]["trailingWidget"],
-                  onTap: widgetSettingItems[index]["onTap"],
-                  icon: widgetSettingItems[index]["icon"],
-                  boxColor: widgetSettingItems[index]["boxColor"],
-                  title: widgetSettingItems[index]["title"],
-                );
-              },
-              separatorBuilder: (context, index) => const SizedBox(height: 25),
-              itemCount: settingItems(context).length,
-            ),
-          ),
-          const SizedBox(height: 60),
-          Center(
-            child: Text(
-              "Logout",
-              style: TextStyle(
-                // fontFamily: FontFamily.lato,
-                fontWeight: FontWeight.w600,
-                fontSize: 15,
-                color: AppColors.cE91515,
-              ),
-            ),
-          ),
-          const SizedBox(height: 42),
-        ],
-      ),
-    );
-  }
-}
-
-class SettingsItems extends StatelessWidget {
-  const SettingsItems({
-    super.key,
-    required this.boxColor,
-    required this.title,
-    this.trailingWidget,
-    required this.icon,
-    this.onTap,
-  });
-  final Color boxColor;
-  final String title;
-  final Widget? trailingWidget, icon;
-  final void Function()? onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.only(left: 15.0, right: 27.08),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                Container(
-                  width: 37,
-                  height: 37,
-                  padding: const EdgeInsets.all(7),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: boxColor,
-                    // color: AppColors.c0FE6F3,
-                  ),
-                  child: icon ?? Assets.icons.bankStatement.svg(),
+            const SizedBox(height: 43),
+            Container(
+              padding: const EdgeInsets.only(left: 19.0),
+              child: InkWell(
+                onTap: () {
+                  // const ProfileRoute().push(context);
+                },
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Assets.images.enterPinPfp.image(
+                      width: 49,
+                      height: 49,
+                    ),
+                    const SizedBox(width: 10),
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Gregory Stones?",
+                          style: TextStyle(
+                            // fontFamily: FontFamily.lato,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15,
+                            color: AppColors.cFFFFFF,
+                          ),
+                        ),
+                        Text(
+                          "Account Details",
+                          style: TextStyle(
+                            fontFamily: FontFamily.lato,
+                            fontWeight: FontWeight.w300,
+                            fontSize: 12,
+                            color: AppColors.cFFFFFF,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(width: 70),
+                    Assets.icons.arrowRight2.svg(),
+                  ],
                 ),
-                const SizedBox(width: 5),
-                Text(
-                  // "Bank Statement",
-                  title,
-                  style: TextStyle(
-                    fontFamily: FontFamily.lato,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 15,
-                    color: AppColors.c000000,
+              ),
+            ),
+            const SizedBox(height: 25),
+            ...settingItems(context)
+                .map(
+                  (e) => SettingsItems(
+                    boxColor: e["boxColor"],
+                    title: e["title"],
+                    icon: e["icon"],
+                    trailingWidget: e["trailingWidget"],
+                    onTap: e["onTap"],
+                    desc: e["desc"],
                   ),
+                )
+                .toList(),
+            // ListView.separated(
+            //   // physics: const NeverScrollableScrollPhysics(),
+            //   itemBuilder: (context, index) {
+            //     final widgetSettingItems = settingItems(context);
+            //     return SettingsItems(
+            //       trailingWidget: widgetSettingItems[index]["trailingWidget"],
+            //       onTap: widgetSettingItems[index]["onTap"],
+            //       icon: widgetSettingItems[index]["icon"],
+            //       boxColor: widgetSettingItems[index]["boxColor"],
+            //       title: widgetSettingItems[index]["title"],
+            //       desc: widgetSettingItems[index]["desc"],
+            //     );
+            //   },
+            //   separatorBuilder: (context, index) => const SizedBox(height: 10),
+            //   // Padheight:
+            //   itemCount: settingItems(context).length,
+            // ),
+            const SizedBox(height: 46),
+            Center(
+              child: Text(
+                "Logout",
+                style: TextStyle(
+                  // fontFamily: FontFamily.lato,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 15,
+                  color: AppColors.cE91515,
                 ),
-              ],
+              ),
             ),
-            Row(
-              children: [
-                SizedBox(child: trailingWidget),
-                const SizedBox(width: 18),
-                Assets.icons.arrowRight2.svg(),
-              ],
-            ),
+            const SizedBox(height: 6),
           ],
         ),
       ),
@@ -164,6 +116,7 @@ class SettingsItems extends StatelessWidget {
 List<Map<String, dynamic>> settingItems(BuildContext context) => [
       {
         "title": "Bank Statement",
+        "desc": "Track your finances. View detailed transaction history.",
         "icon": Assets.icons.bankStatement.svg(),
         "boxColor": AppColors.c0FE6F3.withOpacity(.5),
         // "onTap": context.push("BankStatementScreen"),
@@ -174,6 +127,7 @@ List<Map<String, dynamic>> settingItems(BuildContext context) => [
       },
       {
         "title": "Saved Cards",
+        "desc": "Quick, secure payments. Store your cards for convenience.",
         "icon": Assets.icons.creditCards.svg(),
         "boxColor": AppColors.cCC1BDC.withOpacity(.5),
         "onTap": () {
@@ -183,6 +137,7 @@ List<Map<String, dynamic>> settingItems(BuildContext context) => [
       },
       {
         "title": "Beneficiary List",
+        "desc": "Easy transfers. Save your payees for swift transactions.",
         "icon": Assets.icons.benficiaryList.svg(),
         "boxColor": AppColors.cDCA61B.withOpacity(.5),
         "onTap": () {
@@ -192,6 +147,7 @@ List<Map<String, dynamic>> settingItems(BuildContext context) => [
       },
       {
         "title": "Security",
+        "desc": "Your protection. We prioritize your financial safety.",
         "icon": Assets.icons.security.svg(width: 20, height: 20),
         "boxColor": AppColors.cFFF503.withOpacity(.5),
         "onTap": () {
@@ -201,6 +157,7 @@ List<Map<String, dynamic>> settingItems(BuildContext context) => [
       },
       {
         "title": "Notifications",
+        "desc": "Stay informed. Get updates on your transactions.",
         "icon": Assets.icons.notification.svg(),
         "boxColor": AppColors.c36DC1B.withOpacity(.5),
         "trailingWidget": Text(
@@ -209,12 +166,13 @@ List<Map<String, dynamic>> settingItems(BuildContext context) => [
             fontFamily: FontFamily.lato,
             fontWeight: FontWeight.w600,
             fontSize: 15,
-            color: AppColors.c000000.withOpacity(.45),
+            color: AppColors.cFFFFFF,
           ),
         ),
       },
       {
         "title": "Language",
+        "desc": "your choice. Select your preferred language.",
         "icon": Assets.icons.language.svg(),
         "boxColor": AppColors.c1B3ADC.withOpacity(.5),
         "trailingWidget": Text(
@@ -223,12 +181,19 @@ List<Map<String, dynamic>> settingItems(BuildContext context) => [
             fontFamily: FontFamily.lato,
             fontWeight: FontWeight.w600,
             fontSize: 15,
-            color: AppColors.c000000.withOpacity(.45),
+            color: AppColors.cFFFFFF,
           ),
         ),
       },
       {
+        "title": "Account Limits",
+        "desc": "How much can you spend and recieve",
+        "icon": Assets.icons.accountLimits.svg(),
+        "boxColor": AppColors.c430590.withOpacity(.5),
+      },
+      {
         "title": "Help",
+        "desc": "Assistance at hand. Access support and FAQs.",
         "icon": Assets.icons.help.svg(),
         "boxColor": AppColors.cDC1B49.withOpacity(.5),
       },

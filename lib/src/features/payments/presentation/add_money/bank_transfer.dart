@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../../gen/assets.gen.dart';
 
-class BankTransferScreen extends StatelessWidget {
-  const BankTransferScreen({super.key});
+class AddMoneyScreen extends StatelessWidget {
+  const AddMoneyScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

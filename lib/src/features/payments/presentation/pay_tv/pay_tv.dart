@@ -7,8 +7,8 @@ import '../../../../common_widgets/custom_gradient_button.dart';
 import '../../../../common_widgets/custom_textformfield.dart';
 import '../../../../utils/colors.dart';
 
-class TvScreen extends StatelessWidget {
-  const TvScreen({super.key});
+class PayTvScreen extends StatelessWidget {
+  const PayTvScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

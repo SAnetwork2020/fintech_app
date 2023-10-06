@@ -1,12 +1,19 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:fintech_app/src/features/payments/presentation/buy_airtime/buy_airtime.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:go_router/go_router.dart';
+
+import 'package:fintech_app/src/constants/constants.dart';
 import 'package:fintech_app/src/features/authentication/presentation/login_screen.dart';
 import 'package:fintech_app/src/features/authentication/presentation/sign_up_screen.dart';
 import 'package:fintech_app/src/features/authentication/presentation/terms&condition.dart';
 import 'package:fintech_app/src/features/authentication/presentation/verify_your_email_screen.dart';
 import 'package:fintech_app/src/features/onboarding/onboarding_screen.dart';
 import 'package:fintech_app/src/features/onboarding/splash_screen.dart';
-import 'package:flutter/widgets.dart';
-import 'package:go_router/go_router.dart';
-import 'package:flutter/material.dart';
+import 'package:fintech_app/src/features/payments/presentation/cardless_withdrawal/cardless_withdrawal.dart';
+
 import '../features/authentication/presentation/email_has_been_sent.dart';
 import '../features/authentication/presentation/forgot_password.dart';
 import '../features/authentication/presentation/new_device_login.dart';
@@ -14,7 +21,23 @@ import '../features/authentication/presentation/otp_screen.dart';
 import '../features/authentication/presentation/privacy_policy.dart';
 import '../features/authentication/presentation/reset_your_password.dart';
 import '../features/authentication/presentation/sms_has_been_sent.dart';
+import '../features/home/presentation/home.dart';
+import '../features/home/presentation/home_screen.dart';
 import '../features/onboarding/existing_account_screen.dart';
+import '../features/payments/presentation/add_money/bank_transfer.dart';
+import '../features/payments/presentation/betting/betting.dart';
+import '../features/payments/presentation/buy_data/buy_data.dart';
+import '../features/payments/presentation/electricity/electricity.dart';
+import '../features/payments/presentation/get_loans/get_loans.dart';
+import '../features/payments/presentation/internet/internet.dart';
+import '../features/payments/presentation/pay_tv/pay_tv.dart';
+import '../features/payments/presentation/payments.dart';
+import '../features/payments/presentation/transaction_history/transaction_history.dart';
+import '../features/payments/presentation/transport/transport.dart';
+import '../features/settings/presentations/settings.dart';
+import '../features/support/presentations/support.dart';
+import '../features/transfer/presentations/transfer_screen.dart';
+
 part 'router.g.dart';
 
 @TypedGoRoute<SplashRoute>(
@@ -164,3 +187,218 @@ class OtpRouteRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) => const OtpScreen();
 }
+
+@TypedShellRoute<DashBoardRouteData>(
+  routes: <TypedRoute<RouteData>>[
+    TypedGoRoute<HomeRoute>(path: "/home"),
+    TypedGoRoute<PaymentRoute>(
+      path: "/payment",
+      routes: [
+        TypedGoRoute<AirtimeRoute>(path: "airtime"),
+        TypedGoRoute<DataRoute>(path: "data"),
+        TypedGoRoute<CardlessWithdrawalRoute>(path: "cardless_withdrawal"),
+        TypedGoRoute<AddMoneyRoute>(path: "add_money"),
+        TypedGoRoute<TransactionHistoryRoute>(path: "transaction_history"),
+        TypedGoRoute<ApplyForLoanRoute>(path: "apply_for_loan"),
+        TypedGoRoute<ElectricityRoute>(path: "electricity"),
+        TypedGoRoute<InternetRoute>(path: "internet"),
+        TypedGoRoute<PaytvRoute>(path: "pay_tv"),
+        TypedGoRoute<TransportRoute>(path: "transport"),
+        TypedGoRoute<BettingRoute>(path: "betting"),
+        // TypedGoRoute<CardlessWithdrawalRoute>(path: "cardless_withdrawal"),
+        // TypedGoRoute<CardlessWithdrawalRoute>(path: "cardless_withdrawal"),
+      ],
+    ),
+    TypedGoRoute<TransferRoute>(path: "/transfer"),
+    TypedGoRoute<SupportRoute>(path: "/support"),
+    TypedGoRoute<SettingsRoute>(path: "/settings"),
+  ],
+)
+class DashBoardRouteData extends ShellRouteData {
+  const DashBoardRouteData();
+  static final GlobalKey<NavigatorState> $navigatorKey = shellNavigatorKey;
+  //  static final ObjectRef<GlobalKey<NavigatorState>> $navigatorKey =
+  // shellNavigatorKey;
+  @override
+  Widget builder(
+    BuildContext context,
+    GoRouterState state,
+    Widget navigator,
+  ) {
+    return HomeScreen(child: navigator);
+  }
+}
+
+class HomeRoute extends GoRouteData {
+  const HomeRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const Home();
+  }
+}
+
+class PaymentRoute extends GoRouteData {
+  const PaymentRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const PaymentScreen();
+  }
+}
+
+class AirtimeRoute extends GoRouteData {
+  const AirtimeRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+  // static final ObjectRef<GlobalKey<NavigatorState>> $parentNavigatorKey =
+  // rootNavigatorKey;
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return AirtimeScreen(
+      key: state.pageKey,
+    );
+  }
+}
+
+class DataRoute extends GoRouteData {
+  const DataRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return DataScreen(
+      key: state.pageKey,
+    );
+  }
+}
+
+class CardlessWithdrawalRoute extends GoRouteData {
+  const CardlessWithdrawalRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return CardlessWithdrawalScreen(
+      key: state.pageKey,
+    );
+  }
+}
+
+class AddMoneyRoute extends GoRouteData {
+  const AddMoneyRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return AddMoneyScreen(
+      key: state.pageKey,
+    );
+  }
+}
+
+class TransactionHistoryRoute extends GoRouteData {
+  const TransactionHistoryRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return TransactionHistoryScreen(
+      key: state.pageKey,
+    );
+  }
+}
+
+class ApplyForLoanRoute extends GoRouteData {
+  const ApplyForLoanRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return ApplyForLoanScreen(
+      key: state.pageKey,
+    );
+  }
+}
+class ElectricityRoute extends GoRouteData {
+  const ElectricityRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return ElectricityScreen(
+      key: state.pageKey,
+    );
+  }
+}
+class InternetRoute extends GoRouteData {
+  const InternetRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return InternetScreen(
+      key: state.pageKey,
+    );
+  }
+}
+class PaytvRoute extends GoRouteData {
+  const PaytvRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return PayTvScreen(
+      key: state.pageKey,
+    );
+  }
+}
+class TransportRoute extends GoRouteData {
+  const TransportRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return TransportScreen(
+      key: state.pageKey,
+    );
+  }
+}
+class BettingRoute extends GoRouteData {
+  const BettingRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return BettingScreen(
+      key: state.pageKey,
+    );
+  }
+}
+
+class TransferRoute extends GoRouteData {
+  const TransferRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const TransferScreen();
+  }
+}
+
+class SupportRoute extends GoRouteData {
+  const SupportRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const SupportScreen();
+  }
+}
+
+class SettingsRoute extends GoRouteData {
+  const SettingsRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const SettingsScreen();
+  }
+}
+

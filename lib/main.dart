@@ -11,6 +11,7 @@ import 'package:fintech_app/src/routing/router.dart';
 import 'package:fintech_app/src/routing/router_listenable.dart';
 import 'package:fintech_app/src/utils/state_logger.dart';
 
+import 'src/constants/constants.dart';
 import 'src/utils/colors.dart';
 
 void main() {
@@ -30,10 +31,13 @@ class MyApp extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // final goRouter = ref.watch(goRouterProvider);
     final notifier = ref.watch(routerListenableProvider.notifier);
-    final key = useRef(GlobalKey<NavigatorState>(debugLabel: "routerKey"));
+    // final key = useRef(GlobalKey<NavigatorState>(debugLabel: "routerKey"));
+    // final key = rootNavigatorKey;
+    // final shellNavigatorKey = useRef(GlobalKey<NavigatorState>(debugLabel: "shellRouterKey"));
     final router = useMemoized(
       () => GoRouter(
-        navigatorKey: key.value,
+        // navigatorKey: rootNavigatorKey.value,
+        navigatorKey: rootNavigatorKey,
         refreshListenable: notifier,
         initialLocation: const SplashRoute().location,
         debugLogDiagnostics: true,
@@ -45,9 +49,9 @@ class MyApp extends HookConsumerWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // useMaterial3: true,
+        useMaterial3: true,
         fontFamily: FontFamily.poppins,
-        scaffoldBackgroundColor: AppColors.cD9D9D9,
+        scaffoldBackgroundColor: Colors.transparent,
       ),
       builder: (context, child) => ResponsiveBreakpoints.builder(
         child: child!,

@@ -29,6 +29,10 @@ class $AssetsIconsGen {
   SvgGenImage get unitedStatesOfAmerica =>
       const SvgGenImage('assets/icons/United States Of America.svg');
 
+  /// File path: assets/icons/account_limits.svg
+  SvgGenImage get accountLimits =>
+      const SvgGenImage('assets/icons/account_limits.svg');
+
   /// File path: assets/icons/add-money.svg
   SvgGenImage get addMoney => const SvgGenImage('assets/icons/add-money.svg');
 
@@ -189,6 +193,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/key.svg
   SvgGenImage get key => const SvgGenImage('assets/icons/key.svg');
 
+  /// File path: assets/icons/keyboard_right.svg
+  SvgGenImage get keyboardRight =>
+      const SvgGenImage('assets/icons/keyboard_right.svg');
+
   /// File path: assets/icons/language.svg
   SvgGenImage get language => const SvgGenImage('assets/icons/language.svg');
 
@@ -325,6 +333,7 @@ class $AssetsIconsGen {
         group,
         unitedKingdom,
         unitedStatesOfAmerica,
+        accountLimits,
         addMoney,
         addNew,
         add,
@@ -372,6 +381,7 @@ class $AssetsIconsGen {
         internetBills2,
         investments,
         key,
+        keyboardRight,
         language,
         lifestyle,
         loanIcon,
@@ -420,6 +430,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/PAYFLEX.png
   AssetGenImage get payflex => const AssetGenImage('assets/images/PAYFLEX.png');
 
+  /// File path: assets/images/accessbank.png
+  AssetGenImage get accessbank =>
+      const AssetGenImage('assets/images/accessbank.png');
+
   /// File path: assets/images/auth_bg.png
   AssetGenImage get authBg => const AssetGenImage('assets/images/auth_bg.png');
 
@@ -440,6 +454,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/face-id.png
   AssetGenImage get faceId => const AssetGenImage('assets/images/face-id.png');
 
+  /// File path: assets/images/firstbank.png
+  AssetGenImage get firstbank =>
+      const AssetGenImage('assets/images/firstbank.png');
+
   /// File path: assets/images/forgot_password.png
   AssetGenImage get forgotPassword =>
       const AssetGenImage('assets/images/forgot_password.png');
@@ -453,6 +471,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/gregory-stones.png
   AssetGenImage get gregoryStones =>
       const AssetGenImage('assets/images/gregory-stones.png');
+
+  /// File path: assets/images/gtbank.png
+  AssetGenImage get gtbank => const AssetGenImage('assets/images/gtbank.png');
 
   /// File path: assets/images/history_bg.png
   AssetGenImage get historyBg =>
@@ -494,6 +515,10 @@ class $AssetsImagesGen {
   AssetGenImage get paymentScreenBg =>
       const AssetGenImage('assets/images/payment_screen_bg.png');
 
+  /// File path: assets/images/ranking_star1.png
+  AssetGenImage get rankingStar1 =>
+      const AssetGenImage('assets/images/ranking_star1.png');
+
   /// File path: assets/images/register_bg.png
   AssetGenImage get registerBg =>
       const AssetGenImage('assets/images/register_bg.png');
@@ -501,6 +526,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/reset_password.png
   AssetGenImage get resetPassword =>
       const AssetGenImage('assets/images/reset_password.png');
+
+  /// File path: assets/images/send_icon.png
+  AssetGenImage get sendIcon =>
+      const AssetGenImage('assets/images/send_icon.png');
 
   /// File path: assets/images/sms_has_been_sent.png
   AssetGenImage get smsHasBeenSent =>
@@ -525,16 +554,19 @@ class $AssetsImagesGen {
   /// List of all assets
   List<AssetGenImage> get values => [
         payflex,
+        accessbank,
         authBg,
         cardBg,
         chart,
         emailSent,
         enterPinPfp,
         faceId,
+        firstbank,
         forgotPassword,
         glo,
         graph,
         gregoryStones,
+        gtbank,
         historyBg,
         homeScreen,
         jonathanDoe,
@@ -545,8 +577,10 @@ class $AssetsImagesGen {
         onboardingPix3,
         onboardingPix4,
         paymentScreenBg,
+        rankingStar1,
         registerBg,
         resetPassword,
+        sendIcon,
         smsHasBeenSent,
         splashBg,
         supportBg,

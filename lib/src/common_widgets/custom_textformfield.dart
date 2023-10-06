@@ -25,6 +25,7 @@ class CustomTextFormField extends StatelessWidget {
     this.suffixIcon,
     this.prefixIcon,
     this.validator,
+    this.contentPadding,
   });
   final String? hintText;
   final InputBorder? inputBorder;
@@ -39,11 +40,12 @@ class CustomTextFormField extends StatelessWidget {
   final Color? fillColor;
   final Widget? suffixIcon, prefixIcon;
   final String? Function(String?)? validator;
+  final EdgeInsetsGeometry? contentPadding;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: width ?? 325,
-      height: height ?? 50,
+      // height: height ?? 50,
       child: TextFormField(
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: validator,
@@ -64,6 +66,8 @@ class CustomTextFormField extends StatelessWidget {
         inputFormatters: inputFormatters,
         onChanged: onChanged,
         decoration: InputDecoration(
+          contentPadding: contentPadding ??
+              const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
           fillColor: fillColor,
           filled: filled,
           suffixIcon: suffixIcon,

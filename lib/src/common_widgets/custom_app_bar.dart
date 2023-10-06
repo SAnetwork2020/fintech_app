@@ -64,7 +64,7 @@ class CustomAppBars extends StatelessWidget {
           style: TextStyle(
             fontWeight: FontWeight.w600,
             fontSize: 15,
-            color: AppColors.c000000,
+            color: AppColors.cFFFFFF,
           ),
         ),
         const Spacer(),

@@ -1,14 +1,72 @@
-import 'package:fintech_app/src/features/payments/presentation/payments.dart';
-import 'package:fintech_app/src/features/settings/presentations/settings.dart';
-import 'package:fintech_app/src/features/support/presentations/support.dart';
-import 'package:fintech_app/src/features/transfer/presentations/transfer_other_bank_screen.dart';
 import 'package:fintech_app/src/utils/colors.dart';
 import 'package:flutter/material.dart';
 import '../../../../gen/assets.gen.dart';
-import '../../../common_widgets/custom_app_bar.dart';
+import '../../../../gen/fonts.gen.dart';
 import '../../../common_widgets/navigation_bar.dart';
-import 'home.dart';
 import '../widgets/navigation_drawer.dart';
+import 'nav_bar_test.dart';
+
+// class HomeScreen extends StatefulWidget {
+//   const HomeScreen({super.key, required this.child});
+//   final Widget child;
+
+//   @override
+//   State<HomeScreen> createState() => _HomeScreenState();
+// }
+
+// class _HomeScreenState extends State<HomeScreen> {
+//   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+//   int currentIndex = 0;
+//   List<String> titles = [
+//     "Home",
+//     "Payments",
+//     "Transfer",
+//     "FAQ’S",
+//     "Settings",
+//   ];
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       decoration: BoxDecoration(
+//         color: Colors.white,
+//         image: DecorationImage(
+//           fit: BoxFit.fill,
+//           image: Assets.images.homeScreen.provider(),
+//           // alignment: Alignment.topLeft,
+//         ),
+//       ),
+//       child: Scaffold(
+//         key: scaffoldKey,
+//         backgroundColor: Colors.transparent,
+//         // backgroundColor: AppColors.cD9D9D9,
+//         drawer: navigationDrawer(context),
+//         body: widget.child,
+//         // IndexedStack(
+//         //   clipBehavior: Clip.none,
+//         //   // sizing: StackFit.expand,
+//         //   index: currentIndex,
+//         //   children: const [
+//         //     Home(),
+//         //     PaymentScreen(),
+//         //     TransferScreen(),
+//         //     SupportScreen(),
+//         //     SettingsScreen(),
+//         //   ],
+//         // ),
+//         bottomNavigationBar: 
+//         navigationBar(
+//           (onTapValue) {
+//             setState(() {
+//               currentIndex = onTapValue;
+//             });
+//           },
+//           currentIndex,
+//         ),
+//       ),
+//     );
+//   }
+// }
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required this.child});
@@ -19,20 +77,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   int currentIndex = 0;
   List<String> titles = [
     "Home",
-    "Payments",
+    "Payment",
     "Transfer",
-    "FAQ’S",
+    "FAQs",
     "Settings",
   ];
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        // color: Colors.white,
         image: DecorationImage(
           fit: BoxFit.fill,
           image: Assets.images.homeScreen.provider(),
@@ -40,29 +97,60 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       child: Scaffold(
-        key: scaffoldKey,
         backgroundColor: Colors.transparent,
-        // backgroundColor: AppColors.cD9D9D9,
         drawer: navigationDrawer(context),
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          centerTitle: true,
+          titleTextStyle: TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 15,
+            color: AppColors.cFFFFFF,
+          ),
+          title: Text.rich(
+            TextSpan(
+              text: titles[currentIndex],
+              children: currentIndex == 3
+                  ? [
+                      TextSpan(
+                        text: "\nFrequently Asked Questions",
+                        style: TextStyle(
+                          fontFamily: FontFamily.lato,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 10,
+                          color: AppColors.cFFFFFF,
+                        ),
+                      ),
+                    ]
+                  : null,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ),
         body: widget.child,
-        // IndexedStack(
-        //   clipBehavior: Clip.none,
-        //   // sizing: StackFit.expand,
-        //   index: currentIndex,
-        //   children: const [
-        //     Home(),
-        //     PaymentScreen(),
-        //     TransferScreen(),
-        //     SupportScreen(),
-        //     SettingsScreen(),
-        //   ],
-        // ),
-        bottomNavigationBar: 
-        navigationBar(
-          (onTapValue) {
+        bottomNavigationBar: navigationBar(
+          (int index) {
             setState(() {
-              currentIndex = onTapValue;
+              currentIndex = index;
             });
+            switch (index) {
+              case 0:
+                const HomeRoute().go(context);
+                break;
+              case 1:
+                const PaymentRoute().go(context);
+                break;
+              case 2:
+                const TransferRoute().go(context);
+                break;
+              case 3:
+                const SupportRoute().go(context);
+                break;
+              case 4:
+                const SettingsRoute().go(context);
+                break;
+              default:
+            }
           },
           currentIndex,
         ),
