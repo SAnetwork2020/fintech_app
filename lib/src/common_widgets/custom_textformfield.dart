@@ -27,17 +27,23 @@ class CustomTextFormField extends StatelessWidget {
     this.validator,
     this.contentPadding,
     this.hintStyle,
+    this.enableInteractiveSelection, this.onTap,
   });
   final String? hintText;
   final TextStyle? hintStyle;
   final InputBorder? inputBorder;
   final double? width, height;
   final TextAlign? textAlign;
-  final bool? autofocus, obscureText, readOnly, filled;
+  final bool? autofocus,
+      obscureText,
+      readOnly,
+      filled,
+      enableInteractiveSelection;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
   final FocusNode? focusNode;
   final void Function(String)? onChanged;
+  final void Function()? onTap;
   final TextEditingController? controller;
   final Color? fillColor;
   final Widget? suffixIcon, prefixIcon;
@@ -49,6 +55,9 @@ class CustomTextFormField extends StatelessWidget {
       width: width ?? 325,
       // height: height ?? 50,
       child: TextFormField(
+        onTap: onTap,
+        onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus(),
+        enableInteractiveSelection: enableInteractiveSelection,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: validator,
         readOnly: readOnly ?? false,

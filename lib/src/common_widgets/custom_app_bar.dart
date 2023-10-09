@@ -52,15 +52,17 @@ class CustomAppBars extends StatelessWidget {
     return Row(
       children: [
         IconButton(
-          splashRadius: 20,
-          onPressed: () {
-            context.pop();
-          },
-          icon: const Icon(
-            Icons.arrow_back_rounded,
-            color: Colors.white,
-          ),
-        ),
+            splashRadius: 20,
+            onPressed: () {
+              context.pop();
+            },
+            icon: Assets.icons.backArrow.svg()
+            //  const Icon(
+            //   Icons.arrow_back_rounded,
+            //   size: 24.6,
+            //   color: Colors.white,
+            // ),
+            ),
         const Spacer(),
         Text(
           title,

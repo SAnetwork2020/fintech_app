@@ -565,9 +565,16 @@ class $AssetsImagesGen {
   AssetGenImage get supportBg =>
       const AssetGenImage('assets/images/support_bg.png');
 
+  /// File path: assets/images/swift.png
+  AssetGenImage get swift => const AssetGenImage('assets/images/swift.png');
+
   /// File path: assets/images/verify_email.png
   AssetGenImage get verifyEmail =>
       const AssetGenImage('assets/images/verify_email.png');
+
+  /// File path: assets/images/visafone.png
+  AssetGenImage get visafone =>
+      const AssetGenImage('assets/images/visafone.png');
 
   /// File path: assets/images/welcome_back.png
   AssetGenImage get welcomeBack =>
@@ -611,7 +618,9 @@ class $AssetsImagesGen {
         smsHasBeenSent,
         splashBg,
         supportBg,
+        swift,
         verifyEmail,
+        visafone,
         welcomeBack
       ];
 }

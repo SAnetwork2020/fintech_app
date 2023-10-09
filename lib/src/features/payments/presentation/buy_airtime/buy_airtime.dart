@@ -6,10 +6,17 @@ import '../../../../common_widgets/custom_app_bar.dart';
 import '../../../../common_widgets/custom_gradient_button.dart';
 import '../../../../common_widgets/custom_textformfield.dart';
 import '../../../../utils/colors.dart';
+import 'widget/select_network.dart';
 
-class AirtimeScreen extends StatelessWidget {
+class AirtimeScreen extends StatefulWidget {
   const AirtimeScreen({super.key});
 
+  @override
+  State<AirtimeScreen> createState() => _AirtimeScreenState();
+}
+
+class _AirtimeScreenState extends State<AirtimeScreen> {
+  String? chooseNetwork;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -203,50 +210,52 @@ class AirtimeScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 5),
-                    CustomTextFormField(
-                      width: 170,
-                      readOnly: true,
-                      fillColor: AppColors.cFFFFFF,
-                      // suffixIcon: Icon(Icons.keyboard_arrow_down_rounded),
-                      suffixIcon: Padding(
-                        padding: const EdgeInsets.all(18.0),
-                        child: InkWell(
-                            onTap: () {
-                              showModalBottomSheet(
-                                context: context,
-                                isScrollControlled: true,
-                                builder: (context) {
-                                  return Container(
-                                    decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        fit: BoxFit.fill,
-                                        image:
-                                            Assets.images.homeScreen.provider(),
-                                      ),
-                                    ),
-                                    child: Column(
-                                      children: [
-                                        SizedBox(height: 53),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(left: 8.0),
-                                          child: const CustomAppBars(
-                                              title: "Network"),
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                },
-                              );
-                            },
-                            child: Assets.icons.arrowDropdown.svg()),
-                      ),
-
-                      hintText: 'Choose Network',
-                      hintStyle: TextStyle(
-                        color: AppColors.c000000.withOpacity(.6),
-                        fontWeight: FontWeight.w500,
-                        fontSize: 12,
+                    InkWell(
+                      onTap: () async {
+                        chooseNetwork = await showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          builder: (context) {
+                            return const SelectNetworkWidget();
+                          },
+                        );
+                        setState(() {});
+                      },
+                      child: Container(
+                        width: 170,
+                        height: 45,
+                        padding: EdgeInsets.only(left: 18, right: 12),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: AppColors.c1DC1B4),
+                          borderRadius: BorderRadius.circular(12),
+                          color: AppColors.cFFFFFF,
+                          boxShadow: [
+                            BoxShadow(
+                              offset: Offset(0, 4),
+                              blurRadius: 2,
+                              spreadRadius: 0,
+                              color: AppColors.c000000.withOpacity(.25),
+                            ),
+                          ],
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              chooseNetwork ?? 'Choose Network',
+                              style: TextStyle(
+                                color: AppColors.c000000.withOpacity(.6),
+                                fontWeight: FontWeight.w500,
+                                fontSize: 12,
+                              ),
+                            ),
+                            Assets.icons.arrowDropdown.svg(
+                                colorFilter: ColorFilter.mode(
+                              AppColors.c000000.withOpacity(.6),
+                              BlendMode.srcIn,
+                            )),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -271,6 +280,7 @@ class AirtimeScreen extends StatelessWidget {
                     CustomTextFormField(
                       width: 350,
                       hintText: 'Enter Amount',
+                      keyboardType: TextInputType.number,
                       fillColor: AppColors.cFFFFFF,
                       hintStyle: TextStyle(
                         fontFamily: FontFamily.lato,
@@ -301,6 +311,7 @@ class AirtimeScreen extends StatelessWidget {
                     CustomTextFormField(
                       width: 350,
                       hintText: 'Enter Phone Number',
+                      keyboardType: TextInputType.number,
                       fillColor: AppColors.cFFFFFF,
                       hintStyle: TextStyle(
                         fontFamily: FontFamily.lato,
