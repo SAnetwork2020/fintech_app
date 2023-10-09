@@ -54,7 +54,8 @@ class TermsAndConditionsScreen extends StatelessWidget {
                   CustomGradientButton(
                     title: "Accept and Continue",
                     onPressed: () {
-                      context.go(const PrivacyPolicyRoute().location);
+                      // context.go(const PrivacyPolicyRoute().location);
+                      const PrivacyPolicyRoute().push(context);
                     },
                   ),
                   const SizedBox(height: 40),

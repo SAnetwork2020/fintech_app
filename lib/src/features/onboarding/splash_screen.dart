@@ -10,62 +10,70 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Positioned(bottom: 12, child: Assets.images.splashBg.image()),
-        Positioned(
-            top: 351,
-            width: 391,
-            height: 150,
-            child: Assets.images.payflex.image()),
-        Positioned(right: 0, top: 15, child: Assets.images.splashBg.image()),
-        Scaffold(
-          backgroundColor: Colors.transparent,
-          // backgroundColor: AppColors.c050017,
-          body: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                width: 391,
-                height: 150,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Assets.icons.logo.svg(
-                      height: 70,
-                      width: 70,
-                    ),
-                    const SizedBox(width: 20),
-                    Text(
-                      "PAYFLEX",
-                      style: TextStyle(
-                        fontSize: 50,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.c1DC1B4,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              // Stack(
-              //   children: [
-              //     Positioned(bottom: 12, child: Assets.images.splashBg.image()),
-              //     Positioned(
-              //         top: 351,
-              //         width: 391,
-              //         height: 150,
-              //         child: Assets.images.payflex.image()),
-              //     Positioned(right: 0, top: 15, child: Assets.images.splashBg.image()),
-              // Positioned(
-              //   top: 351,
-              //   // width: 391,
-              //   height: 150,
-              //   child:
-              // ),
-            ],
-          ),
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: Assets.images.icLauncher.provider(),
         ),
-      ],
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+          // body: Stack(
+          //   children: [
+          //     Positioned(
+          //       // bottom: 12,
+          //       top: 215,
+          //       left: 6,
+          //       width: 150,
+          //       height: 500,
+          //       child: Assets.images.splashBg.image(),
+          //     ),
+          //     Positioned(
+          //       // top: 15,
+          //       bottom: 212,
+          //       right: 6,
+          //       width: 150,
+          //       height: 500,
+          //       child: Assets.images.splashBg.image(),
+          //     ),
+          //     Positioned.fill(
+          //         right: 0, left: 0, child: Assets.images.payflex.image()),
+
+          //     // Align(
+          //     //     alignment: Alignment.center,
+          //     //     child: Assets.images.splashBg.image()),
+          //     Column(
+          //       mainAxisAlignment: MainAxisAlignment.center,
+          //       children: [
+          //         SizedBox(
+          //           width: 391,
+          //           height: 150,
+          //           child: Row(
+          //             mainAxisAlignment: MainAxisAlignment.center,
+          //             children: [
+          //               Assets.icons.logo.svg(
+          //                 height: 70,
+          //                 width: 70,
+          //               ),
+          //               const SizedBox(width: 20),
+          //               Text(
+          //                 "PAYFLEX",
+          //                 style: TextStyle(
+          //                   fontSize: 50,
+          //                   fontWeight: FontWeight.w400,
+          //                   color: AppColors.c1DC1B4,
+          //                 ),
+          //               ),
+          //             ],
+          //           ),
+          //         ),
+          //       ],
+          //     ),
+          //     // ),
+          //   ],
+          // ),
+          ),
     );
   }
 }

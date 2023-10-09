@@ -80,6 +80,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/back-arrow.svg
   SvgGenImage get backArrow => const SvgGenImage('assets/icons/back-arrow.svg');
 
+  /// File path: assets/icons/back_arrow2.svg
+  SvgGenImage get backArrow2 =>
+      const SvgGenImage('assets/icons/back_arrow2.svg');
+
   /// File path: assets/icons/bank-outline.svg
   SvgGenImage get bankOutline =>
       const SvgGenImage('assets/icons/bank-outline.svg');
@@ -348,6 +352,7 @@ class $AssetsIconsGen {
         arrowRight2,
         arrowUp,
         backArrow,
+        backArrow2,
         bankOutline,
         bankPayment,
         bankStatement,
@@ -434,6 +439,9 @@ class $AssetsImagesGen {
   AssetGenImage get accessbank =>
       const AssetGenImage('assets/images/accessbank.png');
 
+  /// File path: assets/images/airtel.png
+  AssetGenImage get airtel => const AssetGenImage('assets/images/airtel.png');
+
   /// File path: assets/images/auth_bg.png
   AssetGenImage get authBg => const AssetGenImage('assets/images/auth_bg.png');
 
@@ -465,6 +473,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/glo.png
   AssetGenImage get glo => const AssetGenImage('assets/images/glo.png');
 
+  /// File path: assets/images/glo_b.png
+  AssetGenImage get gloB => const AssetGenImage('assets/images/glo_b.png');
+
   /// File path: assets/images/graph.png
   AssetGenImage get graph => const AssetGenImage('assets/images/graph.png');
 
@@ -483,6 +494,10 @@ class $AssetsImagesGen {
   AssetGenImage get homeScreen =>
       const AssetGenImage('assets/images/home_screen.png');
 
+  /// File path: assets/images/ic_launcher.png
+  AssetGenImage get icLauncher =>
+      const AssetGenImage('assets/images/ic_launcher.png');
+
   /// File path: assets/images/jonathan_doe.png
   AssetGenImage get jonathanDoe =>
       const AssetGenImage('assets/images/jonathan_doe.png');
@@ -490,6 +505,13 @@ class $AssetsImagesGen {
   /// File path: assets/images/login_view.png
   AssetGenImage get loginView =>
       const AssetGenImage('assets/images/login_view.png');
+
+  /// File path: assets/images/mtn.png
+  AssetGenImage get mtn => const AssetGenImage('assets/images/mtn.png');
+
+  /// File path: assets/images/nine_mobile.png
+  AssetGenImage get nineMobile =>
+      const AssetGenImage('assets/images/nine_mobile.png');
 
   /// File path: assets/images/onboarding_bg.png
   AssetGenImage get onboardingBg =>
@@ -555,6 +577,7 @@ class $AssetsImagesGen {
   List<AssetGenImage> get values => [
         payflex,
         accessbank,
+        airtel,
         authBg,
         cardBg,
         chart,
@@ -564,13 +587,17 @@ class $AssetsImagesGen {
         firstbank,
         forgotPassword,
         glo,
+        gloB,
         graph,
         gregoryStones,
         gtbank,
         historyBg,
         homeScreen,
+        icLauncher,
         jonathanDoe,
         loginView,
+        mtn,
+        nineMobile,
         onboardingBg,
         onboardingPix,
         onboardingPix2,

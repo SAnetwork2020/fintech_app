@@ -109,7 +109,7 @@ class TransactionHistoryScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Yesterday",
+                            "Today",
                             style: TextStyle(
                               color: AppColors.c000000,
                               fontFamily: FontFamily.lato,
@@ -134,7 +134,8 @@ class TransactionHistoryScreen extends StatelessWidget {
                         TransactionHistoryData transaction =
                             transactionsForDate[subIndex];
                         return Container(
-                          padding: const EdgeInsets.only(left: 17, right: 19.54),
+                          padding:
+                              const EdgeInsets.only(left: 17, right: 19.54),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -149,7 +150,8 @@ class TransactionHistoryScreen extends StatelessWidget {
                                   const SizedBox(width: 14.17),
                                   Column(
                                     mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         "Balance top up",
@@ -248,7 +250,7 @@ class HistoryCategories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        icon.svg(),
+        icon.svg(colorFilter: ColorFilter.mode(AppColors.c1DC1B4, BlendMode.srcIn,),),
         const SizedBox(width: 10),
         Text(
           title,

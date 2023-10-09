@@ -49,7 +49,7 @@ class MyApp extends HookConsumerWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        useMaterial3: true,
+        // useMaterial3: true,
         fontFamily: FontFamily.poppins,
         scaffoldBackgroundColor: Colors.transparent,
       ),

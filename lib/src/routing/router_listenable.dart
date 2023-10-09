@@ -29,7 +29,8 @@ class RouterListenable extends _$RouterListenable implements Listenable {
 
   String? redirect(BuildContext context, GoRouterState state) {
     if (this.state.isLoading || this.state.hasError) return null;
-    final isSplash = state.location == const SplashRoute().location;
+    final isSplash = state.matchedLocation == const SplashRoute().location;
+    // final isSplash = state.location == const SplashRoute().location;
     _onboardingShown = _prefs.getBool(onboarding);
     String? redirectLocation;
     // final isSplash = state.location == SplashRoute.path;

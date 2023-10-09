@@ -11,6 +11,7 @@ List<RouteBase> get $appRoutes => [
       $onboardingRoute,
       $existingAccountRoute,
       $dashBoardRouteData,
+      $successRoute,
     ];
 
 RouteBase get $splashRoute => GoRouteData.$route(
@@ -352,58 +353,58 @@ RouteBase get $dashBoardRouteData => ShellRouteData.$route(
           routes: [
             GoRouteData.$route(
               path: 'airtime',
-              factory: $AirtimeRouteExtension._fromState,
               parentNavigatorKey: AirtimeRoute.$parentNavigatorKey,
+              factory: $AirtimeRouteExtension._fromState,
             ),
             GoRouteData.$route(
               path: 'data',
-              factory: $DataRouteExtension._fromState,
               parentNavigatorKey: DataRoute.$parentNavigatorKey,
+              factory: $DataRouteExtension._fromState,
             ),
             GoRouteData.$route(
               path: 'cardless_withdrawal',
-              factory: $CardlessWithdrawalRouteExtension._fromState,
               parentNavigatorKey: CardlessWithdrawalRoute.$parentNavigatorKey,
+              factory: $CardlessWithdrawalRouteExtension._fromState,
             ),
             GoRouteData.$route(
               path: 'add_money',
-              factory: $AddMoneyRouteExtension._fromState,
               parentNavigatorKey: AddMoneyRoute.$parentNavigatorKey,
+              factory: $AddMoneyRouteExtension._fromState,
             ),
             GoRouteData.$route(
               path: 'transaction_history',
-              factory: $TransactionHistoryRouteExtension._fromState,
               parentNavigatorKey: TransactionHistoryRoute.$parentNavigatorKey,
+              factory: $TransactionHistoryRouteExtension._fromState,
             ),
             GoRouteData.$route(
               path: 'apply_for_loan',
-              factory: $ApplyForLoanRouteExtension._fromState,
               parentNavigatorKey: ApplyForLoanRoute.$parentNavigatorKey,
+              factory: $ApplyForLoanRouteExtension._fromState,
             ),
             GoRouteData.$route(
               path: 'electricity',
-              factory: $ElectricityRouteExtension._fromState,
               parentNavigatorKey: ElectricityRoute.$parentNavigatorKey,
+              factory: $ElectricityRouteExtension._fromState,
             ),
             GoRouteData.$route(
               path: 'internet',
-              factory: $InternetRouteExtension._fromState,
               parentNavigatorKey: InternetRoute.$parentNavigatorKey,
+              factory: $InternetRouteExtension._fromState,
             ),
             GoRouteData.$route(
               path: 'pay_tv',
-              factory: $PaytvRouteExtension._fromState,
               parentNavigatorKey: PaytvRoute.$parentNavigatorKey,
+              factory: $PaytvRouteExtension._fromState,
             ),
             GoRouteData.$route(
               path: 'transport',
-              factory: $TransportRouteExtension._fromState,
               parentNavigatorKey: TransportRoute.$parentNavigatorKey,
+              factory: $TransportRouteExtension._fromState,
             ),
             GoRouteData.$route(
               path: 'betting',
-              factory: $BettingRouteExtension._fromState,
               parentNavigatorKey: BettingRoute.$parentNavigatorKey,
+              factory: $BettingRouteExtension._fromState,
             ),
           ],
         ),
@@ -692,6 +693,38 @@ extension $SettingsRouteExtension on SettingsRoute {
 
   String get location => GoRouteData.$location(
         '/settings',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $successRoute => GoRouteData.$route(
+      path: '/success',
+      name: 'success',
+      factory: $SuccessRouteExtension._fromState,
+    );
+
+extension $SuccessRouteExtension on SuccessRoute {
+  static SuccessRoute _fromState(GoRouterState state) => SuccessRoute(
+        buttonText: state.uri.queryParameters['button-text'],
+        msg: state.uri.queryParameters['msg']!,
+        address: state.uri.queryParameters['address']!,
+      );
+
+  String get location => GoRouteData.$location(
+        '/success',
+        queryParams: {
+          if (buttonText != null) 'button-text': buttonText,
+          'msg': msg,
+          'address': address,
+        },
       );
 
   void go(BuildContext context) => context.go(location);

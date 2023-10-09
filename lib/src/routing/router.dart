@@ -1,17 +1,18 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:fintech_app/src/features/payments/presentation/buy_airtime/buy_airtime.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:fintech_app/src/constants/constants.dart';
+import 'package:fintech_app/src/constants/success_screen.dart';
 import 'package:fintech_app/src/features/authentication/presentation/login_screen.dart';
 import 'package:fintech_app/src/features/authentication/presentation/sign_up_screen.dart';
 import 'package:fintech_app/src/features/authentication/presentation/terms&condition.dart';
 import 'package:fintech_app/src/features/authentication/presentation/verify_your_email_screen.dart';
 import 'package:fintech_app/src/features/onboarding/onboarding_screen.dart';
 import 'package:fintech_app/src/features/onboarding/splash_screen.dart';
+import 'package:fintech_app/src/features/payments/presentation/buy_airtime/buy_airtime.dart';
 import 'package:fintech_app/src/features/payments/presentation/cardless_withdrawal/cardless_withdrawal.dart';
 
 import '../features/authentication/presentation/email_has_been_sent.dart';
@@ -319,6 +320,7 @@ class ApplyForLoanRoute extends GoRouteData {
     );
   }
 }
+
 class ElectricityRoute extends GoRouteData {
   const ElectricityRoute();
   static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
@@ -330,6 +332,7 @@ class ElectricityRoute extends GoRouteData {
     );
   }
 }
+
 class InternetRoute extends GoRouteData {
   const InternetRoute();
   static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
@@ -341,6 +344,7 @@ class InternetRoute extends GoRouteData {
     );
   }
 }
+
 class PaytvRoute extends GoRouteData {
   const PaytvRoute();
   static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
@@ -352,6 +356,7 @@ class PaytvRoute extends GoRouteData {
     );
   }
 }
+
 class TransportRoute extends GoRouteData {
   const TransportRoute();
   static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
@@ -363,6 +368,7 @@ class TransportRoute extends GoRouteData {
     );
   }
 }
+
 class BettingRoute extends GoRouteData {
   const BettingRoute();
   static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
@@ -402,3 +408,34 @@ class SettingsRoute extends GoRouteData {
   }
 }
 
+@TypedGoRoute<SuccessRoute>(
+  path: "/success",
+  name: "success",
+)
+class SuccessRoute extends GoRouteData {
+  SuccessRoute(
+     {
+    this.buttonText,
+    required this.msg,
+    required this.address,
+  });
+  // const path = "/success";
+  final String msg;
+  final String? buttonText;
+  final String address;
+  @override
+  Widget build(BuildContext context, GoRouterState state) => SuccessScreen(
+        msg: msg,
+        location: address,
+        buttonText: buttonText,
+      );
+}
+
+class RouteHelper {
+  final String msg;
+  final String? location;
+  RouteHelper({
+    required this.msg,
+    this.location,
+  });
+}

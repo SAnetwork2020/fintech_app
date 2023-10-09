@@ -52,7 +52,7 @@ class _VerifyYourEmailScreenState extends State<VerifyYourEmailScreen> {
                   ],
                 ),
               ),
-              const SizedBox(height: 116),
+              const SizedBox(height: 75.56),
               Assets.images.verifyEmail.image(),
               const SizedBox(height: 30),
               Text(

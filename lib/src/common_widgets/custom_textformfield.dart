@@ -26,8 +26,10 @@ class CustomTextFormField extends StatelessWidget {
     this.prefixIcon,
     this.validator,
     this.contentPadding,
+    this.hintStyle,
   });
   final String? hintText;
+  final TextStyle? hintStyle;
   final InputBorder? inputBorder;
   final double? width, height;
   final TextAlign? textAlign;
@@ -69,16 +71,17 @@ class CustomTextFormField extends StatelessWidget {
           contentPadding: contentPadding ??
               const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
           fillColor: fillColor,
-          filled: filled,
+          filled: filled ?? true,
           suffixIcon: suffixIcon,
           prefixIcon: prefixIcon,
           hintText: hintText,
-          hintStyle: TextStyle(
-              fontFamily: FontFamily.lato,
-              fontWeight: FontWeight.w400,
-              fontSize: 12,
-              letterSpacing: 0.72,
-              color: AppColors.c000000.withOpacity(.8)),
+          hintStyle: hintStyle ??
+              TextStyle(
+                  fontFamily: FontFamily.lato,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 12,
+                  letterSpacing: 0.72,
+                  color: AppColors.c000000.withOpacity(.8)),
           border: inputBorder ??
               OutlineInputBorder(
                 borderSide: BorderSide(

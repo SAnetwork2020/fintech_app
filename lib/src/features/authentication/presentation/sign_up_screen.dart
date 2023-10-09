@@ -18,6 +18,9 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   bool showPassword = false;
+  bool showConfirmPassword = false;
+  bool showPin = false;
+  bool showConfirmPin = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -87,7 +90,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   validator: (value) {
                     if (value!.isEmpty) return "Please Enter Password";
                   },
-                  obscureText: showPassword,
+                  obscureText: !showPassword,
                   prefixIcon: Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: Assets.icons.lockOutline.svg(
@@ -114,9 +117,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 const SizedBox(height: 25),
                 CustomTextFormField(
                   validator: (value) {
-                    if (value!.isEmpty) return "Please Enter Password";
+                    if (value!.isEmpty) return "Please Enter Confirm Password";
                   },
-                  obscureText: showPassword,
+                  obscureText: !showConfirmPassword,
                   prefixIcon: Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: Assets.icons.lockOutline.svg(
@@ -127,45 +130,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                   suffixIcon: IconButton(
-                    icon: showPassword
+                    icon: showConfirmPassword
                         ? Assets.icons.eyeOpen.svg()
                         : Assets.icons.eyeClose.svg(),
                     onPressed: () {
                       setState(() {
-                        showPassword = !showPassword;
+                        showConfirmPassword = !showConfirmPassword;
                       });
                     },
                   ),
                   hintText: "Enter Password",
-                  filled: true,
-                  fillColor: AppColors.cFFFFFF,
-                ),
-                const SizedBox(height: 25),
-                CustomTextFormField(
-                  validator: (value) {
-                    if (value!.isEmpty) return "Enter Password";
-                  },
-                  obscureText: showPassword,
-                  prefixIcon: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Assets.icons.lockOutline.svg(
-                      colorFilter: ColorFilter.mode(
-                        AppColors.c000000.withOpacity(.6),
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                  ),
-                  suffixIcon: IconButton(
-                    icon: showPassword
-                        ? Assets.icons.eyeOpen.svg()
-                        : Assets.icons.eyeClose.svg(),
-                    onPressed: () {
-                      setState(() {
-                        showPassword = !showPassword;
-                      });
-                    },
-                  ),
-                  hintText: "Confirm Password",
                   filled: true,
                   fillColor: AppColors.cFFFFFF,
                 ),
@@ -174,7 +148,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   validator: (value) {
                     if (value!.isEmpty) return "Enter PIN";
                   },
-                  obscureText: showPassword,
+                  obscureText: !showPin,
                   prefixIcon: Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: Assets.icons.lockOutline.svg(
@@ -185,12 +159,41 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                   suffixIcon: IconButton(
-                    icon: showPassword
+                    icon: showPin
                         ? Assets.icons.eyeOpen.svg()
                         : Assets.icons.eyeClose.svg(),
                     onPressed: () {
                       setState(() {
-                        showPassword = !showPassword;
+                        showPin = !showPin;
+                      });
+                    },
+                  ),
+                  hintText: "Enter PIN",
+                  filled: true,
+                  fillColor: AppColors.cFFFFFF,
+                ),
+                const SizedBox(height: 25),
+                CustomTextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty) return "Enter Confirm PIN";
+                  },
+                  obscureText: !showConfirmPin,
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Assets.icons.lockOutline.svg(
+                      colorFilter: ColorFilter.mode(
+                        AppColors.c000000.withOpacity(.6),
+                        BlendMode.srcIn,
+                      ),
+                    ),
+                  ),
+                  suffixIcon: IconButton(
+                    icon: showConfirmPin
+                        ? Assets.icons.eyeOpen.svg()
+                        : Assets.icons.eyeClose.svg(),
+                    onPressed: () {
+                      setState(() {
+                        showConfirmPin = !showConfirmPin;
                       });
                     },
                   ),
@@ -299,7 +302,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 CustomGradientButton(
                   title: "Register",
                   onPressed: () {
-                    context.go(const TermsAndConditionsRoute().location);
+                    // context.go(const TermsAndConditionsRoute().location);
+                    const TermsAndConditionsRoute().push(context);
                   },
                 ),
                 const SizedBox(height: 22),
@@ -326,6 +330,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ],
                   ),
                 ),
+                const SizedBox(height: 12),
               ],
             ),
           ),

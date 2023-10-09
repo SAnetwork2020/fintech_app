@@ -55,7 +55,7 @@ class _ResetYourPasswordScreenState extends State<ResetYourPasswordScreen> {
                   ],
                 ),
               ),
-              const SizedBox(height: 116),
+              const SizedBox(height: 60),
               Assets.images.resetPassword.image(),
               const SizedBox(height: 30),
               Text(
@@ -131,15 +131,18 @@ class _ResetYourPasswordScreenState extends State<ResetYourPasswordScreen> {
                     });
                   },
                 ),
-                hintText: "Enter Password",
+                hintText: "Confrim Password",
                 filled: true,
                 fillColor: AppColors.cFFFFFF,
               ),
               const SizedBox(height: 30),
               CustomGradientButton(
-                onPressed: () { 
-                  // context.push(const SuccessRoute().location);
-                  },
+                onPressed: () {
+                  SuccessRoute(
+                    msg: "Password Reset Confirmed",
+                    address: const HomeRoute().location,
+                  ).push(context);
+                },
                 child: Text(
                   "Continue",
                   style: TextStyle(
