@@ -8,7 +8,7 @@ import '../../../../common_widgets/custom_textformfield.dart';
 import '../../../../utils/colors.dart';
 
 class CardlessWithdrawalScreen extends StatelessWidget {
-  const CardlessWithdrawalScreen({super.key});
+  CardlessWithdrawalScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,34 +22,55 @@ class CardlessWithdrawalScreen extends StatelessWidget {
         ),
       ),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        // backgroundColor: Colors.brown,
         body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 40),
-            const CustomAppBars(title: "Cardless Withdrawal"),
-            const SizedBox(height: 20),
             const Padding(
-              padding: EdgeInsets.only(left: 22.0),
+              padding: EdgeInsets.only(left: 10.0),
+              child: CustomAppBars(title: "Cardless Withdrawal"),
+            ),
+            const SizedBox(height: 56),
+            Padding(
+              padding: const EdgeInsets.only(left: 20.0),
+              child: Text(
+                "Type in the amount you want to withdraw \nand select a unique cash-out PIN",
+                style: TextStyle(
+                  fontFamily: FontFamily.lato,
+                  color: AppColors.cFFFFFF,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 15,
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.only(left: 20.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(height: 40),
                   Text(
                     "Amount",
                     style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 12,
+                      color: AppColors.cFFFFFF,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 15,
                     ),
                   ),
-                  ShadowTextFormField(
-                    hintText: '',
+                  const CustomTextFormField(
+                    contentPadding: EdgeInsets.symmetric(horizontal: 18),
+                    width: 350,
+                    hintText: '00,000.000',
                   ),
                 ],
               ),
             ),
             const SizedBox(height: 20),
-            const Padding(
-              padding: EdgeInsets.only(left: 24.0),
+            Padding(
+              padding: const EdgeInsets.only(left: 20.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,48 +78,63 @@ class CardlessWithdrawalScreen extends StatelessWidget {
                   Text(
                     "Cash Out Pin",
                     style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 12,
+                      color: AppColors.cFFFFFF,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 15,
                     ),
                   ),
-                  ShadowTextFormField(
-                    hintText: '',
+                  const CustomTextFormField(
+                    contentPadding: EdgeInsets.symmetric(horizontal: 18),
+                    width: 350,
+                    hintText: '0000',
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 150),
-            Container(
-              width: 63,
-              height: 63,
-              padding: EdgeInsets.all(16),
-              decoration: ShapeDecoration(
-                color: AppColors.c716F6F,
-                shape: CircleBorder(),
-              ),
-              child: Assets.icons.cardless.svg(),
-            ),
-            SizedBox(height: 30),
-            Text(
-              "No recent transactions.",
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 15,
-              ),
-            ),
-            SizedBox(height: 25),
-            Text(
-              "Well show you the transactions you’ve made here",
-              style: TextStyle(
-                fontFamily: FontFamily.lato,
-                fontWeight: FontWeight.w600,
-                fontSize: 12,
+            const SizedBox(height: 80),
+            Center(
+              child: Column(
+                children: [
+                  Container(
+                    width: 63,
+                    height: 63,
+                    padding: const EdgeInsets.all(16),
+                    decoration: ShapeDecoration(
+                      color: AppColors.c716F6F,
+                      shape: const CircleBorder(),
+                    ),
+                    child: Assets.icons.cardless.svg(),
+                  ),
+                  const SizedBox(height: 30),
+                  Text(
+                    "No recent transactions.",
+                    style: TextStyle(
+                      color: AppColors.cFFFFFF,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 15,
+                    ),
+                  ),
+                  const SizedBox(height: 25),
+                  Text(
+                    "Well show you the transactions you’ve made here",
+                    style: TextStyle(
+                      color: AppColors.cFFFFFF,
+                      fontFamily: FontFamily.lato,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
               ),
             ),
             const Spacer(),
             CustomGradientButton(
-              height: 47,
-              width: 345,
+              height: 46.38,
+              width: 344.77,
+              textStyle: const TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 15,
+              ),
               onPressed: () {},
               title: "Next",
             ),

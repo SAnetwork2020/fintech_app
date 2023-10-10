@@ -142,6 +142,9 @@ class $AssetsIconsGen {
   SvgGenImage get commodities =>
       const SvgGenImage('assets/icons/commodities.svg');
 
+  /// File path: assets/icons/copy.svg
+  SvgGenImage get copy => const SvgGenImage('assets/icons/copy.svg');
+
   /// File path: assets/icons/credit-cards.svg
   SvgGenImage get creditCards =>
       const SvgGenImage('assets/icons/credit-cards.svg');
@@ -154,6 +157,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/e-mail.svg
   SvgGenImage get eMail => const SvgGenImage('assets/icons/e-mail.svg');
+
+  /// File path: assets/icons/enter_pin.svg
+  SvgGenImage get enterPin => const SvgGenImage('assets/icons/enter_pin.svg');
 
   /// File path: assets/icons/eye_close.svg
   SvgGenImage get eyeClose => const SvgGenImage('assets/icons/eye_close.svg');
@@ -370,10 +376,12 @@ class $AssetsIconsGen {
         checkMark,
         close,
         commodities,
+        copy,
         creditCards,
         cross,
         dot,
         eMail,
+        enterPin,
         eyeClose,
         eyeOpen,
         fingerprintOutline,
@@ -450,6 +458,10 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/chart.png
   AssetGenImage get chart => const AssetGenImage('assets/images/chart.png');
+
+  /// File path: assets/images/comming_soon.png
+  AssetGenImage get commingSoon =>
+      const AssetGenImage('assets/images/comming_soon.png');
 
   /// File path: assets/images/email_sent.png
   AssetGenImage get emailSent =>
@@ -588,6 +600,7 @@ class $AssetsImagesGen {
         authBg,
         cardBg,
         chart,
+        commingSoon,
         emailSent,
         enterPinPfp,
         faceId,

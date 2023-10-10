@@ -27,7 +27,9 @@ class CustomTextFormField extends StatelessWidget {
     this.validator,
     this.contentPadding,
     this.hintStyle,
-    this.enableInteractiveSelection, this.onTap,
+    this.enableInteractiveSelection,
+    this.onTap,
+    this.enabled,
   });
   final String? hintText;
   final TextStyle? hintStyle;
@@ -38,7 +40,8 @@ class CustomTextFormField extends StatelessWidget {
       obscureText,
       readOnly,
       filled,
-      enableInteractiveSelection;
+      enableInteractiveSelection,
+      enabled;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
   final FocusNode? focusNode;
@@ -56,8 +59,11 @@ class CustomTextFormField extends StatelessWidget {
       // height: height ?? 50,
       child: TextFormField(
         onTap: onTap,
+        enabled: enabled,
         onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus(),
         enableInteractiveSelection: enableInteractiveSelection,
+        cursorHeight: enableInteractiveSelection == false ? 0 : null,
+        cursorWidth: enableInteractiveSelection == false ? 0 : 2,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: validator,
         readOnly: readOnly ?? false,
@@ -78,8 +84,8 @@ class CustomTextFormField extends StatelessWidget {
         onChanged: onChanged,
         decoration: InputDecoration(
           contentPadding: contentPadding ??
-              const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-          fillColor: fillColor,
+              const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+          fillColor: fillColor ?? AppColors.cFFFFFF,
           filled: filled ?? true,
           suffixIcon: suffixIcon,
           prefixIcon: prefixIcon,

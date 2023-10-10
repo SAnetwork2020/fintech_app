@@ -8,7 +8,8 @@ class PaymentItem extends StatelessWidget {
   const PaymentItem({
     super.key,
     required this.icon,
-    required this.name, this.onTap,
+    required this.name,
+    this.onTap,
   });
   // final SvgGenImage icon;
   final dynamic icon;
@@ -22,7 +23,7 @@ class PaymentItem extends StatelessWidget {
         width: 90,
         height: 90,
         padding: const EdgeInsets.only(left: 9, top: 12, bottom: 6, right: 9),
-        margin: const EdgeInsets.symmetric(horizontal: 7.5),
+        // margin: const EdgeInsets.symmetric(horizontal: 7.5),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           // color: AppColors.c000000.withOpacity(.7),

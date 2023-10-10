@@ -1,3 +1,4 @@
+import 'package:fintech_app/src/routing/router.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../gen/assets.gen.dart';
@@ -28,13 +29,16 @@ class TransferScreen extends StatelessWidget {
                       color: AppColors.cFFFFFF,
                     ),
                   ),
-                  Text(
-                    "View More",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 15,
-                      color: AppColors.c1DC1B4,
-                      decoration: TextDecoration.underline,
+                  InkWell(
+                    onTap: () => const TransactionHistoryRoute().push(context),
+                    child: Text(
+                      "View More",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 15,
+                        color: AppColors.c1DC1B4,
+                        decoration: TextDecoration.underline,
+                      ),
                     ),
                   ),
                 ],
@@ -85,13 +89,16 @@ class TransferScreen extends StatelessWidget {
                       color: AppColors.cFFFFFF,
                     ),
                   ),
-                  Text(
-                    "View More",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 15,
-                      color: AppColors.c1DC1B4,
-                      decoration: TextDecoration.underline,
+                  InkWell(
+                    onTap: () => const TransactionHistoryRoute().push(context),
+                    child: Text(
+                      "View More",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 15,
+                        color: AppColors.c1DC1B4,
+                        decoration: TextDecoration.underline,
+                      ),
                     ),
                   ),
                 ],
@@ -103,28 +110,33 @@ class TransferScreen extends StatelessWidget {
                 "title": "Benjamin Martinez",
                 "desc": "You sent \$100.00 . 06:44 PM",
                 "icon": Assets.images.jonathanDoe.image(),
+                "onTap": const TransactionHistoryRoute().location,
               },
               {
                 "title": "Benjamin Martinez",
                 "desc": "You sent \$100.00 . 06:44 PM",
                 "icon": Assets.images.gtbank.image(),
+                "onTap": const TransactionHistoryRoute().location,
               },
               {
                 "title": "Benjamin Martinez",
                 "desc": "You sent \$100.00 . 06:44 PM",
                 "icon": Assets.images.firstbank.image(),
+                "onTap": const TransactionHistoryRoute().location,
               },
               {
                 "title": "Benjamin Martinez",
                 "desc": "You sent \$100.00 . 06:44 PM",
                 "icon": Assets.images.accessbank.image(),
+                "onTap": const TransactionHistoryRoute().location,
               },
             ]
                 .map(
                   (e) => Padding(
-                    padding:
-                        const EdgeInsets.only(left: 15, right: 14.0, bottom: 15),
+                    padding: const EdgeInsets.only(
+                        left: 15, right: 14.0, bottom: 15),
                     child: SendToWidget(
+                      onTap: e["onTap"],
                       icon: e["icon"],
                       title: e["title"].toString(),
                       desc: e["desc"].toString(),

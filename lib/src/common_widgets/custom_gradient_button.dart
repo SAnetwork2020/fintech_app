@@ -26,7 +26,7 @@ class CustomGradientButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        width: width ?? 325,
+        width: width ?? 345,
         height: height ?? 60,
         decoration: BoxDecoration(
           borderRadius: borderRadius ?? BorderRadius.circular(20),

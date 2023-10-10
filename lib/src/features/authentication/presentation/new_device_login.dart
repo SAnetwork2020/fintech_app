@@ -9,6 +9,7 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import '../../../../gen/assets.gen.dart';
 import '../../../../gen/fonts.gen.dart';
 import '../../../common_widgets/custom_gradient_button.dart';
+import '../../../common_widgets/pin_widget.dart';
 import '../../../utils/colors.dart';
 
 class NewDeviceLoginScreen extends ConsumerStatefulWidget {
@@ -30,21 +31,21 @@ class _NewDeviceLoginScreenState extends ConsumerState<NewDeviceLoginScreen> {
     super.dispose();
   }
 
-  void onPinTap(int number) {
-    setState(() {
-      pinController.text += number.toString();
-      enteredNumber = pinController.text;
-    });
-  }
+  // void onPinTap(int number) {
+  //   setState(() {
+  //     pinController.text += number.toString();
+  //     enteredNumber = pinController.text;
+  //   });
+  // }
 
-  void goToHomeScreen() {
-    debugPrint("pincontroller completeed!!");
-    if (pinController.text.length == 6) {
-      // ref.read(goRouterProvider).HomeRoute.go(context);
-      // ref.read(goRouterProvider).go($homeRoute);
-      // const HomeRoute().go(context);
-    }
-  }
+  // void goToHomeScreen() {
+  //   debugPrint("pincontroller completeed!!");
+  //   if (pinController.text.length == 6) {
+  //     // ref.read(goRouterProvider).HomeRoute.go(context);
+  //     // ref.read(goRouterProvider).go($homeRoute);
+  //     // const HomeRoute().go(context);
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -130,38 +131,9 @@ class _NewDeviceLoginScreenState extends ConsumerState<NewDeviceLoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Expanded(
-                      child: PinCodeTextField(
-                        inputFormatters: [
-                          LengthLimitingTextInputFormatter(6),
-                        ],
-                        autoDisposeControllers: false,
-                        textStyle: TextStyle(
-                          color: AppColors.c1DC1B4,
-                        ),
-                        controller: pinController,
-                        showCursor: true,
-                        obscuringCharacter: "*",
-                        // obscureText: true,
-                        cursorColor: AppColors.c1DC1B4,
-                        // readOnly: true,
-                        appContext: context,
+                      child: PinWidget(
+                        pinController: pinController,
                         length: 6,
-                        pinTheme: PinTheme(
-                          shape: PinCodeFieldShape.underline,
-                          activeColor: AppColors.c1DC1B4,
-                          selectedColor: AppColors.c1DC1B4,
-                          inactiveColor: AppColors.cFFFFFF.withOpacity(.6),
-                          fieldWidth: 40,
-                        ),
-                        onChanged: (value) {
-                          enteredNumber = value;
-                        },
-                        onCompleted: (value) {
-                          // goToHomeScreen();
-                        },
-                        onEditingComplete: () {
-                          // goToHomeScreen();
-                        },
                       ),
                     ),
                   ],
@@ -205,3 +177,4 @@ class _NewDeviceLoginScreenState extends ConsumerState<NewDeviceLoginScreen> {
     );
   }
 }
+

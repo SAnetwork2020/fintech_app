@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../gen/assets.gen.dart';
 import '../../../../../gen/fonts.gen.dart';
 import '../../../../common_widgets/custom_app_bar.dart';
 import '../../../../common_widgets/custom_gradient_button.dart';
 import '../../../../common_widgets/custom_textformfield.dart';
+import '../../../../common_widgets/enter_pin_widget.dart';
 import '../../../../utils/colors.dart';
 import 'widget/select_network.dart';
 
@@ -33,7 +35,9 @@ class _AirtimeScreenState extends State<AirtimeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 40),
-              const CustomAppBars(title: "Airtime"),
+              CustomAppBars(
+                title: "Airtime",
+              ),
               const SizedBox(height: 36),
               Padding(
                 padding: const EdgeInsets.only(left: 33.0, right: 32),
@@ -328,7 +332,23 @@ class _AirtimeScreenState extends State<AirtimeScreen> {
               CustomGradientButton(
                 height: 47,
                 width: 345,
-                onPressed: () {},
+                onPressed: () {
+                  showModalBottomSheet(
+                    context: context,
+                    isScrollControlled: true,
+                    builder: (context) {
+                      return EnterPinWidget(
+                        title: 'Airtime Purchase Successful',
+                        desc:
+                            "Your airtime is on its way, check your\n notification for details.",
+                        onPressed: () {
+                          context.pop();
+                          context.pop();
+                        },
+                      );
+                    },
+                  );
+                },
                 title: "Next",
                 textStyle: const TextStyle(
                   fontSize: 15,

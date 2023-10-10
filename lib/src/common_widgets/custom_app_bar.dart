@@ -43,9 +43,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 class CustomAppBars extends StatelessWidget {
   const CustomAppBars({
     super.key,
-    required this.title,
+    required this.title, this.onPressed,
   });
   final String title;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     // padding: const EdgeInsets.only(left: 16.0),
@@ -53,9 +54,10 @@ class CustomAppBars extends StatelessWidget {
       children: [
         IconButton(
             splashRadius: 20,
-            onPressed: () {
-              context.pop();
-            },
+            onPressed: onPressed ??
+                () {
+                  context.pop();
+                },
             icon: Assets.icons.backArrow.svg()
             //  const Icon(
             //   Icons.arrow_back_rounded,

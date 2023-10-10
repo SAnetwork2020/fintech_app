@@ -1,10 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'package:fintech_app/src/common_widgets/custom_app_bar.dart';
 
-import '../../../../../gen/assets.gen.dart';
 import '../../../../../gen/assets.gen.dart';
 import '../../../../../gen/fonts.gen.dart';
 import '../../../../utils/colors.dart';
@@ -50,8 +48,10 @@ class TransactionHistoryScreen extends StatelessWidget {
               // width: 360,
               height: 40,
               padding: const EdgeInsets.only(left: 14, right: 16.75),
+
               margin: const EdgeInsets.only(left: 17, right: 16),
               decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(3),
                 color: AppColors.cFFFFFF,
               ),
               child: Row(
@@ -74,162 +74,164 @@ class TransactionHistoryScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 17),
-            Padding(
-              padding: const EdgeInsets.only(left: 22, right: 21.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Today",
-                    style: TextStyle(
-                      color: AppColors.c000000,
-                      fontFamily: FontFamily.lato,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  Assets.icons.arrowDropdown.svg(),
-                ],
-              ),
-            ),
-            const SizedBox(height: 17),
-            ListView.separated(
-              shrinkWrap: true,
-              itemCount: groupedTransactions.length,
-              separatorBuilder: (context, index) => SizedBox(height: 47),
-              itemBuilder: (context, index) {
-                DateTime date = groupedTransactions.keys.elementAt(index);
-                List<TransactionHistoryData> transactionsForDate =
-                    groupedTransactions[date]!;
-                return Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 22, right: 21.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Today",
-                            style: TextStyle(
-                              color: AppColors.c000000,
-                              fontFamily: FontFamily.lato,
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
+            Expanded(
+              child: ListView.separated(
+                // shrinkWrap: true,
+                padding: EdgeInsets.zero,
+                itemCount: groupedTransactions.length,
+                separatorBuilder: (context, index) => SizedBox(height: 47),
+                itemBuilder: (context, index) {
+                  DateTime date = groupedTransactions.keys.elementAt(index);
+                  List<TransactionHistoryData> transactionsForDate =
+                      groupedTransactions[date]!;
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 22, right: 21.0),
+                        child: Row(
+                          children: [
+                            Text(
+                              "Today",
+                              style: TextStyle(
+                                color: AppColors.cFFFFFF,
+                                fontFamily: FontFamily.lato,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w700,
+                              ),
                             ),
-                          ),
-                          Assets.icons.arrowDropdown.svg(),
-                        ],
-                      ),
-                    ),
-                    ListView.separated(
-                      shrinkWrap: true,
-                      itemCount: transactionsForDate.length,
-                      separatorBuilder: (context, index) => Padding(
-                        padding: const EdgeInsets.only(left: 17, right: 19.54),
-                        child: Divider(
-                          color: AppColors.c000000.withOpacity(.25),
+                            // Assets.icons.arrowDropdown.svg(),
+                            Spacer(),
+                            Icon(
+                              Icons.keyboard_arrow_down_rounded,
+                              color: AppColors.cFFFFFF,
+                            ),
+                          ],
                         ),
                       ),
-                      itemBuilder: (context, subIndex) {
-                        TransactionHistoryData transaction =
-                            transactionsForDate[subIndex];
-                        return Container(
+                      SizedBox(height: 15),
+                      ListView.separated(
+                        shrinkWrap: true,
+                        itemCount: transactionsForDate.length,
+                        separatorBuilder: (context, index) => Padding(
                           padding:
                               const EdgeInsets.only(left: 17, right: 19.54),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  // Assets.icons.wallet.svg(),
-                                  Badge(
-                                    alignment: Alignment.topLeft,
-                                    backgroundColor: AppColors.c1DC1B4,
-                                    child: Assets.icons.topUp.svg(),
-                                  ),
-                                  const SizedBox(width: 14.17),
-                                  Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Balance top up",
-                                        // transaction.
-                                        style: TextStyle(
-                                          color: AppColors.c000000,
-                                          fontFamily: FontFamily.lato,
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                      Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Text(
-                                            "15:10",
-                                            style: TextStyle(
-                                              color: AppColors.c000000
-                                                  .withOpacity(.7),
-                                              fontFamily: FontFamily.lato,
-                                              fontSize: 10,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                          const SizedBox(width: 10.25),
-                                          Assets.icons.dot.svg(),
-                                          const SizedBox(width: 8.25),
-                                          Text(
-                                            "pending",
-                                            style: TextStyle(
-                                              color: AppColors.c000000
-                                                  .withOpacity(.7),
-                                              fontFamily: FontFamily.lato,
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Assets.icons.cross.svg(),
-                                  const SizedBox(width: 2),
-                                  Assets.icons.naira.svg(
-                                    height: 10,
-                                    width: 10,
-                                    colorFilter: ColorFilter.mode(
-                                      AppColors.c000000,
-                                      BlendMode.srcIn,
-                                    ),
-                                  ),
-                                  const SizedBox(width: 3.67),
-                                  Text(
-                                    "3,550",
-                                    style: TextStyle(
-                                      color: AppColors.c000000.withOpacity(.7),
-                                      fontFamily: FontFamily.lato,
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                  const SizedBox(width: 15.96),
-                                  Assets.icons.arrowRight.svg(),
-                                ],
-                              ),
-                            ],
+                          child: Divider(
+                            color: AppColors.cFFFFFF.withOpacity(.6),
                           ),
-                        );
-                      },
-                    )
-                  ],
-                );
-              },
+                        ),
+                        itemBuilder: (context, subIndex) {
+                          TransactionHistoryData transaction =
+                              transactionsForDate[subIndex];
+                          return Container(
+                            padding:
+                                const EdgeInsets.only(left: 17, right: 19.54),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    // Assets.icons.wallet.svg(),
+                                    // colorFilter: ColorFilter.mode(
+                                    //         AppColors.cFFFFFF, BlendMode.srcIn)
+                                    Badge(
+                                      alignment: Alignment.topLeft,
+                                      backgroundColor: AppColors.c1DC1B4,
+                                      child: Assets.icons.wallet.svg(),
+                                    ),
+                                    const SizedBox(width: 14.17),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "Balance top up",
+                                          // transaction.
+                                          style: TextStyle(
+                                            color: AppColors.cFFFFFF,
+                                            fontFamily: FontFamily.lato,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                        SizedBox(height: 5),
+                                        Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Text(
+                                              "15:10",
+                                              style: TextStyle(
+                                                color: AppColors.cFFFFFF
+                                                    .withOpacity(.6),
+                                                fontFamily: FontFamily.lato,
+                                                fontSize: 10,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                            const SizedBox(width: 10.25),
+                                            Assets.icons.dot.svg(),
+                                            const SizedBox(width: 8.25),
+                                            Text(
+                                              "pending",
+                                              style: TextStyle(
+                                                color: AppColors.cFFFFFF
+                                                    .withOpacity(.6),
+                                                fontFamily: FontFamily.lato,
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Assets.icons.cross.svg(),
+                                    const SizedBox(width: 2),
+                                    Assets.icons.naira.svg(
+                                      height: 10,
+                                      width: 10,
+                                      // colorFilter: ColorFilter.mode(
+                                      //   AppColors.c000000,
+                                      //   BlendMode.srcIn,
+                                      // ),
+                                    ),
+                                    const SizedBox(width: 3.67),
+                                    Text(
+                                      "3,550",
+                                      style: TextStyle(
+                                        color: AppColors.cFFFFFF,
+                                        fontFamily: FontFamily.lato,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 15.96),
+                                    Icon(
+                                      Icons.arrow_forward_ios_rounded,
+                                      size: 10,
+                                      weight: 1.67,
+                                      color: AppColors.cFFFFFF.withOpacity(.60),
+                                    ),
+                                    // Assets.icons.arrowRight2.svg(
+                                    // colorFilter: ColorFilter.mode(
+                                    //     AppColors.cFFFFFF, BlendMode.srcIn)),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      )
+                    ],
+                  );
+                },
+              ),
             ),
           ],
         ),
@@ -250,7 +252,12 @@ class HistoryCategories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        icon.svg(colorFilter: ColorFilter.mode(AppColors.c1DC1B4, BlendMode.srcIn,),),
+        icon.svg(
+          colorFilter: ColorFilter.mode(
+            AppColors.c1DC1B4,
+            BlendMode.srcIn,
+          ),
+        ),
         const SizedBox(width: 10),
         Text(
           title,

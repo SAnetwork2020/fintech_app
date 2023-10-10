@@ -53,7 +53,7 @@ import 'nav_bar_test.dart';
 //         //     SettingsScreen(),
 //         //   ],
 //         // ),
-//         bottomNavigationBar: 
+//         bottomNavigationBar:
 //         navigationBar(
 //           (onTapValue) {
 //             setState(() {
@@ -66,7 +66,6 @@ import 'nav_bar_test.dart';
 //     );
 //   }
 // }
-
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required this.child});
@@ -89,11 +88,9 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        // color: Colors.white,
         image: DecorationImage(
           fit: BoxFit.fill,
           image: Assets.images.homeScreen.provider(),
-          // alignment: Alignment.topLeft,
         ),
       ),
       child: Scaffold(

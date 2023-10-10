@@ -64,7 +64,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               const SizedBox(height: 40),
               CustomTextFormField(
                 validator: (value) {
-                  if (value!.isEmpty) return "Please Enter Username";
+                  if (value!.isEmpty) return "\u26A0 Please Enter Username";
                 },
                 prefixIcon: Padding(
                   padding: const EdgeInsets.all(12.0),
@@ -77,7 +77,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               const SizedBox(height: 30),
               CustomTextFormField(
                 validator: (value) {
-                  if (value!.isEmpty) return "Please Enter Password";
+                  if (value!.isEmpty) return "\u26A0 Please Enter Password";
                 },
                 obscureText: !showPassword,
                 prefixIcon: Padding(
