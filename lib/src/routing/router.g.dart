@@ -430,6 +430,28 @@ RouteBase get $dashBoardRouteData => ShellRouteData.$route(
         GoRouteData.$route(
           path: '/support',
           factory: $SupportRouteExtension._fromState,
+          routes: [
+            GoRouteData.$route(
+              path: 'search_result_not_found',
+              parentNavigatorKey: SearchResulNotFoundRoute.$parentNavigatorKey,
+              factory: $SearchResulNotFoundRouteExtension._fromState,
+            ),
+            GoRouteData.$route(
+              path: 'search_result_found',
+              parentNavigatorKey: SearchResulFoundRoute.$parentNavigatorKey,
+              factory: $SearchResulFoundRouteExtension._fromState,
+            ),
+            GoRouteData.$route(
+              path: 'search_result',
+              parentNavigatorKey: SearchResultRoute.$parentNavigatorKey,
+              factory: $SearchResultRouteExtension._fromState,
+            ),
+            GoRouteData.$route(
+              path: 'message_us',
+              parentNavigatorKey: MessageUsRoute.$parentNavigatorKey,
+              factory: $MessageUsRouteExtension._fromState,
+            ),
+          ],
         ),
         GoRouteData.$route(
           path: '/settings',
@@ -727,6 +749,78 @@ extension $SupportRouteExtension on SupportRoute {
 
   String get location => GoRouteData.$location(
         '/support',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $SearchResulNotFoundRouteExtension on SearchResulNotFoundRoute {
+  static SearchResulNotFoundRoute _fromState(GoRouterState state) =>
+      const SearchResulNotFoundRoute();
+
+  String get location => GoRouteData.$location(
+        '/support/search_result_not_found',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $SearchResulFoundRouteExtension on SearchResulFoundRoute {
+  static SearchResulFoundRoute _fromState(GoRouterState state) =>
+      const SearchResulFoundRoute();
+
+  String get location => GoRouteData.$location(
+        '/support/search_result_found',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $SearchResultRouteExtension on SearchResultRoute {
+  static SearchResultRoute _fromState(GoRouterState state) =>
+      const SearchResultRoute();
+
+  String get location => GoRouteData.$location(
+        '/support/search_result',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $MessageUsRouteExtension on MessageUsRoute {
+  static MessageUsRoute _fromState(GoRouterState state) =>
+      const MessageUsRoute();
+
+  String get location => GoRouteData.$location(
+        '/support/message_us',
       );
 
   void go(BuildContext context) => context.go(location);

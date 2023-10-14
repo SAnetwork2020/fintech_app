@@ -38,6 +38,10 @@ import '../features/payments/presentation/transaction_history/transaction_histor
 import '../features/payments/presentation/transport/transport.dart';
 import '../features/payments/widget/transaction_receipt.dart';
 import '../features/settings/presentations/settings.dart';
+import '../features/support/presentations/message_us_screen.dart';
+import '../features/support/presentations/search_result_found.dart';
+import '../features/support/presentations/search_result_not_found.dart';
+import '../features/support/presentations/search_result_screen.dart';
 import '../features/support/presentations/support.dart';
 import '../features/transfer/presentations/transfer_screen.dart';
 
@@ -223,7 +227,15 @@ class OtpRouteRoute extends GoRouteData {
         TypedGoRoute<TransferToRoute>(path: "transfer_to"),
       ],
     ),
-    TypedGoRoute<SupportRoute>(path: "/support"),
+    TypedGoRoute<SupportRoute>(
+      path: "/support",
+      routes: [
+        TypedGoRoute<SearchResulNotFoundRoute>(path: "search_result_not_found"),
+        TypedGoRoute<SearchResulFoundRoute>(path: "search_result_found"),
+        TypedGoRoute<SearchResultRoute>(path: "search_result"),
+        TypedGoRoute<MessageUsRoute>(path: "message_us"),
+      ],
+    ),
     TypedGoRoute<SettingsRoute>(path: "/settings"),
   ],
 )
@@ -438,6 +450,50 @@ class SupportRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const SupportScreen();
+  }
+}
+
+class SearchResulNotFoundRoute extends GoRouteData {
+  const SearchResulNotFoundRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return SearchResulNotFoundScreen(
+      key: state.pageKey,
+    );
+  }
+}
+
+class SearchResulFoundRoute extends GoRouteData {
+  const SearchResulFoundRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return SearchResulFoundScreen(
+      key: state.pageKey,
+    );
+  }
+}
+
+class SearchResultRoute extends GoRouteData {
+  const SearchResultRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return SearchResultScreen(
+      key: state.pageKey,
+    );
+  }
+}
+
+class MessageUsRoute extends GoRouteData {
+  const MessageUsRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return MessageUsScreen(
+      key: state.pageKey,
+    );
   }
 }
 

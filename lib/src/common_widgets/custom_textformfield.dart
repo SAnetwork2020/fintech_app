@@ -56,7 +56,7 @@ class CustomTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: width ?? 325,
-      // height: height ?? 50,
+      height: height,
       child: TextFormField(
         onTap: onTap,
         enabled: enabled,

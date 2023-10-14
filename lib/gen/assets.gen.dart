@@ -77,6 +77,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/arrow-up.svg
   SvgGenImage get arrowUp => const SvgGenImage('assets/icons/arrow-up.svg');
 
+  /// File path: assets/icons/attachment.svg
+  SvgGenImage get attachment =>
+      const SvgGenImage('assets/icons/attachment.svg');
+
   /// File path: assets/icons/back-arrow.svg
   SvgGenImage get backArrow => const SvgGenImage('assets/icons/back-arrow.svg');
 
@@ -157,6 +161,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/e-mail.svg
   SvgGenImage get eMail => const SvgGenImage('assets/icons/e-mail.svg');
+
+  /// File path: assets/icons/emoji.svg
+  SvgGenImage get emoji => const SvgGenImage('assets/icons/emoji.svg');
 
   /// File path: assets/icons/enter_pin.svg
   SvgGenImage get enterPin => const SvgGenImage('assets/icons/enter_pin.svg');
@@ -285,6 +292,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/security.svg
   SvgGenImage get security => const SvgGenImage('assets/icons/security.svg');
 
+  /// File path: assets/icons/send.svg
+  SvgGenImage get send => const SvgGenImage('assets/icons/send.svg');
+
   /// File path: assets/icons/settings.svg
   SvgGenImage get settings => const SvgGenImage('assets/icons/settings.svg');
 
@@ -357,6 +367,7 @@ class $AssetsIconsGen {
         arrowRight,
         arrowRight2,
         arrowUp,
+        attachment,
         backArrow,
         backArrow2,
         bankOutline,
@@ -381,6 +392,7 @@ class $AssetsIconsGen {
         cross,
         dot,
         eMail,
+        emoji,
         enterPin,
         eyeClose,
         eyeOpen,
@@ -419,6 +431,7 @@ class $AssetsIconsGen {
         retry,
         search,
         security,
+        send,
         settings,
         signOut,
         socialNetwork,
@@ -525,6 +538,9 @@ class $AssetsImagesGen {
   AssetGenImage get nineMobile =>
       const AssetGenImage('assets/images/nine_mobile.png');
 
+  /// File path: assets/images/no_data.png
+  AssetGenImage get noData => const AssetGenImage('assets/images/no_data.png');
+
   /// File path: assets/images/onboarding_bg.png
   AssetGenImage get onboardingBg =>
       const AssetGenImage('assets/images/onboarding_bg.png');
@@ -614,6 +630,7 @@ class $AssetsImagesGen {
         loginView,
         mtn,
         nineMobile,
+        noData,
         onboardingBg,
         onboardingPix,
         onboardingPix2,

@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:fintech_app/src/routing/router.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -34,9 +35,14 @@ class _SupportScreenState extends State<SupportScreen> {
                   fillColor: AppColors.cFFFFFF,
                   prefixIcon: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Assets.icons.search.svg(
-                      width: 15,height: 15,
-                    ),
+                    child: Assets.icons.search.svg(),
+                  ),
+                  suffixIcon: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: InkWell(
+                        onTap: () =>
+                            const SearchResulNotFoundRoute().push(context),
+                        child: Assets.icons.close.svg()),
                   ),
                   inputBorder: OutlineInputBorder(
                     borderSide: BorderSide(
@@ -45,6 +51,7 @@ class _SupportScreenState extends State<SupportScreen> {
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
+                // CustomTextFormField(),
                 const SizedBox(height: 30),
                 Padding(
                   padding: const EdgeInsets.only(left: 26, right: 14.0),
@@ -118,18 +125,23 @@ class _SupportScreenState extends State<SupportScreen> {
                       ),
                     ),
                     const SizedBox(height: 24),
-                    Container(
-                      height: 50,
-                      width: double.infinity,
-                      color: AppColors.c1DC1B4,
-                      child: Center(
-                        child: Text(
-                          "Message Us",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 15,
-                            color: AppColors.cFFFFFF,
+                    InkWell(
+                      onTap: () {
+                        MessageUsRoute().push(context);
+                      },
+                      child: Container(
+                        height: 50,
+                        width: double.infinity,
+                        color: AppColors.c1DC1B4,
+                        child: Center(
+                          child: Text(
+                            "Message Us",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 15,
+                              color: AppColors.cFFFFFF,
+                            ),
                           ),
                         ),
                       ),

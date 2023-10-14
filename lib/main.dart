@@ -50,6 +50,7 @@ class MyApp extends HookConsumerWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // useMaterial3: true,
+        // primaryTextTheme: TextTheme(),
         fontFamily: FontFamily.poppins,
         scaffoldBackgroundColor: Colors.transparent,
       ),
