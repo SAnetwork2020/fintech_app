@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../gen/assets.gen.dart';
 import '../../gen/fonts.gen.dart';
-import '../common_widgets/custom_gradient_button.dart';
+import 'custom_buttons.dart';
 import '../utils/colors.dart';
 
 class SuccessWidget extends StatelessWidget {

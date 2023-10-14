@@ -549,10 +549,6 @@ class $AssetsImagesGen {
   AssetGenImage get paymentScreenBg =>
       const AssetGenImage('assets/images/payment_screen_bg.png');
 
-  /// File path: assets/images/ranking_star1.png
-  AssetGenImage get rankingStar1 =>
-      const AssetGenImage('assets/images/ranking_star1.png');
-
   /// File path: assets/images/register_bg.png
   AssetGenImage get registerBg =>
       const AssetGenImage('assets/images/register_bg.png');
@@ -624,7 +620,6 @@ class $AssetsImagesGen {
         onboardingPix3,
         onboardingPix4,
         paymentScreenBg,
-        rankingStar1,
         registerBg,
         resetPassword,
         sendIcon,

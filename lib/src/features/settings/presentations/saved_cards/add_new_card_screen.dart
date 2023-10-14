@@ -3,7 +3,7 @@ import 'package:fintech_app/src/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../common_widgets/custom_app_bar.dart';
-import '../../../../common_widgets/custom_gradient_button.dart';
+import '../../../../common_widgets/custom_buttons.dart';
 import '../../../../common_widgets/custom_textformfield.dart';
 
 class AddNewCardScreen extends StatelessWidget {

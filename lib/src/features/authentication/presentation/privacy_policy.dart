@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../common_widgets/custom_gradient_button.dart';
+import '../../../common_widgets/custom_buttons.dart';
 import '../../../routing/router.dart';
 import '../../../utils/colors.dart';
 

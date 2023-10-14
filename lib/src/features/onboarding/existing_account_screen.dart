@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../gen/assets.gen.dart';
 import '../../../gen/fonts.gen.dart';
-import '../../common_widgets/custom_gradient_button.dart';
+import '../../common_widgets/custom_buttons.dart';
 
 class ExistingAccountScreen extends StatelessWidget {
   const ExistingAccountScreen({super.key});
@@ -85,36 +85,36 @@ class ExistingAccountScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 30),
                       // Expanded(child: SizedBox()),
-                      Center(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width: 325.5,
-                              height: 50,
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  context.pushReplacement(
-                                      const LoginRoute().location);
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(
-                                      10,
+                        Center(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                width: 325.5,
+                                height: 50,
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    context.pushReplacement(
+                                        const LoginRoute().location);
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(
+                                        10,
+                                      ),
                                     ),
+                                    backgroundColor: AppColors.cFFFFFF,
                                   ),
-                                  backgroundColor: AppColors.cFFFFFF,
-                                ),
-                                child: Text(
-                                  "Yes, I already have an account",
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600,
-                                    color: AppColors.c000000,
+                                  child: Text(
+                                    "Yes, I already have an account",
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600,
+                                      color: AppColors.c000000,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
                             const SizedBox(height: 30),
                             CustomGradientButton(
                               title: "No, Let’s get started",

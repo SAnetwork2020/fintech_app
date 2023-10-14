@@ -13,6 +13,7 @@ class CustomGradientButton extends StatelessWidget {
     this.child,
     this.borderRadius,
     this.buttonStyle,
+    this.gradient,
   });
   final BorderRadiusGeometry? borderRadius;
   final String? title;
@@ -21,6 +22,7 @@ class CustomGradientButton extends StatelessWidget {
   final TextStyle? textStyle;
   final Widget? child;
   final ButtonStyle? buttonStyle;
+  final Gradient? gradient;
 
   @override
   Widget build(BuildContext context) {
@@ -39,12 +41,13 @@ class CustomGradientButton extends StatelessWidget {
               color: AppColors.c000000.withOpacity(.25),
             ),
           ],
-          gradient: LinearGradient(
-            colors: [
-              AppColors.c3E55D2,
-              AppColors.c1DC1B4.withOpacity(1),
-            ],
-          ),
+          gradient: gradient ??
+              LinearGradient(
+                colors: [
+                  AppColors.c3E55D2,
+                  AppColors.c1DC1B4.withOpacity(1),
+                ],
+              ),
         ),
         child: ElevatedButton(
           style: buttonStyle ??
@@ -65,6 +68,50 @@ class CustomGradientButton extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                       color: AppColors.cFFFFFF,
                     ),
+              ),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomWhiteButton extends StatelessWidget {
+  const CustomWhiteButton({
+    super.key,
+    this.height,
+    this.width,
+    this.title,
+    this.radius,
+    this.style,
+  });
+  final double? height, width, radius;
+  final String? title;
+  final TextStyle? style;
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: width ?? 344.77,
+      height: height ?? 46.38,
+      child: ElevatedButton(
+        onPressed: () {
+          // context
+          //     .push(const ExistingAccountRoute().location);
+        },
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(
+              radius ?? 20,
+            ),
+          ),
+          backgroundColor: AppColors.cFFFFFF,
+        ),
+        child: Text(
+          title ?? "Share",
+          style: style ??
+              TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w600,
+                color: AppColors.c000000,
               ),
         ),
       ),

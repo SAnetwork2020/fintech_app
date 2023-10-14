@@ -58,6 +58,7 @@ class TransferScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 15, right: 14.0),
               child: SendToWidget(
+                onTap: const TransferToRoute().location,
                 icon: Padding(
                   padding: const EdgeInsets.only(right: 18.0),
                   child: Assets.icons.logo.svg(),
@@ -70,6 +71,7 @@ class TransferScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 15, right: 14.0),
               child: SendToWidget(
+                onTap: const TransferToRoute().location,
                 icon: Assets.images.sendIcon.image(),
                 title: "Send to Bank Account",
                 desc: "Send to a local bank account.",
@@ -110,25 +112,25 @@ class TransferScreen extends StatelessWidget {
                 "title": "Benjamin Martinez",
                 "desc": "You sent \$100.00 . 06:44 PM",
                 "icon": Assets.images.jonathanDoe.image(),
-                "onTap": const TransactionHistoryRoute().location,
+                "onTap": const TransactionReceiptRoute().location,
               },
               {
                 "title": "Benjamin Martinez",
                 "desc": "You sent \$100.00 . 06:44 PM",
                 "icon": Assets.images.gtbank.image(),
-                "onTap": const TransactionHistoryRoute().location,
+                "onTap": const TransactionReceiptRoute().location,
               },
               {
                 "title": "Benjamin Martinez",
                 "desc": "You sent \$100.00 . 06:44 PM",
                 "icon": Assets.images.firstbank.image(),
-                "onTap": const TransactionHistoryRoute().location,
+                "onTap": const TransactionReceiptRoute().location,
               },
               {
                 "title": "Benjamin Martinez",
                 "desc": "You sent \$100.00 . 06:44 PM",
                 "icon": Assets.images.accessbank.image(),
-                "onTap": const TransactionHistoryRoute().location,
+                "onTap": const TransactionReceiptRoute().location,
               },
             ]
                 .map(

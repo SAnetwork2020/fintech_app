@@ -1,4 +1,4 @@
-import 'package:fintech_app/src/common_widgets/custom_gradient_button.dart';
+import 'package:fintech_app/src/common_widgets/custom_buttons.dart';
 
 import 'package:fintech_app/src/common_widgets/pin_widget.dart';
 import 'package:fintech_app/src/utils/colors.dart';
@@ -17,11 +17,12 @@ class EnterPinWidget extends StatefulWidget {
     required this.title,
     this.desc,
     this.buttonText,
-    required this.onPressed,
+    required this.onPressed, this.child,
   });
   final String title;
   final void Function() onPressed;
   final String? desc, buttonText;
+  final Widget? child;
   @override
   State<EnterPinWidget> createState() => _EnterPinWidgetState();
 }
@@ -40,7 +41,8 @@ class _EnterPinWidgetState extends State<EnterPinWidget> {
       ),
       child: Column(
         children: [
-          SizedBox(height: 53),
+          SizedBox(height: 46.91),
+          // SizedBox(height: 53),
           Padding(
             padding: const EdgeInsets.only(left: 8.0),
             child: CustomAppBars(
@@ -82,7 +84,7 @@ class _EnterPinWidgetState extends State<EnterPinWidget> {
               showModalBottomSheet(
                 context: context,
                 isScrollControlled: true,
-                builder: (context) => SuccessWidget(
+                builder: (context) => widget.child ?? SuccessWidget(
                   title: widget.title,
                   desc: widget.desc,
                   onPressed: widget.onPressed,

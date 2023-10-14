@@ -29,12 +29,14 @@ class _SupportScreenState extends State<SupportScreen> {
                 const SizedBox(height: 22),
                 CustomTextFormField(
                   width: 295,
-                  height: 35,
+                  height: 37.41,
                   filled: true,
                   fillColor: AppColors.cFFFFFF,
                   prefixIcon: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Assets.icons.search.svg(),
+                    child: Assets.icons.search.svg(
+                      width: 15,height: 15,
+                    ),
                   ),
                   inputBorder: OutlineInputBorder(
                     borderSide: BorderSide(

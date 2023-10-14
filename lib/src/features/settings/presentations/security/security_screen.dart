@@ -1,5 +1,5 @@
 import 'package:fintech_app/src/common_widgets/custom_app_bar.dart';
-import 'package:fintech_app/src/common_widgets/custom_gradient_button.dart';
+import 'package:fintech_app/src/common_widgets/custom_buttons.dart';
 import 'package:fintech_app/src/common_widgets/custom_textformfield.dart';
 import 'package:flutter/material.dart';
 

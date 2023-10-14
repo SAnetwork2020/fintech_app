@@ -5,7 +5,7 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../../gen/fonts.gen.dart';
-import '../../../common_widgets/custom_gradient_button.dart';
+import '../../../common_widgets/custom_buttons.dart';
 import '../../../common_widgets/custom_textformfield.dart';
 import '../../../routing/router.dart';
 import '../../../utils/colors.dart';

@@ -375,6 +375,14 @@ RouteBase get $dashBoardRouteData => ShellRouteData.$route(
               path: 'transaction_history',
               parentNavigatorKey: TransactionHistoryRoute.$parentNavigatorKey,
               factory: $TransactionHistoryRouteExtension._fromState,
+              routes: [
+                GoRouteData.$route(
+                  path: 'transaction_receipt',
+                  parentNavigatorKey:
+                      TransactionReceiptRoute.$parentNavigatorKey,
+                  factory: $TransactionReceiptRouteExtension._fromState,
+                ),
+              ],
             ),
             GoRouteData.$route(
               path: 'apply_for_loan',
@@ -411,6 +419,13 @@ RouteBase get $dashBoardRouteData => ShellRouteData.$route(
         GoRouteData.$route(
           path: '/transfer',
           factory: $TransferRouteExtension._fromState,
+          routes: [
+            GoRouteData.$route(
+              path: 'transfer_to',
+              parentNavigatorKey: TransferToRoute.$parentNavigatorKey,
+              factory: $TransferToRouteExtension._fromState,
+            ),
+          ],
         ),
         GoRouteData.$route(
           path: '/support',
@@ -549,6 +564,24 @@ extension $TransactionHistoryRouteExtension on TransactionHistoryRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
+extension $TransactionReceiptRouteExtension on TransactionReceiptRoute {
+  static TransactionReceiptRoute _fromState(GoRouterState state) =>
+      const TransactionReceiptRoute();
+
+  String get location => GoRouteData.$location(
+        '/payment/transaction_history/transaction_receipt',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
 extension $ApplyForLoanRouteExtension on ApplyForLoanRoute {
   static ApplyForLoanRoute _fromState(GoRouterState state) =>
       const ApplyForLoanRoute();
@@ -659,6 +692,24 @@ extension $TransferRouteExtension on TransferRoute {
 
   String get location => GoRouteData.$location(
         '/transfer',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $TransferToRouteExtension on TransferToRoute {
+  static TransferToRoute _fromState(GoRouterState state) =>
+      const TransferToRoute();
+
+  String get location => GoRouteData.$location(
+        '/transfer/transfer_to',
       );
 
   void go(BuildContext context) => context.go(location);

@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../gen/assets.gen.dart';
 import '../../../gen/fonts.gen.dart';
-import '../../common_widgets/custom_gradient_button.dart';
+import '../../common_widgets/custom_buttons.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});

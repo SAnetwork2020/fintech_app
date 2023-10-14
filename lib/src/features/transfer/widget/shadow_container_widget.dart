@@ -5,15 +5,17 @@ import '../../../utils/colors.dart';
 class ShadowContainer extends StatelessWidget {
   const ShadowContainer({
     super.key,
-    required this.fillColor,
+    this.fillColor,
     required this.title,
     required this.icon,
     required this.style,
+    this.gradient,
   });
-  final Color fillColor;
+  final Color? fillColor;
   final String title;
   final Widget icon;
   final TextStyle style;
+  final Gradient? gradient;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,6 +24,7 @@ class ShadowContainer extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: fillColor,
+        gradient: gradient,
         // AppColors.cFFFFFF,
         boxShadow: [
           BoxShadow(
@@ -32,20 +35,22 @@ class ShadowContainer extends StatelessWidget {
           ),
         ],
       ),
-      child: Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 18.94),
-            child: icon,
-          ),
-          const SizedBox(width: 14.94),
-          Text(
-            title,
-            // "PAYFLEX \nAccount",
-            textAlign: TextAlign.center,
-            style: style,
-          ),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            icon,
+            const SizedBox(width: 10),
+            Text(
+              title,
+              // "PAYFLEX \nAccount",
+              // textAlign: TextAlign.center,
+              style: style,
+            ),
+          ],
+        ),
       ),
     );
   }

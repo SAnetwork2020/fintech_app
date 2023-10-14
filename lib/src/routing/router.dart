@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:fintech_app/src/features/transfer/presentations/transfer_to_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -35,6 +36,7 @@ import '../features/payments/presentation/pay_tv/pay_tv.dart';
 import '../features/payments/presentation/payments.dart';
 import '../features/payments/presentation/transaction_history/transaction_history.dart';
 import '../features/payments/presentation/transport/transport.dart';
+import '../features/payments/widget/transaction_receipt.dart';
 import '../features/settings/presentations/settings.dart';
 import '../features/support/presentations/support.dart';
 import '../features/transfer/presentations/transfer_screen.dart';
@@ -199,7 +201,12 @@ class OtpRouteRoute extends GoRouteData {
         TypedGoRoute<DataRoute>(path: "data"),
         TypedGoRoute<CardlessWithdrawalRoute>(path: "cardless_withdrawal"),
         TypedGoRoute<AddMoneyRoute>(path: "add_money"),
-        TypedGoRoute<TransactionHistoryRoute>(path: "transaction_history"),
+        TypedGoRoute<TransactionHistoryRoute>(
+          path: "transaction_history",
+          routes: [
+            TypedGoRoute<TransactionReceiptRoute>(path: "transaction_receipt")
+          ],
+        ),
         TypedGoRoute<ApplyForLoanRoute>(path: "apply_for_loan"),
         TypedGoRoute<ElectricityRoute>(path: "electricity"),
         TypedGoRoute<InternetRoute>(path: "internet"),
@@ -210,7 +217,12 @@ class OtpRouteRoute extends GoRouteData {
         // TypedGoRoute<CardlessWithdrawalRoute>(path: "cardless_withdrawal"),
       ],
     ),
-    TypedGoRoute<TransferRoute>(path: "/transfer"),
+    TypedGoRoute<TransferRoute>(
+      path: "/transfer",
+      routes: [
+        TypedGoRoute<TransferToRoute>(path: "transfer_to"),
+      ],
+    ),
     TypedGoRoute<SupportRoute>(path: "/support"),
     TypedGoRoute<SettingsRoute>(path: "/settings"),
   ],
@@ -309,6 +321,18 @@ class TransactionHistoryRoute extends GoRouteData {
   }
 }
 
+class TransactionReceiptRoute extends GoRouteData {
+  const TransactionReceiptRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return TransactionReceiptScreen(
+      key: state.pageKey,
+    );
+  }
+}
+
 class ApplyForLoanRoute extends GoRouteData {
   const ApplyForLoanRoute();
   static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
@@ -390,6 +414,24 @@ class TransferRoute extends GoRouteData {
   }
 }
 
+// @TypedGoRoute<TransferToRoute>(
+//   path: "/transfer_to",
+//   name: "transfer_totransfer_to",
+// )
+class TransferToRoute extends GoRouteData {
+  const TransferToRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return TransferToScreen(
+      key: state.pageKey,
+    );
+  }
+}
+
+/// [TransferScreen] Screens ends
+
+/// [SupportScreen] Screens Begins
 class SupportRoute extends GoRouteData {
   const SupportRoute();
 
@@ -399,6 +441,9 @@ class SupportRoute extends GoRouteData {
   }
 }
 
+/// [SupportScreen] Screens ends
+
+/// [SettingsScreen] Screens Begins
 class SettingsRoute extends GoRouteData {
   const SettingsRoute();
 
@@ -408,13 +453,14 @@ class SettingsRoute extends GoRouteData {
   }
 }
 
+/// [SettingsScreen] Screens ends
+///
 @TypedGoRoute<SuccessRoute>(
   path: "/success",
   name: "success",
 )
 class SuccessRoute extends GoRouteData {
-  SuccessRoute(
-     {
+  SuccessRoute({
     this.buttonText,
     required this.msg,
     required this.address,
@@ -429,13 +475,4 @@ class SuccessRoute extends GoRouteData {
         location: address,
         buttonText: buttonText,
       );
-}
-
-class RouteHelper {
-  final String msg;
-  final String? location;
-  RouteHelper({
-    required this.msg,
-    this.location,
-  });
 }
