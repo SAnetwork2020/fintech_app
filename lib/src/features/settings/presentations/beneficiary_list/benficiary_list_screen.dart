@@ -11,36 +11,44 @@ class BeneficiaryListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(height: 40),
-          const CustomAppBars(title: "My Beneficiaries"),
-          const SizedBox(height: 30),
-          Expanded(
-            child: ListView.builder(
-              padding: EdgeInsets.zero,
-              itemCount: 8,
-              itemBuilder: (BuildContext context, int index) {
-                return const BeneficiaryTemplate();
-              },
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.fill,
+          image: Assets.images.homeScreen.provider(),
+        ),
+      ),
+      child: Scaffold(
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 40),
+            const CustomAppBars(title: "My Beneficiaries"),
+            const SizedBox(height: 30),
+            Expanded(
+              child: ListView.builder(
+                padding: EdgeInsets.zero,
+                itemCount: 8,
+                itemBuilder: (BuildContext context, int index) {
+                  return const BeneficiaryTemplate();
+                },
+              ),
             ),
-          ),
-          const SizedBox(height: 138),
-          // const Spacer(),
-          // Center(
-          //   child: CustomGradientButton(
-          //     width: 345,
-          //     height: 46.38,
-          //     title: "Next",
-          //     textStyle:
-          //         const TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
-          //     onPressed: () {},
-          //   ),
-          // ),
-          // const SizedBox(height: 40),
-        ],
+            const SizedBox(height: 138),
+            // const Spacer(),
+            // Center(
+            //   child: CustomGradientButton(
+            //     width: 345,
+            //     height: 46.38,
+            //     title: "Next",
+            //     textStyle:
+            //         const TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+            //     onPressed: () {},
+            //   ),
+            // ),
+            // const SizedBox(height: 40),
+          ],
+        ),
       ),
     );
   }

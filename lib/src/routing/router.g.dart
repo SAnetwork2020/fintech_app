@@ -456,6 +456,61 @@ RouteBase get $dashBoardRouteData => ShellRouteData.$route(
         GoRouteData.$route(
           path: '/settings',
           factory: $SettingsRouteExtension._fromState,
+          routes: [
+            GoRouteData.$route(
+              path: 'bank_statement',
+              parentNavigatorKey: BankStatementRoute.$parentNavigatorKey,
+              factory: $BankStatementRouteExtension._fromState,
+            ),
+            GoRouteData.$route(
+              path: 'saved_cards',
+              parentNavigatorKey: EmptySavedCardsRoute.$parentNavigatorKey,
+              factory: $EmptySavedCardsRouteExtension._fromState,
+              routes: [
+                GoRouteData.$route(
+                  path: 'select_add_new_cards',
+                  parentNavigatorKey:
+                      SelectAddNewCardsRoute.$parentNavigatorKey,
+                  factory: $SelectAddNewCardsRouteExtension._fromState,
+                ),
+              ],
+            ),
+            GoRouteData.$route(
+              path: 'add_new_cards',
+              parentNavigatorKey: AddNewCardRoute.$parentNavigatorKey,
+              factory: $AddNewCardRouteExtension._fromState,
+            ),
+            GoRouteData.$route(
+              path: 'beneficiaries',
+              parentNavigatorKey: BeneficiaryListRoute.$parentNavigatorKey,
+              factory: $BeneficiaryListRouteExtension._fromState,
+            ),
+            GoRouteData.$route(
+              path: 'security',
+              parentNavigatorKey: SecurityRoute.$parentNavigatorKey,
+              factory: $SecurityRouteExtension._fromState,
+            ),
+            GoRouteData.$route(
+              path: 'notification',
+              parentNavigatorKey: NotificationRoute.$parentNavigatorKey,
+              factory: $NotificationRouteExtension._fromState,
+            ),
+            GoRouteData.$route(
+              path: 'language',
+              parentNavigatorKey: LanguageRoute.$parentNavigatorKey,
+              factory: $LanguageRouteExtension._fromState,
+            ),
+            GoRouteData.$route(
+              path: 'account_limits',
+              parentNavigatorKey: AccountLimitsRoute.$parentNavigatorKey,
+              factory: $AccountLimitsRouteExtension._fromState,
+            ),
+            GoRouteData.$route(
+              path: 'help',
+              parentNavigatorKey: HelpRoute.$parentNavigatorKey,
+              factory: $HelpRouteExtension._fromState,
+            ),
+          ],
         ),
       ],
     );
@@ -838,6 +893,183 @@ extension $SettingsRouteExtension on SettingsRoute {
 
   String get location => GoRouteData.$location(
         '/settings',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $BankStatementRouteExtension on BankStatementRoute {
+  static BankStatementRoute _fromState(GoRouterState state) =>
+      const BankStatementRoute();
+
+  String get location => GoRouteData.$location(
+        '/settings/bank_statement',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $EmptySavedCardsRouteExtension on EmptySavedCardsRoute {
+  static EmptySavedCardsRoute _fromState(GoRouterState state) =>
+      const EmptySavedCardsRoute();
+
+  String get location => GoRouteData.$location(
+        '/settings/saved_cards',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $SelectAddNewCardsRouteExtension on SelectAddNewCardsRoute {
+  static SelectAddNewCardsRoute _fromState(GoRouterState state) =>
+      const SelectAddNewCardsRoute();
+
+  String get location => GoRouteData.$location(
+        '/settings/saved_cards/select_add_new_cards',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $AddNewCardRouteExtension on AddNewCardRoute {
+  static AddNewCardRoute _fromState(GoRouterState state) =>
+      const AddNewCardRoute();
+
+  String get location => GoRouteData.$location(
+        '/settings/add_new_cards',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $BeneficiaryListRouteExtension on BeneficiaryListRoute {
+  static BeneficiaryListRoute _fromState(GoRouterState state) =>
+      const BeneficiaryListRoute();
+
+  String get location => GoRouteData.$location(
+        '/settings/beneficiaries',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $SecurityRouteExtension on SecurityRoute {
+  static SecurityRoute _fromState(GoRouterState state) => const SecurityRoute();
+
+  String get location => GoRouteData.$location(
+        '/settings/security',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $NotificationRouteExtension on NotificationRoute {
+  static NotificationRoute _fromState(GoRouterState state) =>
+      const NotificationRoute();
+
+  String get location => GoRouteData.$location(
+        '/settings/notification',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $LanguageRouteExtension on LanguageRoute {
+  static LanguageRoute _fromState(GoRouterState state) => const LanguageRoute();
+
+  String get location => GoRouteData.$location(
+        '/settings/language',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $AccountLimitsRouteExtension on AccountLimitsRoute {
+  static AccountLimitsRoute _fromState(GoRouterState state) =>
+      const AccountLimitsRoute();
+
+  String get location => GoRouteData.$location(
+        '/settings/account_limits',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $HelpRouteExtension on HelpRoute {
+  static HelpRoute _fromState(GoRouterState state) => const HelpRoute();
+
+  String get location => GoRouteData.$location(
+        '/settings/help',
       );
 
   void go(BuildContext context) => context.go(location);

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../../gen/fonts.gen.dart';
@@ -11,13 +12,13 @@ class SettingsItems extends StatelessWidget {
     required this.title,
     this.trailingWidget,
     required this.icon,
-    this.onTap,
+    required this.onTap,
     required this.desc,
   });
   final Color boxColor;
   final String title, desc;
   final Widget? trailingWidget, icon;
-  final void Function()? onTap;
+  final String onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,9 @@ class SettingsItems extends StatelessWidget {
       children: [
         SizedBox(height: 5),
         InkWell(
-          onTap: onTap,
+          onTap: () {
+            context.push(onTap);
+          },
           child: Container(
             padding: const EdgeInsets.only(left: 15.0, right: 14),
             child: Row(

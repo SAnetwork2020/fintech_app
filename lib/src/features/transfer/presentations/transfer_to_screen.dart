@@ -44,10 +44,7 @@ class _TransferToScreenState extends State<TransferToScreen>
       body: Column(
         children: [
           const SizedBox(height: 45),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 14),
-            child: CustomAppBars(title: "Transfer"),
-          ),
+          CustomAppBars(title: "Transfer"),
           SizedBox(height: 34),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

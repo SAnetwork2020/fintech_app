@@ -64,7 +64,7 @@ class SettingsScreen extends ConsumerWidget {
               ),
             ),
             const SizedBox(height: 25),
-            ...settingItems(context)
+            ...settingItems
                 .map(
                   (e) => SettingsItems(
                     boxColor: e["boxColor"],
@@ -76,32 +76,20 @@ class SettingsScreen extends ConsumerWidget {
                   ),
                 )
                 .toList(),
-            // ListView.separated(
-            //   // physics: const NeverScrollableScrollPhysics(),
-            //   itemBuilder: (context, index) {
-            //     final widgetSettingItems = settingItems(context);
-            //     return SettingsItems(
-            //       trailingWidget: widgetSettingItems[index]["trailingWidget"],
-            //       onTap: widgetSettingItems[index]["onTap"],
-            //       icon: widgetSettingItems[index]["icon"],
-            //       boxColor: widgetSettingItems[index]["boxColor"],
-            //       title: widgetSettingItems[index]["title"],
-            //       desc: widgetSettingItems[index]["desc"],
-            //     );
-            //   },
-            //   separatorBuilder: (context, index) => const SizedBox(height: 10),
-            //   // Padheight:
-            //   itemCount: settingItems(context).length,
-            // ),
             const SizedBox(height: 46),
             Center(
-              child: Text(
-                "Logout",
-                style: TextStyle(
-                  // fontFamily: FontFamily.lato,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 15,
-                  color: AppColors.cE91515,
+              child: InkWell(
+                onTap: () {
+                  const LoginRoute().go(context);
+                },
+                child: Text(
+                  "Logout",
+                  style: TextStyle(
+                    // fontFamily: FontFamily.lato,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 15,
+                    color: AppColors.cE91515,
+                  ),
                 ),
               ),
             ),
@@ -113,53 +101,41 @@ class SettingsScreen extends ConsumerWidget {
   }
 }
 
-List<Map<String, dynamic>> settingItems(BuildContext context) => [
+List<Map<String, dynamic>> settingItems = [
       {
         "title": "Bank Statement",
         "desc": "Track your finances. View detailed transaction history.",
         "icon": Assets.icons.bankStatement.svg(),
         "boxColor": AppColors.c0FE6F3.withOpacity(.5),
-        // "onTap": context.push("BankStatementScreen"),
-        "onTap": () {
-          // ref.read(goRouterProvider).push("/settings/bank_statement");
-          // const BankStatementRoute().push(context);
-        }
+        "onTap": const BankStatementRoute().location,
       },
       {
         "title": "Saved Cards",
         "desc": "Quick, secure payments. Store your cards for convenience.",
         "icon": Assets.icons.creditCards.svg(),
         "boxColor": AppColors.cCC1BDC.withOpacity(.5),
-        "onTap": () {
-          // ref.read(goRouterProvider).push("/settings/bank_statement");
-          // const SavedCardsRoute().push(context);
-        }
+        "onTap": const EmptySavedCardsRoute().location
       },
       {
         "title": "Beneficiary List",
         "desc": "Easy transfers. Save your payees for swift transactions.",
         "icon": Assets.icons.benficiaryList.svg(),
         "boxColor": AppColors.cDCA61B.withOpacity(.5),
-        "onTap": () {
-          // ref.read(goRouterProvider).push("/settings/bank_statement");
-          // const BeneficiaryListRoute().push(context);
-        }
+        "onTap": const BeneficiaryListRoute().location,
       },
       {
         "title": "Security",
         "desc": "Your protection. We prioritize your financial safety.",
         "icon": Assets.icons.security.svg(width: 20, height: 20),
         "boxColor": AppColors.cFFF503.withOpacity(.5),
-        "onTap": () {
-          // ref.read(goRouterProvider).push("/settings/bank_statement");
-          // const SecurityRoute().push(context);
-        }
+        "onTap": const SecurityRoute().location,
       },
       {
         "title": "Notifications",
         "desc": "Stay informed. Get updates on your transactions.",
         "icon": Assets.icons.notification.svg(),
         "boxColor": AppColors.c36DC1B.withOpacity(.5),
+        "onTap": const NotificationRoute().location,
         "trailingWidget": Text(
           "On",
           style: TextStyle(
@@ -175,6 +151,7 @@ List<Map<String, dynamic>> settingItems(BuildContext context) => [
         "desc": "your choice. Select your preferred language.",
         "icon": Assets.icons.language.svg(),
         "boxColor": AppColors.c1B3ADC.withOpacity(.5),
+        "onTap": const LanguageRoute().location,
         "trailingWidget": Text(
           "English",
           style: TextStyle(
@@ -190,11 +167,13 @@ List<Map<String, dynamic>> settingItems(BuildContext context) => [
         "desc": "How much can you spend and recieve",
         "icon": Assets.icons.accountLimits.svg(),
         "boxColor": AppColors.c430590.withOpacity(.5),
+        "onTap": const AccountLimitsRoute().location,
       },
       {
         "title": "Help",
         "desc": "Assistance at hand. Access support and FAQs.",
         "icon": Assets.icons.help.svg(),
         "boxColor": AppColors.cDC1B49.withOpacity(.5),
+        "onTap": const HelpRoute().location,
       },
     ];

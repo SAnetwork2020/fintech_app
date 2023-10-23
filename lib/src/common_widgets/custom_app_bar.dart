@@ -43,28 +43,29 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 class CustomAppBars extends StatelessWidget {
   const CustomAppBars({
     super.key,
-    required this.title, this.onPressed,
+    required this.title,
+    this.onPressed,
+    this.padding,
   });
   final String title;
+  final EdgeInsetsGeometry? padding;
+
   final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     // padding: const EdgeInsets.only(left: 16.0),
     return Row(
       children: [
-        IconButton(
-            splashRadius: 20,
-            onPressed: onPressed ??
+        Padding(
+          padding: padding ?? const EdgeInsets.only(left: 26.47),
+          child: InkWell(
+            onTap: onPressed ??
                 () {
                   context.pop();
                 },
-            icon: Assets.icons.backArrow.svg()
-            //  const Icon(
-            //   Icons.arrow_back_rounded,
-            //   size: 24.6,
-            //   color: Colors.white,
-            // ),
-            ),
+            child: Assets.icons.backArrow.svg(),
+          ),
+        ),
         const Spacer(),
         Text(
           title,
@@ -74,7 +75,9 @@ class CustomAppBars extends StatelessWidget {
             color: AppColors.cFFFFFF,
           ),
         ),
-        const Spacer(),
+        const Spacer(
+          flex: 2,
+        ),
       ],
     );
   }

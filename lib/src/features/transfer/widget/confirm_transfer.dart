@@ -28,10 +28,7 @@ class ConfirmTransferWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 22.0),
-            child: CustomAppBars(title: "Confirm Transfer"),
-          ),
+          CustomAppBars(title: "Confirm Transfer"),
           SizedBox(height: 115),
           Center(
             child: Column(

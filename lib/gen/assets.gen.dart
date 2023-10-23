@@ -233,6 +233,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/logo.svg
   SvgGenImage get logo => const SvgGenImage('assets/icons/logo.svg');
 
+  /// File path: assets/icons/mastercard.svg
+  SvgGenImage get mastercard =>
+      const SvgGenImage('assets/icons/mastercard.svg');
+
   /// File path: assets/icons/menu.svg
   SvgGenImage get menu => const SvgGenImage('assets/icons/menu.svg');
 
@@ -269,6 +273,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/paymentIcon.svg
   SvgGenImage get paymentIcon =>
       const SvgGenImage('assets/icons/paymentIcon.svg');
+
+  /// File path: assets/icons/paypal.svg
+  SvgGenImage get paypal => const SvgGenImage('assets/icons/paypal.svg');
 
   /// File path: assets/icons/phone-bold.svg
   SvgGenImage get phoneBold => const SvgGenImage('assets/icons/phone-bold.svg');
@@ -413,6 +420,7 @@ class $AssetsIconsGen {
         lock,
         lockOutline,
         logo,
+        mastercard,
         menu,
         minus,
         naira,
@@ -424,6 +432,7 @@ class $AssetsIconsGen {
         payTv2,
         payment,
         paymentIcon,
+        paypal,
         phoneBold,
         plus,
         profile,
@@ -538,6 +547,10 @@ class $AssetsImagesGen {
   AssetGenImage get nineMobile =>
       const AssetGenImage('assets/images/nine_mobile.png');
 
+  /// File path: assets/images/no_credit_card.png
+  AssetGenImage get noCreditCard =>
+      const AssetGenImage('assets/images/no_credit_card.png');
+
   /// File path: assets/images/no_data.png
   AssetGenImage get noData => const AssetGenImage('assets/images/no_data.png');
 
@@ -630,6 +643,7 @@ class $AssetsImagesGen {
         loginView,
         mtn,
         nineMobile,
+        noCreditCard,
         noData,
         onboardingBg,
         onboardingPix,

@@ -24,10 +24,8 @@ class AddMoneyScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 40),
-            Padding(
-              padding: const EdgeInsets.only(left: 10.0),
-              child: const CustomAppBars(title: "Bank Transfer"),
-            ),
+            const CustomAppBars(
+                padding: EdgeInsets.only(left: 25.47), title: "Bank Transfer"),
             const SizedBox(height: 11),
             Padding(
               padding: EdgeInsets.only(left: 20),
@@ -127,19 +125,22 @@ class AddMoneyScreen extends StatelessWidget {
                     enabled: false,
                     suffixIcon: Padding(
                       padding: const EdgeInsets.only(right: 8.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            "Copy",
-                            style: TextStyle(
-                              color: AppColors.c1DC1B4,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 15,
+                      child: InkWell(
+                        onTap: () {},
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              "Copy",
+                              style: TextStyle(
+                                color: AppColors.c1DC1B4,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 15,
+                              ),
                             ),
-                          ),
-                          Assets.icons.copy.svg(width: 20, height: 20),
-                        ],
+                            Assets.icons.copy.svg(width: 20, height: 20),
+                          ],
+                        ),
                       ),
                     ),
                     width: 350,
@@ -200,6 +201,11 @@ class AddMoneyScreen extends StatelessWidget {
             CustomGradientButton(
               height: 47,
               width: 345,
+              textStyle: TextStyle(
+                color: AppColors.cFFFFFF,
+                fontWeight: FontWeight.w500,
+                fontSize: 15,
+              ),
               onPressed: () {},
               title: "Share",
             ),

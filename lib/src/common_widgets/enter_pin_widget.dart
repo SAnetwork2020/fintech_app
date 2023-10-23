@@ -17,7 +17,8 @@ class EnterPinWidget extends StatefulWidget {
     required this.title,
     this.desc,
     this.buttonText,
-    required this.onPressed, this.child,
+    required this.onPressed,
+    this.child,
   });
   final String title;
   final void Function() onPressed;
@@ -43,15 +44,12 @@ class _EnterPinWidgetState extends State<EnterPinWidget> {
         children: [
           SizedBox(height: 46.91),
           // SizedBox(height: 53),
-          Padding(
-            padding: const EdgeInsets.only(left: 8.0),
-            child: CustomAppBars(
-              onPressed: () {
-                context.pop();
-                context.pop();
-              },
-              title: "",
-            ),
+          CustomAppBars(
+            onPressed: () {
+              context.pop();
+              context.pop();
+            },
+            title: "",
           ),
           Spacer(),
           Center(child: Assets.icons.enterPin.svg()),
@@ -84,11 +82,13 @@ class _EnterPinWidgetState extends State<EnterPinWidget> {
               showModalBottomSheet(
                 context: context,
                 isScrollControlled: true,
-                builder: (context) => widget.child ?? SuccessWidget(
-                  title: widget.title,
-                  desc: widget.desc,
-                  onPressed: widget.onPressed,
-                ),
+                builder: (context) =>
+                    widget.child ??
+                    SuccessWidget(
+                      title: widget.title,
+                      desc: widget.desc,
+                      onPressed: widget.onPressed,
+                    ),
               );
             },
             title: "Confirm",

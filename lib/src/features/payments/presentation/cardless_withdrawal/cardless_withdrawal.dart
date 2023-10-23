@@ -27,10 +27,7 @@ class CardlessWithdrawalScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 40),
-            const Padding(
-              padding: EdgeInsets.only(left: 10.0),
-              child: CustomAppBars(title: "Cardless Withdrawal"),
-            ),
+            CustomAppBars(title: "Cardless Withdrawal"),
             const SizedBox(height: 56),
             Padding(
               padding: const EdgeInsets.only(left: 20.0),

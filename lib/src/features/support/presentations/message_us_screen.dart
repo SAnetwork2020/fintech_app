@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../../gen/fonts.gen.dart';
@@ -32,7 +33,7 @@ class MessageUsScreen extends StatelessWidget {
                     },
                     child: Assets.icons.backArrow.svg(),
                   ),
-                  SizedBox(width: 15),
+                  const SizedBox(width: 15),
                   Stack(
                     children: [
                       Container(
@@ -65,7 +66,7 @@ class MessageUsScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(width: 15),
+                  const SizedBox(width: 15),
                   Text(
                     textAlign: TextAlign.center,
                     "Julia",
@@ -76,11 +77,56 @@ class MessageUsScreen extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                 ],
               ),
             ),
-            SizedBox(height: 22.09),
+            const SizedBox(height: 22.09),
+            const ChatItemWidget(
+              margin: EdgeInsets.only(right: 20),
+              text: "Hi I’m having trouble with my account login.",
+              time: "8:51 PM",
+              mainAxisAlignment: MainAxisAlignment.end,
+            ),
+            const SizedBox(height: 10),
+            const ChatItemWidget(
+              margin: EdgeInsets.only(left: 20),
+              text:
+                  "Hello! I’m here to help. Can you please provide me with your account username?",
+              time: "8:53 PM",
+              mainAxisAlignment: MainAxisAlignment.start,
+            ),
+            const SizedBox(height: 10),
+            const ChatItemWidget(
+              margin: EdgeInsets.only(right: 20),
+              text: "Sure, my username is “User 123.”",
+              time: "8:54 PM",
+              mainAxisAlignment: MainAxisAlignment.end,
+            ),
+            const SizedBox(height: 10),
+            const ChatItemWidget(
+              margin: EdgeInsets.only(left: 20),
+              text:
+                  "Thank you. I’ll check that for you. Please hold on for a moment.",
+              time: "8:56 PM",
+              mainAxisAlignment: MainAxisAlignment.start,
+            ),
+            const SizedBox(height: 10),
+            const ChatItemWidget(
+              margin: EdgeInsets.only(left: 20),
+              text:
+                  "It seems your account is temporarily locked for security reasons. To unlock it, please verify your identity through the link sent to your registered email.",
+              time: "8:56 PM",
+              mainAxisAlignment: MainAxisAlignment.start,
+            ),
+            const SizedBox(height: 10),
+            const ChatItemWidget(
+              margin: EdgeInsets.only(right: 20),
+              text: "Alright, I’ll do that now and get back to you.",
+              time: "8:56 PM",
+              mainAxisAlignment: MainAxisAlignment.end,
+            ),
+            const Spacer(),
             Align(
               alignment: Alignment.bottomCenter,
               child: CustomTextFormField(
@@ -105,7 +151,7 @@ class MessageUsScreen extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Assets.icons.attachment.svg(),
-                      SizedBox(width: 20),
+                      const SizedBox(width: 20),
                       Assets.icons.send.svg(),
                     ],
                   ),
@@ -121,6 +167,76 @@ class MessageUsScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class ChatItemWidget extends StatelessWidget {
+  const ChatItemWidget({
+    super.key,
+    required this.margin,
+    required this.text,
+    required this.time,
+    required this.mainAxisAlignment,
+  });
+  final EdgeInsets margin;
+  final String text, time;
+  final MainAxisAlignment mainAxisAlignment;
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: mainAxisAlignment,
+      // mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Container(
+          width: 320,
+          // height: 91,
+          margin: margin,
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: AppColors.fromHex("#28262C"),
+            ),
+            color: AppColors.c050017,
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(15),
+              topRight: Radius.circular(0),
+              bottomLeft: Radius.circular(15),
+              bottomRight: Radius.circular(15),
+            ),
+          ),
+          child: Column(
+            children: [
+              Text(
+                // """Hi I’m having trouble with my account login.""",
+                text,
+                style: TextStyle(
+                  fontFamily: FontFamily.lato,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 17,
+                  color: AppColors.cFFFFFF,
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    // """8:51 PM""",
+                    time,
+                    style: GoogleFonts.inter(
+                      textStyle: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 17,
+                        color: AppColors.cFFFFFF.withOpacity(.60),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

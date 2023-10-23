@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:fintech_app/src/features/settings/presentations/account_limits/account_limits_screen.dart';
+import 'package:fintech_app/src/features/settings/presentations/bank_statement/bank_statement.dart';
 import 'package:fintech_app/src/features/transfer/presentations/transfer_to_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -37,6 +39,11 @@ import '../features/payments/presentation/payments.dart';
 import '../features/payments/presentation/transaction_history/transaction_history.dart';
 import '../features/payments/presentation/transport/transport.dart';
 import '../features/payments/widget/transaction_receipt.dart';
+import '../features/settings/presentations/beneficiary_list/benficiary_list_screen.dart';
+import '../features/settings/presentations/saved_cards/add_new_card_screen.dart';
+import '../features/settings/presentations/saved_cards/empty_saved_cards_screen.dart';
+import '../features/settings/presentations/saved_cards/select_add_new_cards_screen.dart';
+import '../features/settings/presentations/security/security_screen.dart';
 import '../features/settings/presentations/settings.dart';
 import '../features/support/presentations/message_us_screen.dart';
 import '../features/support/presentations/search_result_found.dart';
@@ -236,7 +243,25 @@ class OtpRouteRoute extends GoRouteData {
         TypedGoRoute<MessageUsRoute>(path: "message_us"),
       ],
     ),
-    TypedGoRoute<SettingsRoute>(path: "/settings"),
+    TypedGoRoute<SettingsRoute>(
+      path: "/settings",
+      routes: [
+        TypedGoRoute<BankStatementRoute>(path: "bank_statement"),
+        TypedGoRoute<EmptySavedCardsRoute>(
+          path: "saved_cards",
+          routes: [
+        TypedGoRoute<SelectAddNewCardsRoute>(path: "select_add_new_cards"),
+          ],
+        ),
+        TypedGoRoute<AddNewCardRoute>(path: "add_new_cards"),
+        TypedGoRoute<BeneficiaryListRoute>(path: "beneficiaries"),
+        TypedGoRoute<SecurityRoute>(path: "security"),
+        TypedGoRoute<NotificationRoute>(path: "notification"),
+        TypedGoRoute<LanguageRoute>(path: "language"),
+        TypedGoRoute<AccountLimitsRoute>(path: "account_limits"),
+        TypedGoRoute<HelpRoute>(path: "help"),
+      ],
+    ),
   ],
 )
 class DashBoardRouteData extends ShellRouteData {
@@ -506,6 +531,116 @@ class SettingsRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const SettingsScreen();
+  }
+}
+
+class BankStatementRoute extends GoRouteData {
+  const BankStatementRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return BankStatementScreen(
+      key: state.pageKey,
+    );
+  }
+}
+
+class EmptySavedCardsRoute extends GoRouteData {
+  const EmptySavedCardsRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return EmptySavedCardsScreen(
+      key: state.pageKey,
+    );
+  }
+}
+
+class AddNewCardRoute extends GoRouteData {
+  const AddNewCardRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return AddNewCardScreen(
+      key: state.pageKey,
+    );
+  }
+}
+
+class SelectAddNewCardsRoute extends GoRouteData {
+  const SelectAddNewCardsRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return SelectAddNewCardsScreen(
+      key: state.pageKey,
+    );
+  }
+}
+
+class BeneficiaryListRoute extends GoRouteData {
+  const BeneficiaryListRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return BeneficiaryListScreen(
+      key: state.pageKey,
+    );
+  }
+}
+
+class SecurityRoute extends GoRouteData {
+  const SecurityRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return SecurityScreen(
+      key: state.pageKey,
+    );
+  }
+}
+
+class NotificationRoute extends GoRouteData {
+  const NotificationRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return BankStatementScreen(
+      key: state.pageKey,
+    );
+  }
+}
+
+class LanguageRoute extends GoRouteData {
+  const LanguageRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return BankStatementScreen(
+      key: state.pageKey,
+    );
+  }
+}
+
+class AccountLimitsRoute extends GoRouteData {
+  const AccountLimitsRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return AccountLimitsScreen(
+      key: state.pageKey,
+    );
+  }
+}
+
+class HelpRoute extends GoRouteData {
+  const HelpRoute();
+  static final GlobalKey<NavigatorState> $parentNavigatorKey = rootNavigatorKey;
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return BankStatementScreen(
+      key: state.pageKey,
+    );
   }
 }
 
