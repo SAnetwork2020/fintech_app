@@ -30,11 +30,12 @@ class CustomTextFormField extends StatelessWidget {
     this.enableInteractiveSelection,
     this.onTap,
     this.enabled,
+    this.radius,
   });
   final String? hintText;
   final TextStyle? hintStyle;
   final InputBorder? inputBorder;
-  final double? width, height;
+  final double? width, height, radius;
   final TextAlign? textAlign;
   final bool? autofocus,
       obscureText,
@@ -102,28 +103,28 @@ class CustomTextFormField extends StatelessWidget {
                 borderSide: BorderSide(
                   color: AppColors.c1DC1B4,
                 ),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(radius ?? 10),
               ),
           enabledBorder: inputBorder ??
               OutlineInputBorder(
                 borderSide: BorderSide(
                   color: AppColors.c1DC1B4,
                 ),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(radius ?? 10),
               ),
           errorBorder: inputBorder ??
               OutlineInputBorder(
                 borderSide: BorderSide(
                   color: AppColors.cE91515,
                 ),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(radius ?? 10),
               ),
           focusedBorder: inputBorder ??
               OutlineInputBorder(
                 borderSide: BorderSide(
                   color: AppColors.c1DC1B4,
                 ),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(radius ?? 10),
               ),
         ),
       ),

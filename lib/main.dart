@@ -13,6 +13,7 @@ import 'package:fintech_app/src/utils/state_logger.dart';
 
 import 'src/constants/constants.dart';
 import 'src/utils/colors.dart';
+import 'src/utils/themes.dart';
 
 void main() {
   runApp(
@@ -48,12 +49,7 @@ class MyApp extends HookConsumerWidget {
     );
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        // useMaterial3: true,
-        // primaryTextTheme: TextTheme(),
-        fontFamily: FontFamily.poppins,
-        scaffoldBackgroundColor: Colors.transparent,
-      ),
+      theme: themeData,
       builder: (context, child) => ResponsiveBreakpoints.builder(
         child: child!,
         breakpoints: [

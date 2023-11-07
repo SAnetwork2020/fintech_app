@@ -283,6 +283,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/plus.svg
   SvgGenImage get plus => const SvgGenImage('assets/icons/plus.svg');
 
+  /// File path: assets/icons/pop_dot.svg
+  SvgGenImage get popDot => const SvgGenImage('assets/icons/pop_dot.svg');
+
   /// File path: assets/icons/profile.svg
   SvgGenImage get profile => const SvgGenImage('assets/icons/profile.svg');
 
@@ -435,6 +438,7 @@ class $AssetsIconsGen {
         paypal,
         phoneBold,
         plus,
+        popDot,
         profile,
         quickLoans,
         retry,
