@@ -12,13 +12,13 @@ class SuccessWidget extends StatelessWidget {
       required this.title,
       this.desc,
       this.buttonText,
-      required this.onPressed,
+      this.onPressed,
       this.titleStyle,
       this.descStyle});
   final String title;
   final TextStyle? titleStyle, descStyle;
   final String? buttonText, desc;
-  final void Function() onPressed;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -103,13 +103,16 @@ class CustomErrorWidget extends StatelessWidget {
       required this.title,
       this.desc,
       this.buttonText,
-      required this.onPressed,
+      this.onPressed,
       this.titleStyle,
-      this.descStyle});
+      this.descStyle,
+      this.customBtnChild,
+      this.customIcon});
   final String title;
   final TextStyle? titleStyle, descStyle;
   final String? buttonText, desc;
-  final void Function() onPressed;
+  final void Function()? onPressed;
+  final Widget? customBtnChild, customIcon;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -136,17 +139,19 @@ class CustomErrorWidget extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 181.09),
-          Text(
-            "!",
-            style: TextStyle(
-              color: AppColors.cFF0000,
-              fontWeight: FontWeight.w500,
-              fontSize: 80,
-            ),
-          ),
+          customIcon ??
+              Text(
+                "!",
+                style: TextStyle(
+                  color: AppColors.cFF0000,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 80,
+                ),
+              ),
           const SizedBox(height: 90),
           Text(
             title,
+            textAlign: TextAlign.center,
             style: titleStyle ??
                 TextStyle(
                   color: AppColors.cFFFFFF,
@@ -167,19 +172,20 @@ class CustomErrorWidget extends StatelessWidget {
                 ),
           ),
           const SizedBox(height: 30),
-          CustomGradientButton(
-            height: 47,
-            width: 345,
-            onPressed: onPressed,
-            child: Text(
-              buttonText ?? "Done",
-              style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w500,
-                color: AppColors.cFFFFFF,
+          customBtnChild ??
+              CustomGradientButton(
+                height: 47,
+                width: 345,
+                onPressed: onPressed,
+                child: Text(
+                  buttonText ?? "Done",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.cFFFFFF,
+                  ),
+                ),
               ),
-            ),
-          ),
         ],
       ),
     );

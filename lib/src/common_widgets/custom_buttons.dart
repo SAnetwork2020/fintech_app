@@ -17,7 +17,7 @@ class CustomGradientButton extends StatelessWidget {
   });
   final BorderRadiusGeometry? borderRadius;
   final String? title;
-  final GestureTapCallback onPressed;
+  final void Function()? onPressed;
   final double? height, width;
   final TextStyle? textStyle;
   final Widget? child;
@@ -83,20 +83,19 @@ class CustomWhiteButton extends StatelessWidget {
     this.title,
     this.radius,
     this.style,
+    this.onPressed,
   });
   final double? height, width, radius;
   final String? title;
   final TextStyle? style;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: width ?? 344.77,
       height: height ?? 46.38,
       child: ElevatedButton(
-        onPressed: () {
-          // context
-          //     .push(const ExistingAccountRoute().location);
-        },
+        onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
@@ -104,6 +103,7 @@ class CustomWhiteButton extends StatelessWidget {
             ),
           ),
           backgroundColor: AppColors.cFFFFFF,
+          foregroundColor: AppColors.c000000,
         ),
         child: Text(
           title ?? "Share",

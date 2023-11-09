@@ -289,6 +289,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/profile.svg
   SvgGenImage get profile => const SvgGenImage('assets/icons/profile.svg');
 
+  /// File path: assets/icons/question-mark.svg
+  SvgGenImage get questionMark =>
+      const SvgGenImage('assets/icons/question-mark.svg');
+
   /// File path: assets/icons/quick-loans.svg
   SvgGenImage get quickLoans =>
       const SvgGenImage('assets/icons/quick-loans.svg');
@@ -440,6 +444,7 @@ class $AssetsIconsGen {
         plus,
         popDot,
         profile,
+        questionMark,
         quickLoans,
         retry,
         search,

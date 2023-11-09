@@ -11,20 +11,12 @@ final Gradient customGradient = LinearGradient(
     AppColors.fromHex("#1DC1B4"),
   ],
 );
-final DividerTheme dividerTheme = DividerTheme(
-  data: DividerThemeData(
-    thickness: 2,
-    // space: 8,
-    // color: Colors.green,
-    color: AppColors.cFFFFFF.withOpacity(.6),
-  ),
-  child: Divider(),
-);
 
 final ThemeData themeData = ThemeData(
   // useMaterial3: true,
   // primaryTextTheme: TextTheme(),
+  dividerColor: AppColors.c000000.withOpacity(.60),
+  // dividerColor:AppColors.cFFFFFF.withOpacity(.9),
   fontFamily: FontFamily.poppins,
   scaffoldBackgroundColor: Colors.transparent,
-  dividerTheme: dividerTheme.data,
 );

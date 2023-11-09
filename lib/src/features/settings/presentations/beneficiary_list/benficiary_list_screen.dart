@@ -1,8 +1,10 @@
 import 'package:fintech_app/src/common_widgets/custom_app_bar.dart';
 import 'package:fintech_app/src/common_widgets/custom_buttons.dart';
 import 'package:fintech_app/src/common_widgets/custom_textformfield.dart';
+import 'package:fintech_app/src/common_widgets/success_widget.dart';
 import 'package:fintech_app/src/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../gen/assets.gen.dart';
 import '../../../../../gen/fonts.gen.dart';
@@ -58,16 +60,6 @@ class BeneficiaryListScreen extends StatelessWidget {
                   ),
                 )
                 .toList(),
-            // Expanded(
-            //   child: ListView.builder(
-            //     padding: EdgeInsets.zero,
-            //     itemCount: 8,
-            //     itemBuilder: (BuildContext context, int index) {
-            //       return const BeneficiaryTemplate(;
-            //     },
-            //   ),
-            // ),
-            // const SizedBox(height: 138),
             const Spacer(),
             Center(
               child: CustomGradientButton(
@@ -75,10 +67,7 @@ class BeneficiaryListScreen extends StatelessWidget {
                 height: 47,
                 textStyle:
                     const TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
-                onPressed: () {
-                  // const SelectAddNewCardsRoute().push(context);
-                  // context.push(SelectAddNewCardsRoute().location);
-                },
+                onPressed: () {},
                 child: Row(
                   // mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -201,6 +190,13 @@ class BeneficiaryTemplate extends StatelessWidget {
                 itemBuilder: (BuildContext context) {
                   return [
                     PopupMenuItem(
+                      onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          builder: (context) => EditBeneficiaryWidget(),
+                        );
+                      },
                       padding: EdgeInsets.zero,
                       height: 35,
                       textStyle: TextStyle(
@@ -221,6 +217,71 @@ class BeneficiaryTemplate extends StatelessWidget {
                     PopupMenuItem(
                       padding: EdgeInsets.zero,
                       height: 35,
+                      onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          builder: (context) => CustomErrorWidget(
+                            customBtnChild: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 30.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  CustomGradientButton(
+                                    title: "Yes, Delete",
+                                    borderRadius: BorderRadius.circular(10),
+                                    width: 150,
+                                    height: 47,
+                                    textStyle: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600,
+                                      color: AppColors.cFFFFFF,
+                                    ),
+                                    onPressed: () {
+                                      showModalBottomSheet(
+                                        context: context,
+                                        isScrollControlled: true,
+                                        builder: (context) => SuccessWidget(
+                                          title: "Beneficiary Deleted",
+                                          onPressed: () {
+                                            context.pop();
+                                            context.pop();
+                                          },
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                  SizedBox(width: 10),
+                                  InkWell(
+                                    onTap: () {},
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      width: 150,
+                                      height: 47,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        color: AppColors.cFFFFFF,
+                                      ),
+                                      child: Text(
+                                        "No",
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w600,
+                                          color: AppColors.c000000,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            customIcon: Assets.icons.questionMark.svg(),
+                            title:
+                                "Are you sure you want to delete \nthis beneficiary",
+                          ),
+                        );
+                      },
                       textStyle: TextStyle(
                         fontFamily: FontFamily.lato,
                         fontWeight: FontWeight.w500,
@@ -267,7 +328,150 @@ class BeneficiaryTemplate extends StatelessWidget {
               color: AppColors.cFFFFFF.withOpacity(.6),
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 10),
+        ],
+      ),
+    );
+  }
+}
+
+class EditBeneficiaryWidget extends StatelessWidget {
+  const EditBeneficiaryWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.fill,
+          image: Assets.images.homeScreen.provider(),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 40),
+          const CustomAppBars(title: "Edit Beneficiary"),
+          SizedBox(height: 27),
+          Padding(
+            padding: EdgeInsets.only(left: 22.0, right: 21),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Beneficiary’s Full Name",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 15,
+                    color: AppColors.cFFFFFF,
+                  ),
+                ),
+                CustomTextFormField(
+                  width: 350,
+                  hintText: "John Doe",
+                ),
+                SizedBox(height: 25),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 22.0, right: 21),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Phone Number (optional)",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 15,
+                    color: AppColors.cFFFFFF,
+                  ),
+                ),
+                CustomTextFormField(
+                  width: 350,
+                  hintText: "e.g. 09012345678",
+                ),
+                SizedBox(height: 40),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 22.0, right: 21),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Select Bank",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 15,
+                    color: AppColors.cFFFFFF,
+                  ),
+                ),
+                CustomTextFormField(
+                  width: 150,
+                  hintText: "UBA",
+                  suffixIcon: Icon(
+                    Icons.keyboard_arrow_down_rounded,
+                  ),
+                ),
+                SizedBox(height: 40),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 22.0, right: 21),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Account Number",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 15,
+                    color: AppColors.cFFFFFF,
+                  ),
+                ),
+                CustomTextFormField(
+                  width: 350,
+                  hintText: "e.g. 1234567890",
+                ),
+                SizedBox(height: 40),
+              ],
+            ),
+          ),
+          const Spacer(),
+          Center(
+            child: CustomGradientButton(
+              width: 345,
+              height: 46.38,
+              title: "Done",
+              textStyle:
+                  const TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  isScrollControlled: true,
+                  builder: (context) {
+                    return SuccessWidget(
+                      title: "Beneficiary Successfully Edited ",
+                      titleStyle: TextStyle(
+                        color: AppColors.cFFFFFF,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      onPressed: () {
+                        context.pop();
+                      },
+                    );
+                  },
+                );
+              },
+            ),
+          ),
+          const SizedBox(height: 40),
         ],
       ),
     );
